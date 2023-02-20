@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 14 fév. 2023 à 12:09
+-- Généré le : lun. 20 fév. 2023 à 12:49
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -210,6 +210,34 @@ CREATE TABLE IF NOT EXISTS `salle` (
   `Nb_dispo` int(11) NOT NULL,
   PRIMARY KEY (`Numsal`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `sexe` varchar(255) NOT NULL,
+  `date_de_naissance` date NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mot_de_passe` varchar(255) NOT NULL,
+  `pays` varchar(255) NOT NULL,
+  `est_actif` int(11) NOT NULL,
+  `profil` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
+  `est_supprimer` int(11) NOT NULL,
+  `creer_le` date NOT NULL,
+  `mis_a_jour_le` date NOT NULL,
+  `email_valide` varchar(255) NOT NULL,
+  `telephone_valide` int(11) NOT NULL,
+  `nom_utilisateur` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_utilisateur`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Contraintes pour les tables déchargées
