@@ -38,12 +38,12 @@
                             </div>
                             <form class="user">
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user"
+                                    <input type="email" class="form-control"
                                         id="exampleInputEmail" aria-describedby="emailHelp"
                                         placeholder="Entrer votre email...">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="mdp" class="form-control form-control-user"
+                                    <input type="password" name="mdp" class="form-control"
                                         id="exampleInputPassword" placeholder="Mot de passe">
                                 </div>
                                 <div class="form-group">
@@ -53,10 +53,13 @@
                                             </label>
                                     </div>
                                 </div>
-                                <a href="dashbord_DE.php" class="btn btn-primary btn-user btn-block">
-                                    Connectez-vous
-                                </a>
-                                <hr>
+                                <div class="form-group row">
+                                    <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
+                                        <input type="submit" value="Connexion" class="mb-1 mb-md-0  btn btn-primary">
+                                        <input type="reset" class="btn btn-danger">
+                                    </div>
+                                </div>
+                               
                             </form>
                             <hr>
                             <div class="text-center">

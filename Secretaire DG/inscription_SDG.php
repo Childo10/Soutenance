@@ -36,38 +36,42 @@
                     <form class="user">
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control form-control-user" name="nom" id="nom"
+                                <input type="text" class="form-control " name="nom" id="nom"
                                     placeholder="nom">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control form-control-user" name="prenom" id="prenom"
+                                <input type="text" class="form-control " name="prenom" id="prenom"
                                     placeholder="Prénom">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control form-control-user" name="username" id="exampleFirstName"
+                                <input type="text" class="form-control" name="username" id="exampleFirstName"
                                     placeholder="Nom d'utilisateur">
                             </div>
                             <div class="col-sm-6">
-                                <input type="Email" class="form-control form-control-user" name="email" id="exampleLastName"
+                                <input type="Email" class="form-control " name="email" id="exampleLastName"
                                     placeholder="Email">
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="password" class="form-control form-control-user"
+                                <input type="password" class="form-control"
                                     id="exampleInputPassword" name="mdp" placeholder="Mot de passe">
                             </div>
                             <div class="col-sm-6">
-                                <input type="password" class="form-control form-control-user"
+                                <input type="password" class="form-control"
                                     id="exampleRepeatPassword" placeholder="Repéter le mot de passe">
                             </div>
                         </div>
-                        <a href="connexion_SDG.php" class="btn btn-primary btn-user btn-block">
-                            Enregistrer compte
-                        </a>
+                        
+                                <div class="form-group row">
+                                    <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
+                                        <input type="submit" value="Connexion" class="mb-1 mb-md-0  btn btn-primary">
+                                        <input type="reset" class="btn btn-danger">
+                                    </div>
+                                </div>
                         <hr>
                     </form>
                     <hr>

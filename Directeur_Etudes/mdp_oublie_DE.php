@@ -44,13 +44,19 @@
                             </div>
                             <form class="user">
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user"
+                                    <input type="email" class="form-control"
                                         id="exampleInputEmail" aria-describedby="emailHelp"
                                         placeholder="Entrer votre adresse email...">
                                 </div>
-                                <a href="connexion_DE.php" class="btn btn-primary btn-user btn-block">
-                                    Rénitialiser le mot de passe
-                                </a>
+
+                                 <div class="form-group row">
+                                <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
+                                <input type="submit" value="Récupérer" class="mb-1 mb-md-0  btn btn-primary">
+                                </input>
+
+                                
+                            </div>
+                        </div>
                             </form>
                             <hr>
                             <div class="text-center">

@@ -19,21 +19,21 @@ $title='Modifier une inscription';
                     <form class="user">
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control form-control-user" name="matricule" id="matricule"
+                                <input type="number" class="form-control" name="matricule" id="matricule"
                                     placeholder="Matricule">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control form-control-user" name="nom" id="nom"
+                                <input type="text" class="form-control" name="nom" id="nom"
                                     placeholder="Nom">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control form-control-user" name="prenom" id="prenom"
+                                <input type="text" class="form-control " name="prenom" id="prenom"
                                     placeholder="Prénom">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control form-control-user"
+                                <input type="text" class="form-control "
                                     id="exampleInputPassword" name="sexe" placeholder="Sexe">
                                
                             </div>
@@ -41,27 +41,33 @@ $title='Modifier une inscription';
                         
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" name="Num_Ins" class="form-control form-control-user"  id="Num_Ins"
+                                <input type="number" name="Num_Ins" class="form-control "  id="Num_Ins"
                                     placeholder="Numéro d'inscription">
                             </div>
                             <div class="col-sm-6">
-                                <input type="date"  name="date_ins" class="form-control form-control-user"
+                                <input type="date"  name="date_ins" class="form-control "
                                     id="date_Ins" placeholder="Date d'inscription">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-sm-6 offset-3">
-                                <input type="number"  name="codefil" class="form-control form-control-user"
+                            <div class="col-sm-6 offset-md-3">
+                                <input type="number"  name="codefil" class="form-control "
                                     id="codefil" placeholder="Code filière">
                             </div>
                         </div>
-                        <a href="Liste_inscription.php" class="btn btn-primary btn-user btn-block">
-                            Modifier une inscription
-                        </a>
-                        <a href="Modifier_inscription.php" class="btn btn-danger btn-user btn-block">
-                            Annuler
-                        </a>
+
+                        <div class="form-group row">
+                            <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
+                            <input type="submit" value="Enregistrer" class="mb-1 mb-md-0  btn btn-primary">
+                            </input>
+
+                                <input type="reset"  class=" btn btn-danger ">
+                                    
+                                </input>
+                            </div>
+                        </div>
+                        
                         <hr>
                     </form>
                     <div class="text-center">
