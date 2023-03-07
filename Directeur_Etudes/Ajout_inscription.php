@@ -18,30 +18,18 @@
                     <form class="user">
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control " name="matricule" id="matricule"
-                                    placeholder="Matricule">
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control " name="nom" id="nom"
-                                    placeholder="Nom">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control" name="prenom" id="prenom"
-                                    placeholder="Prénom">
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control "
-                                    id="exampleInputPassword" name="sexe" placeholder="Sexe">
-                               
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" name="Num_Ins" class="form-control"  id="Num_Ins"
+                                <input type="number" class="form-control " name="NumIns" id="NumIns"
                                     placeholder="Numéro d'inscription">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control " name="matricule" id="matricule"
+                                    placeholder="Numéro matricule">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="number" class="form-control" name="codefil" id="codefil"
+                                    placeholder="Code filière">
                             </div>
                             <div class="col-sm-6">
                                 <input type="date"  name="date_ins" class="form-control"
@@ -50,9 +38,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-sm-6 offset-md-3 ">
-                                <input type="number"  name="codefil" class="form-control "
-                                    id="codefil" placeholder="Code filière">
+                            <div class="col-sm-6 text-center offset-md-3">
+                                <input type="text"  name="annee_ins" class="form-control"
+                                    id="annee_Ins" placeholder="Année d'inscription">
                             </div>
                         </div>
 

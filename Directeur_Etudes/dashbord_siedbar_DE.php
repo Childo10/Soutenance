@@ -45,12 +45,12 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEtudiant"
-                    aria-expanded="true" aria-controls="collapseEtudiant">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInscription"
+                    aria-expanded="true" aria-controls="collapseInscription">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Inscription</span>
                 </a>
-                <div id="collapseEtudiant" class="collapse" aria-labelledby="headingEtudiant" data-parent="#accordionSidebar">
+                <div id="collapseInscription" class="collapse" aria-labelledby="headingInscription" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="Ajout_inscription.php">Ajouter une inscription</a>
                         <a class="collapse-item" href="Liste_inscription.php">Liste des inscriptions</a>
@@ -74,6 +74,21 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEtudiant"
+                    aria-expanded="true" aria-controls="collapseEtudiant">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Etudiant</span>
+                </a>
+                <div id="collapseEtudiant" class="collapse" aria-labelledby="headingEtudiant"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="Ajout_etudiant_DE.php">Ajouter un étudiant</a>
+                        <a class="collapse-item" href="Liste_etudiant_DE.php">Liste des étudiants</a>
+                    </div>
+                </div>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -84,12 +99,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-calendar"></i>
-                    <span>Emploi du temps</span>
+                    <span>Cours</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_emploi_temps_DE.php">Ajouter  emploi du temps</a>
-                        <a class="collapse-item" href="Liste_emploi_temps_DE.php">Liste des emplois du temps</a>
+                        <a class="collapse-item" href="Ajout_cours_DE.php">Ajouter un cours</a>
+                        <a class="collapse-item" href="Liste_cours_DE.php">Liste des cours</a>
                     </div>
                 </div>
             </li>

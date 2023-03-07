@@ -49,12 +49,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-calendar"></i>
-                    <span>Emploi du temps</span>
+                    <span>Cours</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_emploi_temps_SE.php">Ajouter  emploi du temps</a>
-                        <a class="collapse-item" href="Liste_emploi_temps_SE.php">Liste des emplois du temps</a>
+                        <a class="collapse-item" href="Ajout_cours_SE.php">Ajouter un cours</a>
+                        <a class="collapse-item" href="Liste_cours_SE.php">Liste des cours</a>
                     </div>
                 </div>
             </li>
