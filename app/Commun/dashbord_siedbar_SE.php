@@ -23,7 +23,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
             <div class="sidebar-brand-icon">
                 <i class="fas fa-school"></i>
             </div>
@@ -35,7 +35,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="dashbord_SE.php">
+            <a class="nav-link" href="index">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Tableau de bord</span></a>
         </li>
@@ -73,6 +73,19 @@
                 </div>
             </li>
 
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAbsence" aria-expanded="true" aria-controls="collapseAbsence">
+                    <i class="fas fa-fw fa-clock"></i>
+                    <span>Absence</span>
+                </a>
+                <div id="collapseAbsence" class="collapse" aria-labelledby="cours" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="Ajout_absence">Ajouter une absence</a>
+                        <a class="collapse-item" href="Liste_absence">Liste des absences </a>
+                    </div>
+                </div>
+            </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

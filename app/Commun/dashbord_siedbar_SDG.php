@@ -54,8 +54,8 @@
                 <div id="collapseProfesseur" class="collapse" aria-labelledby="headingProfesseur"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_etudiant_SDG.php">Ajouter un professeur</a>
-                        <a class="collapse-item" href="Liste_etudiant_SDG.php">Liste des professeurs</a>
+                        <a class="collapse-item" href="Ajout_professeur">Ajouter un professeur</a>
+                        <a class="collapse-item" href="Liste_professeur">Liste des professeurs</a>
                     </div>
                 </div>
             </li>
@@ -69,8 +69,8 @@
                 <div id="collapseEtudiant" class="collapse" aria-labelledby="headingEtudiant"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_professeur_SDG.php">Ajouter un étudiant</a>
-                        <a class="collapse-item" href="Liste_professeur_SDG.php">Liste des étudiant</a>
+                        <a class="collapse-item" href="Ajout_etudiant">Ajouter un étudiant</a>
+                        <a class="collapse-item" href="Liste_etudiant">Liste des étudiant</a>
                     </div>
                 </div>
             </li>
@@ -105,6 +105,19 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="Ajout_matiere">Ajouter une matière</a>
                         <a class="collapse-item" href="Liste_matiere">Liste des matières</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseChapitre" aria-expanded="true" aria-controls="collapseChapitre">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Chapitre</span>
+                </a>
+                <div id="collapseChapitre" class="collapse" aria-labelledby="cours" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="Ajout_chapitre">Ajouter un chapitre</a>
+                        <a class="collapse-item" href="Liste_chapitre">Liste des chapitres</a>
                     </div>
                 </div>
             </li>
