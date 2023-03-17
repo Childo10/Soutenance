@@ -1,5 +1,5 @@
 <?php 
-    $title='modifier un professeur';
+    $title='Modifier une absence';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
 
@@ -13,18 +13,18 @@
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Modifier un professeur</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Modifier une absence</h1>
                     </div>
                     <form class="user">
                         <div class="form-group row">
                             <div class="col-md-6 col-12">
-                                <input type="number" class="form-control " name="num_prof" id="matricule"
-                                    placeholder="001540">
+                                <input type="number" class="form-control " name="id_derouler_cours" id="id_derouler_cours"
+                                    placeholder="004541 ">
                             </div>
 
                             <div class="col-md-6 mt-1">
-                                <input type="text"  name="num_prof" class="form-control "
-                                    id="num_prof" placeholder="Clément Gbodja">
+                                <input type="number"  name="NumIns" class="form-control "
+                                    id="NumIns" placeholder="00154">
                             </div>
                         </div>
 
@@ -43,7 +43,7 @@
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_professeur">Liste des professeurs</a>
+                        <a class="small" href="Liste_absence">Liste des absences</a>
                     </div>
                 </div>
             </div>

@@ -90,7 +90,7 @@ $title='Liste des inscriptions';
                                     </div>
                             </td>
                             <td>
-                                <a href="Modifier_inscription.php" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="Modifier_cours" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td> 
                         </tr>
@@ -147,7 +147,7 @@ $title='Liste des inscriptions';
                                     </div>
                             </td>
                             <td>
-                                <a href="Modifier_inscription.php" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="Modifier_cours" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td> 
                         </tr>
@@ -204,7 +204,7 @@ $title='Liste des inscriptions';
                                     </div>
                             </td>
                             <td>
-                                <a href="Modifier_inscription.php" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="Modifier_cours" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td> 
                         </tr>

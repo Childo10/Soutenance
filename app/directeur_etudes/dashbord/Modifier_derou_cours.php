@@ -1,5 +1,5 @@
 <?php 
-    $title='modifier un professeur';
+    $title="Modifier le déroulerement d'un cours";
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
 
@@ -13,20 +13,30 @@
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Modifier un professeur</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Modifier le déroulement d'un cours</h1>
                     </div>
                     <form class="user">
                         <div class="form-group row">
-                            <div class="col-md-6 col-12">
-                                <input type="number" class="form-control " name="num_prof" id="matricule"
-                                    placeholder="001540">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="number" class="form-control " name="numcours" id="numcours"
+                                    placeholder="00154">
                             </div>
-
-                            <div class="col-md-6 mt-1">
-                                <input type="text"  name="num_prof" class="form-control "
-                                    id="num_prof" placeholder="Clément Gbodja">
+                            <div class="col-sm-6">
+                                <input type="date" class="form-control " name="Date_cours" id="Date_cours"
+                                    placeholder="10/05">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="time" class="form-control" name="Hrdeb" id="Hrdeb"
+                                    placeholder="15:00">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="time" class="form-control" name="Hrfin" id="Hrfin"
+                                    placeholder="17:00">
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
@@ -39,11 +49,10 @@
                             </div>
                         </div>
                         
-                        
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_professeur">Liste des professeurs</a>
+                        <a class="small" href="Liste_derou_cours">Liste du déroulement des cours</a>
                     </div>
                 </div>
             </div>

@@ -46,7 +46,7 @@ $title='Liste du déroulement des cours';
                             <td>17:00</td>
                             <td>19:00</td>
                             <td>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                    <button type="button" class="btn btn-sm  btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                             Voir
                                     </button>
 
@@ -92,7 +92,7 @@ $title='Liste du déroulement des cours';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="Ajout_absence.php" type="button" class="btn btn-primary"  >Ajouter</a>
+                                                <a  href="Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                             </div>
                                             </div>
@@ -100,8 +100,8 @@ $title='Liste du déroulement des cours';
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_filière.php" type="button" class="btn btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
+                                <a href="Modifier_derou_cours" type="button" class="btn btn-sm btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="" type="button" class="btn btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
                         </tr>
@@ -112,7 +112,7 @@ $title='Liste du déroulement des cours';
                             <td>10:00</td>
                             <td>13:00</td>
                             <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            <button type="button" class="btn btn-sm  btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                         Voir 
                                     </button>
 
@@ -158,7 +158,7 @@ $title='Liste du déroulement des cours';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="Ajout_absence_DE.php" type="button" class="btn btn-primary"  >Ajouter</a>
+                                                <a  href="Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                             </div>
                                             </div>
@@ -166,8 +166,8 @@ $title='Liste du déroulement des cours';
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_filière.php" type="button" class="btn btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
+                                <a href="Modifier_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="" type="button" class="btn btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
                         </tr>
@@ -179,7 +179,7 @@ $title='Liste du déroulement des cours';
                             <td>15:00</td>
                             <td>18:00</td>
                             <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            <button type="button" class="btn btn-sm  btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                         Voir
                                     </button>
 
@@ -225,7 +225,7 @@ $title='Liste du déroulement des cours';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="Ajout_absence_DE.php" type="button" class="btn btn-primary"  >Ajouter</a>
+                                                <a  href="Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                             </div>
                                             </div>
@@ -233,7 +233,7 @@ $title='Liste du déroulement des cours';
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_filière.php" type="button" class="btn btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="Modifier_derou_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -246,7 +246,7 @@ $title='Liste du déroulement des cours';
                             <td>13:00</td>
                             <td>15:00</td>
                             <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            <button type="button" class="btn btn-sm  btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                             Voir
                                     </button>
 
@@ -292,7 +292,7 @@ $title='Liste du déroulement des cours';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="Ajout_absence_DE.php" type="button" class="btn btn-primary"  >Ajouter</a>
+                                                <a  href="Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                             </div>
                                             </div>
@@ -300,8 +300,8 @@ $title='Liste du déroulement des cours';
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_filière.php" type="button" class="btn btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
+                                <a href="Modifier_derou_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="" type="button" class="btn btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
                         </tr>

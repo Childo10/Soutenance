@@ -1,5 +1,5 @@
 <?php 
-    $title='modifier un étudiant';
+    $title='Modifier une salle';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
 
@@ -13,30 +13,41 @@
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Modifier un étudiant</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Modifier une salle</h1>
                     </div>
                     <form class="user">
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control " name="matricule" id="matricule"
-                                    placeholder="001544">
+                                <input type="number" class="form-control " name="numsal" id="numsal"
+                                    placeholder="005">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control " name="nom" id="nom"
-                                    placeholder="Clément">
+                                <input type="number" class="form-control " name="capacite" id="capacite"
+                                    placeholder="150">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control" name="prenom" id="prenom"
-                                    placeholder="Gbodja">
+                                <input type="text" class="form-control" name="Typesal" id="Typesal"
+                                    placeholder="Informatique">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control"  name="sexe" class="sexe"
-                                    id="sexe" placeholder="Masculin">
+                                <input type="number" class="form-control "
+                                    id="nbmax" name="nbmax" placeholder="100 ">
+                               
                             </div>
                         </div>
-
+                        
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="number" name="Nb_defectueux" class="form-control"  id="Nb_defectueux"
+                                    placeholder="20">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" name="Nb_dispo" class="form-control"  id="Nb_dispo"
+                                    placeholder="150">
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
@@ -52,7 +63,7 @@
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_etudiant">Liste des étudiants</a>
+                        <a class="small" href="Liste_salle">Liste des salles</a>
                     </div>
                 </div>
             </div>

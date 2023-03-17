@@ -43,7 +43,7 @@ $title='Liste des inscriptions';
                             <td>Bradshaw</td>
                             <td>001145</td>
                             <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                      En savoir plus
                             </button>
 
@@ -90,7 +90,7 @@ $title='Liste des inscriptions';
                                     </div>
                             </td>
                             <td>
-                                <a href="Modifier_inscription.php" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="Modifier_inscription" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="#" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -101,7 +101,7 @@ $title='Liste des inscriptions';
                             <td>Modeste</td>
                             <td>001146</td>
                             <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                      En savoir plus
                             </button>
 
@@ -148,7 +148,7 @@ $title='Liste des inscriptions';
                                     </div>
                             </td>
                             <td>
-                                <a href="Modifier_inscription.php" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="Modifier_inscription" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="#" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -159,7 +159,7 @@ $title='Liste des inscriptions';
                             <td>Bradshaw</td>
                             <td>001145</td>
                             <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                      En savoir plus
                             </button>
 
@@ -206,7 +206,7 @@ $title='Liste des inscriptions';
                                     </div>
                             </td>
                             <td>
-                                <a href="Modifier_inscription.php" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="Modifier_inscription" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="#" type="button" class="btn-sm  btn-circle btn-danger"><i class="fas fa-times-circle"></i></a>
                             </td>
                            

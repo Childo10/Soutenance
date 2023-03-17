@@ -1,8 +1,7 @@
 <?php 
-$title='Modifier une inscription';
+    $title='Modifier un emploi du temps';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
-
 
 
 <div class="container">
@@ -14,46 +13,51 @@ $title='Modifier une inscription';
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Modifier une inscription</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Modifier un cours</h1>
                     </div>
                     <form class="user">
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control" name="matricule" id="matricule"
-                                    placeholder="0000115">
+                                <input type="number" class="form-control " name="numcours" id="numcours"
+                                    placeholder="0005">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="nom" id="nom"
-                                    placeholder="Jackson">
+                                <input type="number" class="form-control " name="codemat" id="codemat"
+                                    placeholder="00015">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control " name="prenom" id="prenom"
-                                    placeholder="Bradshaw">
+                                <input type="number" class="form-control" name="numprof" id="numprof"
+                                    placeholder="00015">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control "
-                                    id="exampleInputPassword" name="sexe" placeholder="Masculin">
+                                <input type="number" class="form-control "
+                                    id="codefil" name="codefil" placeholder="0000154">
                                
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" name="Num_Ins" class="form-control "  id="Num_Ins"
-                                    placeholder="0015450">
+                                <input type="text" name="jour" class="form-control"  id="jour"
+                                    placeholder="Mardi">
                             </div>
                             <div class="col-sm-6">
-                                <input type="date"  name="date_ins" class="form-control "
-                                    id="date_Ins" placeholder="10/05">
+                                <input type="time" name="Heure_deb" class="form-control"
+                                    id="Heure_deb" placeholder="17:00">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-sm-6 offset-md-3">
-                                <input type="number"  name="codefil" class="form-control "
-                                    id="codefil" placeholder="0011504">
+                            <div class="col-sm-6 ">
+                                <input type="time" name="Heure_fin" class="form-control"
+                                    id="Heure_fin" placeholder="19:00">
+                            </div>
+
+                            <div class="col-sm-6 ">
+                                <input type="number" name="numsal" class="form-control"
+                                    id="numsal" placeholder="005">
                             </div>
                         </div>
 
@@ -71,7 +75,7 @@ $title='Modifier une inscription';
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_inscription">Liste des inscriptions</a>
+                        <a class="small" href="Liste_cours">Liste des cours</a>
                     </div>
                 </div>
             </div>

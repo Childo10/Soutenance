@@ -1,5 +1,5 @@
 <?php 
-    $title='modifier un professeur';
+    $title='Modifier une matière';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
 
@@ -13,20 +13,30 @@
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Modifier un professeur</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Ajouter une matière</h1>
                     </div>
                     <form class="user">
                         <div class="form-group row">
-                            <div class="col-md-6 col-12">
-                                <input type="number" class="form-control " name="num_prof" id="matricule"
-                                    placeholder="001540">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="number" class="form-control " name="codemat" id="codemat"
+                                    placeholder="0015451">
                             </div>
-
-                            <div class="col-md-6 mt-1">
-                                <input type="text"  name="num_prof" class="form-control "
-                                    id="num_prof" placeholder="Clément Gbodja">
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control " name="libmat" id="libmat"
+                                    placeholder="Mathématiques">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="number" class="form-control" name="coef" id="coef"
+                                    placeholder="5">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control"  name="nbmax" class="form-control"
+                                    id="nbmax" placeholder="150">
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
@@ -39,11 +49,10 @@
                             </div>
                         </div>
                         
-                        
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_professeur">Liste des professeurs</a>
+                        <a class="small" href="Liste_matiere">Liste des matières</a>
                     </div>
                 </div>
             </div>

@@ -70,7 +70,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="Ajout_etudiant">Ajouter un étudiant</a>
-                        <a class="collapse-item" href="Liste_etudiant">Liste des étudiant</a>
+                        <a class="collapse-item" href="Liste_etudiant">Liste des étudiants</a>
                     </div>
                 </div>
             </li>

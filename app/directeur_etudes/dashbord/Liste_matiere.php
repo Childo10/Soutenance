@@ -46,7 +46,7 @@ $title='Liste des matières';
                             <td>055474</td>
                             <td>150</td>
                             <td>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                             Voir
                                     </button>
 
@@ -89,14 +89,14 @@ $title='Liste des matières';
                                             </div>
                                             <div class="modal-footer">
                                                 <a href="Ajout_chapitre" type="button" class="btn btn-primary">Ajouter</a>
-                                                <a href="modifier_chapitre" type="button" class="btn btn-warning" data-dismiss="modal">Modifier</a>
+                                                <a href="modifier_chapitre" type="button" class="btn btn-warning">Modifier</a>
                                             </div>
                                             </div>
                                         </div>
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_filière" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -108,7 +108,7 @@ $title='Liste des matières';
                             <td>055476</td>
                             <td>150</td>
                             <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                             Voir
                                     </button>
 
@@ -151,14 +151,14 @@ $title='Liste des matières';
                                             </div>
                                             <div class="modal-footer">
                                                 <a  href="Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
-                                                <a href="modifier_chapitre.php" type="button" class="btn btn-warning" data-dismiss="modal">Modifier</a>
+                                                <a href="modifier_chapitre.php" type="button" class="btn btn-warning" >Modifier</a>
                                             </div>
                                             </div>
                                         </div>
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_filière.php" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -171,7 +171,7 @@ $title='Liste des matières';
                             <td>055444</td>
                             <td>150</td>
                             <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                             Voir
                                     </button>
 
@@ -214,14 +214,14 @@ $title='Liste des matières';
                                             </div>
                                             <div class="modal-footer">
                                                 <a  href="Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
-                                                <a href="modifier_chapitre.php" type="button" class="btn btn-warning" data-dismiss="modal">Modifier</a>
+                                                <a href="modifier_chapitre.php" type="button" class="btn btn-warning">Modifier</a>
                                             </div>
                                             </div>
                                         </div>
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_filière.php" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -234,7 +234,7 @@ $title='Liste des matières';
                             <td>055484</td>
                             <td>150</td>
                             <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                             Voir
                                     </button>
 
@@ -277,14 +277,14 @@ $title='Liste des matières';
                                             </div>
                                             <div class="modal-footer">
                                                 <a  href="Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
-                                                <a href="modifier_chapitre.php" type="button" class="btn btn-warning" data-dismiss="modal">Modifier</a>
+                                                <a href="modifier_chapitre.php" type="button" class="btn btn-warning">Modifier</a>
                                             </div>
                                             </div>
                                         </div>
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_filière.php" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
