@@ -23,12 +23,6 @@ else{
         $errors['prenom']= '<p > Prénom invalide ou vide , veuillez réesayer!</p>';
 }
 
-if (verifier_info($_POST['sexe'])){
-    $data['sexe']= htmlentities($_POST['sexe']);
-}
-else{
-        $errors['sexe'] = '<p> Sexe incorrect ou vide,veuillez reéssayer!</p>';
-}
 
 if (verifier_info($_POST['username'])){
     $data['username']= htmlentities($_POST['username']);
@@ -37,12 +31,6 @@ else{
         $errors['username'] = "<p> Nom d'utilisateur invalide ou vide,veuillez reéssayer!</p>";
 }
 
-if (verifier_info($_POST['date'])){
-    $data['date']= htmlentities($_POST['date']);
-}
-else{
-        $errors['date'] = "<p> Date invalide ou vide,veuillez reéssayer!</p>";
-}
 
 if (verifier_info($_POST['email'])){
     $data['email']= filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
@@ -51,13 +39,28 @@ else{
         $errors['email'] = '<p> Email incorrect ou vide,veuillez reéssayer!</p>';
 }
 
-if (verifier_info($_POST['mot_de_passe'])){
+
+if (!isset($_POST["mot_de_passe"]) || empty($_POST["mot_de_passe"])) {
+    $errors["mot_de_passe"] = "Le champs du mot de passe est vide.";
+}
+
+if (isset($_POST["mot_de_passe"]) && !empty($_POST["mot_de_passe"]) && strlen(($_POST["mot_de_passe"])) < 8) {
+    $errors["mot_de_passe"] = "Le champs doit contenir minimum 8 caractères. Les espaces ne sont pas pris en compte.";
+}
+
+if (isset($_POST["mot_de_passe"]) && !empty($_POST["mot_de_passe"]) && strlen(($_POST["mot_de_passe"])) >= 8 && empty($_POST["repeter_mot_de_passe"])) {
+    $errors["repeter_mot_de_passe"] = "Entrez votre mot de passe à nouveau.";
+}
+
+if ((isset($_POST["repeter_mot_de_passe"]) && !empty($_POST["repeter_mot_de_passe"]) && strlen(($_POST["mot_de_passe"])) >= 8 && $_POST["repeter_mot_de_passe"] != $_POST["mot_de_passe"])) {
+    $errors["repeter_mot_de_passe"] = "Mot de passe erroné. Entrez le mot de passe du précédent champs";
+}
+
+if(verifier_info($_POST["mot_de_passe"]) && verifier_info($_POST["repeter_mot_de_passe"]) && strlen(($_POST["mot_de_passe"])) >= 8 && strlen(($_POST["repeter_mot_de_passe"])) >= 8 && $_POST["repeter_mot_de_passe"] == $_POST["mot_de_passe"]){
     $data['mot_de_passe']= sha1($_POST['mot_de_passe']);
 }
-else{
-        $errors['mot_de_passe'] = '<p> Mot de passe 
-        incorrect ou vide,veuillez reéssayer!</p>';
-}
+
+
 
 
 
@@ -69,24 +72,15 @@ if(empty($errors)){
 
 
     //Récupération des informations saisies par l'utilisateur dans la base de données
-    $req=$bdd->prepare('INSERT INTO utilisateur(nom, prenom, nom_utilisateur, sexe, date_de_naissance, email, mot_de_passe, est_actif, profil, avatar, est_supprimer, creer_le, mis_a_jour_le, email_valide)
-     VALUES (:nom, :prenom, :nom_utilisateur, :sexe, :date_de_naissance, :email, :mot_de_passe, :est_actif, :profil, :avatar,:est_supprimer, :creer_le, :mis_a_jour_le, :email_valide)');
+    $req=$bdd->prepare('INSERT INTO utilisateur(nom, prenom, nom_utilisateur,email,mot_de_passe)
+     VALUES (:nom, :prenom, :nom_utilisateur,  :email, :mot_de_passe)');
     $req->execute(array(
         'nom'=>$data['nom'],
         'prenom'=>$data['prenom'],
         'nom_utilisateur'=>$data['username'],
-        'sexe'=>$data['sexe'],
-        'date_de_naissance'=>$data['date'],
         'email'=>$data['email'],
         'mot_de_passe'=>$data['mot_de_passe'],
-        'est_actif'=>'0',
-        'profil'=>'Directeur des études', 
-        'avatar'=>'null', 
-        'est_supprimer'=>'0', 
-        'creer_le'=>'0', 
-        'mis_a_jour_le'=>'1999-10-10 14:00:00', 
-        'email_valide'=>'null',
-
+       
     ));
 
     if($req){

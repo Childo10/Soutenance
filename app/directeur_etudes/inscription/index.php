@@ -20,8 +20,9 @@
                     <form action="/soutenance/directeur_Etudes/inscription/traitement" method="post"  class="user" >
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                <label for="nom">Nom<span class="text-danger">(*)</span></label>
                                 <input type="text" class="form-control <?= isset($_SESSION['errors']['nom']) ? 'is-invalid' : ''?>" name="nom" id="nom"
-                                    placeholder="Nom">
+                                    >
                                     <?php
                                     if(isset($_SESSION['errors']['nom'])){ 
                                     ?>
@@ -33,8 +34,9 @@
                                     ?>
                             </div>
                             <div class="col-sm-6">
+                                 <label for="prenom">Prénom <span class="text-danger">(*)</span></label>
                                 <input type="text" class="form-control  <?= isset($_SESSION['errors']['prenom']) ? 'is-invalid' : ''?> " name="prenom" id="prenom"
-                                    placeholder="Prénom">
+                                    >
                                     <?php
                                     if(isset($_SESSION['errors']['prenom'])){ 
                                     ?>
@@ -46,10 +48,12 @@
                                     ?>
                             </div>
                         </div>
+                        
                         <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                <label for="username">Nom d'utilisateur <span class="text-danger">(*)</span></label>
                                 <input type="text" class="form-control  <?= isset($_SESSION['errors']['username']) ? 'is-invalid' : ''?>" name="username" id="username"
-                                    placeholder="Nom d'utilisateur ">
+                                    >
                                     <?php
                                     if(isset($_SESSION['errors']['username'])){ 
                                     ?>
@@ -61,37 +65,9 @@
                                     ?>
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control  <?= isset($_SESSION['errors']['sexe']) ? 'is-invalid' : ''?> " name="sexe" id="sexe"
-                                    placeholder="Sexe">
-                                    <?php
-                                    if(isset($_SESSION['errors']['sexe'])){ 
-                                    ?>
-                                    <div class="invalid-feedback">
-                                        <?=$_SESSION['errors']['sexe']?>
-                                    </div>
-                                    <?php
-                                    }
-                                    ?>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="date" class="form-control  <?= isset($_SESSION['errors']['date']) ? 'is-invalid' : ''?>"
-                                    id="date" name="date" placeholder="date">
-                                    <?php
-                                    if(isset($_SESSION['errors']['date'])){ 
-                                    ?>
-                                    <div class="invalid-feedback">
-                                        <?=$_SESSION['errors']['date']?>
-                                    </div>
-                                    <?php
-                                    }
-                                    ?>
-                            </div>
-                            <div class="col-sm-6">
+                                <label for="email">Email <span class="text-danger">(*)</span></label>
                                 <input type="email" class="form-control  <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : ''?>" name="email"
-                                    id="email" placeholder="Email">
+                                    id="email">
                                     <?php
                                     if(isset($_SESSION['errors']['email'])){ 
                                     ?>
@@ -105,9 +81,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-sm-6 text-center offset-md-3">
+                            <div class="col-sm-6">
+                                <label for="mot_de_passe"> <span class="text-danger">(*)</span> Mot de passe</label>
                                 <input type="password" class="form-control <?= isset($_SESSION['errors']['mot_de_passe']) ? 'is-invalid' : ''?>" name="mot_de_passe"
-                                    id="mot_de_passe" placeholder="Mot de passe">
+                                    id="mot_de_passe" >
                                     <?php
                                     if(isset($_SESSION['errors']['mot_de_passe'])){ 
                                     ?>
@@ -118,6 +95,22 @@
                                     }
                                     ?>
                             </div>
+
+                            <div class="col-sm-6">
+                                <label for="repeter_mot_de_passe">Répéter le mot de passe <span class="text-danger">(*)</span> </label>
+                                <input type="password" class="form-control <?= isset($_SESSION['errors']['repeter_mot_de_passe']) ? 'is-invalid' : ''?>" name="repeter_mot_de_passe"
+                                    id="repeter_mot_de_passe" >
+                                    <?php
+                                    if(isset($_SESSION['errors']['repeter_mot_de_passe'])){ 
+                                    ?>
+                                    <div class="invalid-feedback">
+                                        <?=$_SESSION['errors']['repeter_mot_de_passe']?>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+                            </div>
+                            
                         </div>
                         
 
@@ -144,5 +137,6 @@
 </div>
 
 <?php
+session_destroy();
     include('./app/Commun/dashbord_footer.php');
 ?>

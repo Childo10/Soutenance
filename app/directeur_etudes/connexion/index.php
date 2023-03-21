@@ -6,6 +6,7 @@
 <body>
 <div class="container">
 
+
 <!-- Outer Row -->
 <div class="row justify-content-center">
 
@@ -13,16 +14,6 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                <?php
-                die(var_dump($_GET['success']));
-                                    if(isset($_GET['success'])){ 
-                                    ?>
-                                    <div class="alert alert-primary">
-                                        <?=$_GET['success']?>
-                                    </div>
-                                    <?php
-                                    }
-                                ?>
                     <div class="col-lg-12">
                         <div class="p-5">
                             <div class="text-center">

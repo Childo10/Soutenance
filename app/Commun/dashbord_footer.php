@@ -1,5 +1,5 @@
   <!-- Footer -->
-  <footer class="sticky-footer bg-white">
+          <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center mt-5">
                         <span>Copyright &copy; Gestion d'école 2023 </span>
