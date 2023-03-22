@@ -3,22 +3,25 @@ session_start();
 include('./app/commun/fonction.php');
 $data=[];
 $errors=[];
+$_SESSION['data']=[];
 $success="";
-$null=null;
+
 
 //Je vérifie si les informations envoyés par le visiteur sont corrrects.
 
 
 if (verifier_info($_POST['nom'])){
-    $data['nom']=htmlentities($_POST['nom']) ;
+    $data['nom']=htmlentities($_POST['nom']);
+  
 }
 else{
        $errors['nom'] = '<p> Nom invalide ou vide, veuillez réessayer! </p>';
 }
 
 if(verifier_info($_POST['prenom'])){
-    $data['prenom']= htmlentities($_POST['prenom']) ;
-}
+    $data['prenom']= htmlentities($_POST['prenom']);
+    }
+   
 else{
         $errors['prenom']= '<p > Prénom invalide ou vide , veuillez réesayer!</p>';
 }
@@ -30,6 +33,7 @@ if (verifier_info($_POST['username'])){
     
     else{
         $data['username']= htmlentities($_POST['username']);
+       
     }
 }
 else{
@@ -44,6 +48,7 @@ if (verifier_info($_POST['email'])){
     }
     else{
         $data['email']= filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+       
     }
 }
 else{
@@ -70,7 +75,12 @@ if ((isset($_POST["repeter_mot_de_passe"]) && !empty($_POST["repeter_mot_de_pass
 
 if(verifier_info($_POST["mot_de_passe"]) && verifier_info($_POST["repeter_mot_de_passe"]) && strlen(($_POST["mot_de_passe"])) >= 8 && strlen(($_POST["repeter_mot_de_passe"])) >= 8 && $_POST["repeter_mot_de_passe"] == $_POST["mot_de_passe"]){
     $data['mot_de_passe']= sha1($_POST['mot_de_passe']);
+    
 }
+$_SESSION['data']= $data;
+
+
+
 
 
 
@@ -80,6 +90,7 @@ if(verifier_info($_POST["mot_de_passe"]) && verifier_info($_POST["repeter_mot_de
 if(empty($errors)){
 
     $bdd=database_login();
+   
     
 
 
@@ -97,7 +108,7 @@ if(empty($errors)){
 
     if($req){
         $success="Inscription réussie! Vous pouvez vous connectez";
-        header('location:../connexion/connexion?success='.$success);
+        header('location:../connexion/index?success='.$success);
     }
 
 
@@ -107,11 +118,3 @@ else{
     $_SESSION['errors']= $errors;
    header('location:/soutenance/directeur_Etudes/inscription/');
 }
-    
-     
-   
-
-
-
-   
-

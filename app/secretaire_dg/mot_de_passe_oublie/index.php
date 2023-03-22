@@ -22,11 +22,11 @@
                                 <p class="mb-4">Nous comprenons, des choses arrivent. Entrez simplement votre adresse e-mail ci-dessous et nous vous
                                  enverrons un lien pour réinitialiser votre mot de passe!</p>
                             </div>
-                            <form class="user">
+                            <form action="traitement" class="user">
                                 <div class="form-group">
-                                    <input type="email" class="form-control "
-                                        id="exampleInputEmail" aria-describedby="emailHelp"
-                                        placeholder="Entrer votre adresse email...">
+                                    <label for="email">Entrez votre adresse email</label>
+                                    <input type="email" class="form-control"
+                                        id="exampleInputEmail" aria-describedby="emailHelp">
                                 </div>
 
                                     <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">

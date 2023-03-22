@@ -19,15 +19,17 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Bienvenue!</h1>
                             </div>
-                            <form class="user">
+                            <form action="traitement"  class="user">
                                 <div class="form-group">
+                                    <label for="email">Entrer votre email</label>
                                     <input type="email" class="form-control"
-                                        id="exampleInputEmail" aria-describedby="emailHelp"
-                                        placeholder="Entrer votre email...">
+                                        id="email" aria-describedby="emailHelp"
+                                        >
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="mdp" class="form-control"
-                                        id="exampleInputPassword" placeholder="Mot de passe">
+                                    <label for="mot_de_passe">Entrer votre mot de passe</label>
+                                    <input type="password" name="mot_de_passe" class="form-control"
+                                        id="mot_de_passe">
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox small">

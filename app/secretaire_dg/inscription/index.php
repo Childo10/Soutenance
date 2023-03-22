@@ -16,35 +16,47 @@
                     <form class="user">
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                <label for="nom">Nom <span class="text-danger">(*)</span> </label>
                                 <input type="text" class="form-control " name="nom" id="nom"
-                                    placeholder="Nom">
+                                    >
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control " name="prenom" id="prenom"
-                                    placeholder="Prénom">
+                                <label for="Prenom">Prenom <span class="text-danger">(*)</span> </label>
+                                <input type="text" class="form-control " name="prenom" id="prenom">
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control" name="username" id="exampleFirstName"
-                                    placeholder="Nom d'utilisateur">
+                                <label for="username">Nom d'utilisateur <span class="text-danger">(*)</span> </label>
+                                <input type="text" class="form-control" name="username" id="username">
                             </div>
                             <div class="col-sm-6">
-                                <input type="Email" class="form-control " name="email" id="exampleLastName"
-                                    placeholder="Email">
+                                <label for="email">Email <span class="text-danger">(*)</span> </label>
+                                <input type="Email" class="form-control " name="email" id="email">
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                <label for="mdp">Mot de passe <span class="text-danger">(*)</span> </label>
                                 <input type="password" class="form-control"
-                                    id="exampleInputPassword" name="mdp" placeholder="Mot de passe">
+                                    id="mdp" name="mot_de_passe">
                             </div>
                             <div class="col-sm-6">
+                                <label for="repeat_password">Répéter le mot de passe <span class="text-danger">(*)</span> </label>
                                 <input type="password" class="form-control"
-                                    id="exampleRepeatPassword" placeholder="Repéter le mot de passe">
+                                    id="repeat_password" >
                             </div>
                         </div>
+
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox small">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                                        <label class="custom-control-label" for="customCheck">Accepter les conditions et les politiques d'utilisations
+                                            </label>
+                                    </div>
+                                </div>
                         
                                 <div class="form-group row">
                                     <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
@@ -52,7 +64,6 @@
                                         <input type="reset" class="btn btn-danger">
                                     </div>
                                 </div>
-                        <hr>
                     </form>
                     <hr>
                     <div class="text-center">

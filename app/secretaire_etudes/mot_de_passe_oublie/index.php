@@ -26,9 +26,10 @@
                             </div>
                             <form class="user">
                                 <div class="form-group">
+                                    <label for="email">Entrez votre adresse email</label>
                                     <input type="email" class="form-control"
                                         id="exampleInputEmail" aria-describedby="emailHelp"
-                                        placeholder="Entrer votre adresse email...">
+                                        >
                                 </div>
                                 <div class="form-group row">
                                     <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">

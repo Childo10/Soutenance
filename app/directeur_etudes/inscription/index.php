@@ -2,6 +2,10 @@
     session_start();
     $title="Inscription - Directeur des études";
     include('./app/Commun/header.php');
+    $data=[];
+    if (isset($_SESSION['data']) && !empty($_SESSION['data'])){
+        $data= $_SESSION['data'];
+    }
 ?>
 
 <body>
@@ -21,7 +25,7 @@
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <label for="nom">Nom<span class="text-danger">(*)</span></label>
-                                <input type="text" class="form-control <?= isset($_SESSION['errors']['nom']) ? 'is-invalid' : ''?>" name="nom" id="nom"
+                                <input type="text" value="<?php if (isset($data['nom']) && !empty($data['nom'])) {echo $data['nom'];} else{echo '';} ?>" class="form-control <?= isset($_SESSION['errors']['nom']) ? 'is-invalid' : ''?>" name="nom" id="nom"
                                     >
                                     <?php
                                     if(isset($_SESSION['errors']['nom'])){ 
@@ -35,7 +39,7 @@
                             </div>
                             <div class="col-sm-6">
                                  <label for="prenom">Prénom <span class="text-danger">(*)</span></label>
-                                <input type="text" class="form-control  <?= isset($_SESSION['errors']['prenom']) ? 'is-invalid' : ''?> " name="prenom" id="prenom"
+                                <input type="text" value="<?php if (isset($data['prenom']) && !empty($data['prenom'])) {echo $data['prenom'];} else{echo '';} ?>" class="form-control  <?= isset($_SESSION['errors']['prenom']) ? 'is-invalid' : ''?> " name="prenom" id="prenom"
                                     >
                                     <?php
                                     if(isset($_SESSION['errors']['prenom'])){ 
@@ -52,7 +56,7 @@
                         <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                                 <label for="username">Nom d'utilisateur <span class="text-danger">(*)</span></label>
-                                <input type="text" class="form-control  <?= isset($_SESSION['errors']['username']) ? 'is-invalid' : ''?>" name="username" id="username"
+                                <input type="text" value="<?php if (isset($data['username']) && !empty($data['username'])) {echo $data['username'];} else{echo '';} ?>" class="form-control  <?= isset($_SESSION['errors']['username']) ? 'is-invalid' : ''?>" name="username" id="username"
                                     >
                                     <?php
                                     if(isset($_SESSION['errors']['username'])){ 
@@ -66,7 +70,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="email">Email <span class="text-danger">(*)</span></label>
-                                <input type="email" class="form-control  <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : ''?>" name="email"
+                                <input type="email" value="<?php if (isset($data['email']) && !empty($data['email'])) {echo $data['email'];} else{echo '';} ?>" class="form-control  <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : ''?>" name="email"
                                     id="email">
                                     <?php
                                     if(isset($_SESSION['errors']['email'])){ 
@@ -83,7 +87,7 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="mot_de_passe"> <span class="text-danger">(*)</span> Mot de passe</label>
-                                <input type="password" class="form-control <?= isset($_SESSION['errors']['mot_de_passe']) ? 'is-invalid' : ''?>" name="mot_de_passe"
+                                <input type="password"  class="form-control <?= isset($_SESSION['errors']['mot_de_passe']) ? 'is-invalid' : ''?>" name="mot_de_passe"
                                     id="mot_de_passe" >
                                     <?php
                                     if(isset($_SESSION['errors']['mot_de_passe'])){ 
@@ -112,6 +116,14 @@
                             </div>
                             
                         </div>
+
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox small">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                                        <label class="custom-control-label" for="customCheck">Accepter les conditions et les politiques d'utilisations
+                                            </label>
+                                    </div>
+                                </div>
                         
 
                         <div class="form-group row">
