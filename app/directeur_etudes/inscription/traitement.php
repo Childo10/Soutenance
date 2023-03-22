@@ -25,19 +25,31 @@ else{
 
 
 if (verifier_info($_POST['username'])){
-    $data['username']= htmlentities($_POST['username']);
+    if(check_username_exist($_POST['username']))
+        $errors['username']="<p> Désolé,ce nom d'utilisateur existe déjà <p>";
+    
+    else{
+        $data['username']= htmlentities($_POST['username']);
+    }
 }
 else{
         $errors['username'] = "<p> Nom d'utilisateur invalide ou vide,veuillez reéssayer!</p>";
 }
 
 
+
 if (verifier_info($_POST['email'])){
-    $data['email']= filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+    if(check_email_exist($_POST['email'])){
+        $errors['email']="<p> Désolé,cet adresse email existe déjà <p>";
+    }
+    else{
+        $data['email']= filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+    }
 }
 else{
         $errors['email'] = '<p> Email incorrect ou vide,veuillez reéssayer!</p>';
 }
+
 
 
 if (!isset($_POST["mot_de_passe"]) || empty($_POST["mot_de_passe"])) {

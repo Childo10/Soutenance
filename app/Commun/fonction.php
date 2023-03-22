@@ -13,3 +13,26 @@ function database_login(){
     }
     return $bdd;
 }
+
+
+function check_username_exist($username){
+    $users="false";
+    $bdd= database_login();
+    $req= $bdd->prepare('SELECT id_utilisateur from utilisateur WHERE nom_utilisateur=?');
+    $req->execute([$username]);
+    $users= $req->fetch();
+    return $users;
+    
+
+}
+
+function check_email_exist($email){
+    $users="false";
+    $bdd= database_login();
+    $req= $bdd->prepare('SELECT id_utilisateur from utilisateur WHERE email=?');
+    $req->execute([$email]);
+    $users= $req->fetch();
+    return $users;
+    
+
+}
