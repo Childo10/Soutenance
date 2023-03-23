@@ -18,4 +18,4 @@
   <link id="pagestyle" href="/soutenance/public/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
 </head>
 
-<body class="bg-gray-200">
+<body style="background-color: white;">

@@ -110,6 +110,9 @@ if(empty($errors)){
         $success="Inscription réussie! Vous pouvez vous connectez";
         header('location:../connexion/index?success='.$success);
     }
+    else{
+        header('location:/soutenance/directeur_Etudes/inscription/');
+    }
 
 
 }
