@@ -1,14 +1,23 @@
 <?php
+    session_start();
     $title="Connexion - Directeur des études";
     include('./app/Commun/header.php');
 ?>
 
 <body>
 <div class="container">
-
+    <?php
+        if(isset($_SESSION['success']) && !empty($_SESSION['success'])){ 
+    ?>
+    <div class="bg-primary text-white">
+        <?=$_SESSION['success']?>
+    </div>
+    <?php
+    }
+    ?>
 
 <!-- Outer Row -->
-<div class="row justify-content-center">
+<div class="row justify-content-center">   
 
         <div class="card o-hidden border-0 col-lg-6 col-md-8 col-10 shadow-lg my-5">
             <div class="card-body p-0">
@@ -64,5 +73,6 @@
 </div>
 
 <?php 
+    session_destroy();
     include('./app/Commun/dashbord_footer.php');
 ?>

@@ -6,6 +6,7 @@
     if (isset($_SESSION['data']) && !empty($_SESSION['data'])){
         $data= $_SESSION['data'];
     }
+    
 ?>
 
 <body>
@@ -25,7 +26,7 @@
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <label for="nom">Nom<span class="text-danger">(*)</span></label>
-                                <input type="text" value="<?php if (isset($data['nom']) && !empty($data['nom'])) {echo $data['nom'];} else{echo '';} ?>" class="form-control <?= isset($_SESSION['errors']['nom']) ? 'is-invalid' : ''?>" name="nom" id="nom"
+                                <input type="text"   value="<?php if (isset($data['nom']) && !empty($data['nom'])) {echo $data['nom'];} else{echo '';} ?>" class="form-control <?= isset($_SESSION['errors']['nom']) ? 'is-invalid' : ''?>" name="nom" id="nom"
                                     >
                                     <?php
                                     if(isset($_SESSION['errors']['nom'])){ 
@@ -39,7 +40,7 @@
                             </div>
                             <div class="col-sm-6">
                                  <label for="prenom">Prénom <span class="text-danger">(*)</span></label>
-                                <input type="text" value="<?php if (isset($data['prenom']) && !empty($data['prenom'])) {echo $data['prenom'];} else{echo '';} ?>" class="form-control  <?= isset($_SESSION['errors']['prenom']) ? 'is-invalid' : ''?> " name="prenom" id="prenom"
+                                <input type="text"  value="<?php if (isset($data['prenom']) && !empty($data['prenom'])) {echo $data['prenom'];} else{echo '';} ?>" class="form-control  <?= isset($_SESSION['errors']['prenom']) ? 'is-invalid' : ''?> " name="prenom" id="prenom"
                                     >
                                     <?php
                                     if(isset($_SESSION['errors']['prenom'])){ 
@@ -56,7 +57,7 @@
                         <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                                 <label for="username">Nom d'utilisateur <span class="text-danger">(*)</span></label>
-                                <input type="text" value="<?php if (isset($data['username']) && !empty($data['username'])) {echo $data['username'];} else{echo '';} ?>" class="form-control  <?= isset($_SESSION['errors']['username']) ? 'is-invalid' : ''?>" name="username" id="username"
+                                <input type="text"  value="<?php if (isset($data['username']) && !empty($data['username'])) {echo $data['username'];} else{echo '';} ?>" class="form-control  <?= isset($_SESSION['errors']['username']) ? 'is-invalid' : ''?>" name="username" id="username"
                                     >
                                     <?php
                                     if(isset($_SESSION['errors']['username'])){ 

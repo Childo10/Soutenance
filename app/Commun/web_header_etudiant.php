@@ -39,27 +39,4 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header  class="fixed-top">
-    <div class="container d-flex align-items-center">
-
-      <h1 class="logo me-auto"><a href="index.html">Educ - action</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a  href="index.html">Accueil</a></li>
-          <li><a href="trainers.html">Professeurs</a></li>
-          <li><a href="events.html">Filières</a></li>
-          <li><a href="#">A propos</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="#" class="active">Se connecter</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <a href="#" class="get-started-btn">Tableau de bord</a>
-
-    </div>
-  </header><!-- End Header -->
+ 

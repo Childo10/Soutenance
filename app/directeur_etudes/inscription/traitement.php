@@ -4,7 +4,7 @@ include('./app/commun/fonction.php');
 $data=[];
 $errors=[];
 $_SESSION['data']=[];
-$success="";
+$_SESSION['success']="";
 
 
 //Je vérifie si les informations envoyés par le visiteur sont corrrects.
@@ -90,25 +90,27 @@ $_SESSION['data']= $data;
 if(empty($errors)){
 
     $bdd=database_login();
+    $data['profil']= "Directeur des études";
    
     
 
 
     //Récupération des informations saisies par l'utilisateur dans la base de données
-    $req=$bdd->prepare('INSERT INTO utilisateur(nom, prenom, nom_utilisateur,email,mot_de_passe)
-     VALUES (:nom, :prenom, :nom_utilisateur,  :email, :mot_de_passe)');
+    $req=$bdd->prepare('INSERT INTO utilisateur(nom, prenom, nom_utilisateur,email,mot_de_passe,profil)
+     VALUES (:nom, :prenom, :nom_utilisateur,  :email, :mot_de_passe, :profil)');
     $req->execute(array(
         'nom'=>$data['nom'],
         'prenom'=>$data['prenom'],
         'nom_utilisateur'=>$data['username'],
         'email'=>$data['email'],
         'mot_de_passe'=>$data['mot_de_passe'],
+        'profil'=>$data['profil']
        
     ));
 
     if($req){
-        $success="Inscription réussie! Vous pouvez vous connectez";
-        header('location:../connexion/index?success='.$success);
+        $_SESSION['success']="Inscription réussie! Vous pouvez vous connectez";
+        header('location:../connexion/index');
     }
     else{
         header('location:/soutenance/directeur_Etudes/inscription/');
