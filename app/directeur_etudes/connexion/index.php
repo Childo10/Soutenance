@@ -6,15 +6,6 @@
 
 <body>
 <div class="container">
-    <?php
-        if(isset($_SESSION['success']) && !empty($_SESSION['success'])){ 
-    ?>
-    <div class="bg-primary text-white">
-        <?=$_SESSION['success']?>
-    </div>
-    <?php
-    }
-    ?>
 
 <!-- Outer Row -->
 <div class="row justify-content-center">   
@@ -25,7 +16,17 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="p-5">
+                        <?php
+                                if(isset($_SESSION['success']) && !empty($_SESSION['success'])){ 
+                            ?>
+                        <div class="bg-primary text-white">
+                            <?=$_SESSION['success']?>
+                        </div>
+                            <?php
+                            }
+                            ?>
                             <div class="text-center">
+                           
                                 <h1 class="h4 text-gray-900 mb-4">Bienvenue!</h1>
                             </div>
                             <form action="traitement"  class="user">

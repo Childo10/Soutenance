@@ -109,8 +109,17 @@ if(empty($errors)){
     ));
 
     if($req){
-        $_SESSION['success']="Inscription réussie! Vous pouvez vous connectez";
-        header('location:../connexion/index');
+        $objet = 'Validation de compte';
+        $corps = '<p>Bonjour</p>';
+
+        email($data["email"], $objet, $corps);
+        if (email($data["email"], $objet, $corps)){
+            die ('Envoyé');
+        } else {
+            die ('Non envoyé');
+        }
+        //$_SESSION['success']="Inscription réussie! Vous pouvez vous connectez";
+        //header('location:../connexion/index');
     }
     else{
         header('location:/soutenance/directeur_Etudes/inscription/');

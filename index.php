@@ -1,4 +1,6 @@
 <?php
+require 'vendor/autoload.php';
+
 $default_profile = "Etudiant";
 $default_profile_folder = "app/Etudiant/index.php";
 $params = [];
