@@ -110,9 +110,7 @@ if(empty($errors)){
 
     if($req){
         $objet = 'Validation de compte';
-        $corps = '<p>Bonjour</p>';
-
-        email($data["email"], $objet, $corps);
+        $corps = buffer_html_file('../soutenance/app/directeur_etudes/inscription/message_mail.php');
         if (email($data["email"], $objet, $corps)){
             die ('Envoyé');
         } else {

@@ -63,20 +63,20 @@ function check_email_exist($email){
             // Server settings
             // for detailed debug output
             // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-            $mail->SMTPDebug = 0;
+            $mail->SMTPDebug =0;
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->Username = 'educationapp@gmail.com';
-            $mail->Password = 'ixzjicekjuokjekb';
+            $mail->Username = 'childohouedanou1998@gmail.com';
+            $mail->Password = 'qecinatexorsgtup';
 
             // Sender and recipient settings
-            $mail->setFrom('educationapp@gmail.com', htmlspecialchars_decode('Educ-Action'));
+            $mail->setFrom('childohouedanou1998@gmail.com', htmlspecialchars_decode('Education APP'));
             $mail->addAddress($destination, 'UTILISATEUR');
-            $mail->addReplyTo('educationapp@gmail.com', htmlspecialchars_decode('Educ-Action'));
+            $mail->addReplyTo('childohouedanou1998@gmail.com', htmlspecialchars_decode('Education APP'));
 
             // Setting the email content
             $mail->IsHTML(true);
@@ -92,3 +92,16 @@ function check_email_exist($email){
         }
 
     }
+
+        //Fonction buffer pour récupérer du html
+
+function buffer_html_file($filename) {
+    ob_start(); //démarre la temporisation de sortie
+
+    include $filename; //Inclut des fichier html dans le tampon
+
+    $html= ob_get_contents(); // Récupère le contenu du tampon
+    ob_end_clean(); // Arrête et vide la tamporisation de sortie
+
+    return $html; // Retourne le contenu du fichier html
+}
