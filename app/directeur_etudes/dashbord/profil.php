@@ -1,20 +1,32 @@
 <?php 
 $title='Profil du directeur des études';
     include('./app/Commun/dashbord_siedbar_DE.php');
-?>
-
-
+    
+  ?>    
 
 <div class="container">
     <div class="main-body">
+
+         <?php
+              if(isset($_SESSION['success'])){ 
+              ?>
+            <h3 class="text-center alert alert-success  ">
+                <?=$_SESSION['success']?>
+            </h3>
+          <?php
+          }
+         ?>
+      
+              
     
           <!-- Breadcrumb -->
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
+              <li class="breadcrumb-item"><a href="/soutenance/directeur_etudes/dashbord/">Accueil</a></li>
               <li class="breadcrumb-item active" aria-current="page">Profil de l'utilisateur</li>
             </ol>
           </nav>
+          
           <!-- /Breadcrumb -->
     
           <div class="row gutters-sm">
@@ -22,10 +34,10 @@ $title='Profil du directeur des études';
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <img src="" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
-                      <h4 class="font-weight-bold">Michel Houedanou</h4>
-                      <p class="text-secondary mb-1">Directeur des études</p>
+                      <h4 class="font-weight-bold"><?=$_SESSION['users']['0']['nom']?> <?=$_SESSION['users']['0']['prenom']?></h4>
+                      <p class="text-secondary mb-1"><?=$_SESSION['users']['0']['profil']?></p>
                     </div>
                   </div>
                 </div>
@@ -39,7 +51,7 @@ $title='Profil du directeur des études';
                       <h6 class="mb-0 font-weight-bold">Nom complet</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Michel Houedanou
+                    <?=$_SESSION['users']['0']['nom']?> <?=$_SESSION['users']['0']['prenom']?>
                     </div>
                   </div>
                   <hr>
@@ -48,7 +60,7 @@ $title='Profil du directeur des études';
                       <h6 class="mb-0 font-weight-bold">Nom utilisateur</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                        Michel10
+                    <?=$_SESSION['users']['0']['nom_utilisateur']?>
                     </div>
                   </div>
                   <hr>
@@ -57,7 +69,7 @@ $title='Profil du directeur des études';
                       <h6 class="mb-0 font-weight-bold">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    michelhouedanou@.gmail.com
+                    <?=$_SESSION['users']['0']['email']?>
                     </div>
                   </div>
                   <hr>
@@ -66,13 +78,13 @@ $title='Profil du directeur des études';
                       <h6 class="mb-0 font-weight-bold">Type de profil</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Directeur des études
+                    <?=$_SESSION['users']['0']['profil']?>
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " href="edit_profil">Editer</a>
+                      <a  class="btn btn-warning" href="/soutenance/directeur_etudes/dashbord/edit_profil">Editer</a>
                     </div>
                   </div>
                 </div>
@@ -83,6 +95,9 @@ $title='Profil du directeur des études';
         </div>
     </div>
 
-<?php 
+
+
+<?php
+unset($_SESSION['success']);
     include('./app/Commun/dashbord_footer.php');
 ?>

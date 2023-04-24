@@ -1,7 +1,23 @@
 <?php
     session_start();
+    include('./app/commun/fonction.php');
+    //Si l'utilisateur est connecté, je le redirige vers le dashbord.
+    if(est_connecter()){
+        header('location:/soutenance/directeur_etudes/dashbord/index');
+    }
+
     $title="Connexion - Directeur des études";
     include('./app/Commun/header.php');
+
+    $data=[];
+    if (isset($_SESSION['data']) && !empty($_SESSION['data'])){
+        $data= $_SESSION['data'];
+    }
+
+    if(isset($_COOKIE['data_users']) AND !empty($_COOKIE['data_users'])){
+        $users_mail= json_decode($_COOKIE['data_users']);
+    }
+    
 ?>
 
 <body>
@@ -29,24 +45,55 @@
                            
                                 <h1 class="h4 text-gray-900 mb-4">Bienvenue!</h1>
                             </div>
-                            <form action="traitement"  class="user">
+                            <form action="traitement" method="post"  class="user">
                                 <div class="form-group">
                                     <label for="email">Entrer votre email</label>
-                                    <input type="email" class="form-control"
-                                        id="email" aria-describedby="emailHelp"
-                                        >
+                                    <input type="email" name="email"
+                                        id="email" aria-describedby="emailHelp" value="<?php if (isset($data['email']) && !empty($data['email'])) {echo $data['email'];} else{echo '';}?> <?= isset($users_mail) ? $users_mail : ''?>" 
+                                        class="form-control <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : ''?> <?= isset($_SESSION["err_connexion"]) ? 'is-invalid' : ''?>">
+                                        
+                                    <?php
+                                    if(isset($_SESSION['errors']['email'])){ 
+                                    ?>
+                                    <div class="invalid-feedback">
+                                        <?=$_SESSION['errors']['email']?>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="mot_de_passe">Entrer votre mot de passe</label>
-                                    <input type="password" name="mot_de_passe" class="form-control"
+                                    <input type="password" name="mot_de_passe" value="<?php if (isset($data['mot_de_passe']) && !empty($data['mot_de_passe'])) {echo $data['mot_de_passe'];} else{echo '';} ?>" 
+                                        class="form-control <?= isset($_SESSION['errors']['mot_de_passe']) ? 'is-invalid' : ''?> <?= isset($_SESSION["err_connexion"]) ? 'is-invalid' : ''?>"
                                         id="mot_de_passe">
+                                        <?php
+                                    if(isset($_SESSION['errors']['mot_de_passe'])){ 
+                                    ?>
+                                    <div class="invalid-feedback">
+                                        <?=$_SESSION['errors']['mot_de_passe']?>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+
+                                    <?php
+                                    if(isset($_SESSION["err_connexion"])){ 
+                                    ?>
+                                    <div class="invalid-feedback">
+                                        <?=$_SESSION["err_connexion"]?>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox small">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                                        <input type="checkbox" name="se_souvenir" class="custom-control-input" id="customCheck">
                                         <label class="custom-control-label" for="customCheck">Se souvenir de moi
                                             </label>
                                     </div>
+                                    
                                 </div>
                                 <div class="form-group row">
                                     <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
@@ -74,6 +121,6 @@
 </div>
 
 <?php 
-    session_destroy();
+   
     include('./app/Commun/dashbord_footer.php');
 ?>

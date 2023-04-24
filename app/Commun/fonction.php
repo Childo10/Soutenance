@@ -41,6 +41,69 @@ function check_email_exist($email){
 
 }
 
+function update_profil_in_db( int $id,  string $nom,  string $prenom,  string $email, string $username){
+    $modifier_profil="false";
+    $bdd=database_login();
+    $requete= "UPDATE utilisateur SET nom= :nom, prenom=:prenom, email= :email, nom_utilisateur=:nom_utilisateur WHERE id_utilisateur= :id";
+    $requete_prepare= $bdd->prepare($requete);
+    $requete_execute= $requete_prepare->execute(array(
+        'id'=>$id,
+        'nom'=>$nom,
+        'prenom'=>$prenom,
+        'email'=>$email,
+        'nom_utilisateur'=>$username
+    ));
+
+    if($requete_execute){
+        $modifier_profil= true;
+    }
+
+    return $modifier_profil;
+}
+
+function recup_udpate_profil($id){
+    $data=[];
+    $bdd=database_login();
+    $req_recup=$bdd->prepare('SELECT id_utilisateur,nom,prenom,nom_utilisateur,profil,email FROM utilisateur WHERE id_utilisateur= :id');
+    $resultat=$req_recup->execute(array(
+       'id'=> $id,
+    ));
+
+    if($resultat){
+        $data=$req_recup->fetchAll(PDO::FETCH_ASSOC);
+    }
+    return $data;
+}
+
+function check_user_exist_in_db($email, $mot_de_passe){
+    $data_users=[];
+    $bdd=database_login();
+    $req_recup=$bdd->prepare('SELECT id_utilisateur,nom,prenom,nom_utilisateur,profil,email FROM utilisateur WHERE email= :email AND mot_de_passe= :mot_de_passe');
+    $resultat=$req_recup->execute(array(
+       'email'=> $email,
+       'mot_de_passe'=> sha1($mot_de_passe)   
+    ));
+   
+    //Si la requete est exécuté, je récupère les données dans le tableau data_users
+    if($resultat){
+       $data_users=$req_recup->fetchAll(PDO::FETCH_ASSOC);
+}  
+return $data_users;
+}
+
+function est_connecter(){
+    $est_connecter="false";
+    if(isset($_SESSION['users']) and !empty($_SESSION['users'])){
+        $est_connecter=true;
+    }
+    return $est_connecter;
+}
+
+
+//Je me prépare ma requete.
+
+
+
 
 /**
  * .3++++++
@@ -104,4 +167,139 @@ function buffer_html_file($filename) {
     ob_end_clean(); // Arrête et vide la tamporisation de sortie
 
     return $html; // Retourne le contenu du fichier html
+}
+
+
+
+
+
+function search_user_id($user_id)
+{
+
+    $user_id = [];
+
+    $db = database_login();
+
+    $request = "SELECT user_id FROM token WHERE id=:id";
+
+    $request_prepare = $db->prepare($request);
+
+    $request_execution = $request_prepare->execute([
+        'user_id' => $user_id
+    ]);
+
+    if ($request_execution) {
+
+        $data = $request_prepare->fetchAll(PDO::FETCH_ASSOC);
+
+        if (isset($data) && !empty($data) && is_array($data)) {
+
+            $user_id = $data;
+        }
+    }
+    return $user_id;
+}
+
+// Exemple de fonction pour exécuter la requête UPDATE TOKEN
+
+function maj(int $id_utilisateur): bool
+{
+
+    $maj = false;
+
+    $date=date("Y-m-d H:i:s");
+
+    $db = database_login();
+
+    $request = "UPDATE token SET est_actif = :est_actif, est_supprimer = :est_supprimer, maj_le = :maj_le WHERE user_id= :id_utilisateur";
+
+    $request_prepare = $db->prepare($request);
+
+    $request_execution = $request_prepare->execute(
+        [
+            'id_utilisateur' => $id_utilisateur,
+            'est_actif' => 0,
+            'est_supprimer' => 1,
+            'maj_le' => $date
+        ]
+    );
+
+    if ($request_execution) {
+
+        $maj = true;
+    }
+
+    return $maj;
+}
+
+
+// Exemple de fonction pour exécuter la requête UPDATE UTILISATEUR
+
+function maj1(int $id_utilisateur): bool
+{
+
+    $maj1 = false;
+
+    $date=date("Y-m-d H:i:s");
+
+    $db = database_login();
+
+    $request = "UPDATE utilisateur SET est_actif = :est_actif, maj_le = :maj_le WHERE id= :id_utilisateur";
+
+    $request_prepare = $db->prepare($request);
+
+    $request_execution = $request_prepare->execute(
+        [
+            'id_utilisateur' => $id_utilisateur,
+            'est_actif' => 1,
+            'maj_le' => $date
+        ]
+    );
+
+    if ($request_execution) {
+
+        $maj1 = true;
+    }
+
+    return $maj1;
+}
+
+
+
+/**
+ * Cette fonction permet de verifier si le id_utilisateur existe dans la base de donnée .
+ * @param string $nom_utilisateur Le nom d'utilisateur a vérifié.
+ *
+ * @return bool $check
+ */
+function check_id_utilisateur_exist_in_db(int $user_id, string $type, string $token, int $est_actif, int $est_supprimer): bool
+{
+
+    $check = false;
+
+    $db = database_login();
+
+    $requette = "SELECT * FROM token WHERE user_id = :user_id and type= :type and token= :token and est_actif= :est_actif and est_supprimer= :est_supprimer";
+
+    $verifier_id_utilisateur = $db->prepare($requette);
+
+    $resultat = $verifier_id_utilisateur->execute([
+        'user_id' => $user_id,
+        'type' => $type,
+        'token' => $token,
+        'est_actif' => $est_actif,
+        'est_supprimer' => $est_supprimer,
+    ]);
+
+    if ($resultat) {
+
+        $data = $verifier_id_utilisateur->fetchAll(PDO::FETCH_ASSOC);
+
+        if (isset($data) && !empty($data) && is_array($data)) {
+
+            $check = true;
+        }
+    }
+
+    return $check;
 }

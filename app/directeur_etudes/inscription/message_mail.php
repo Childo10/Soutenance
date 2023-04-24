@@ -1,3 +1,15 @@
+<?php $url = 'localhost/soutenance/directeur_etudes/inscription/confirmation/{id_utilisateur}/{token}';
+
+if (isset($_SESSION['validation_compte']) && !empty($_SESSION['validation_compte'])) {
+    $id_utlilisateur = $_SESSION['validation_compte']['id_utilisateur'];
+    $token = $_SESSION['validation_compte']['token'];
+}
+
+$url = str_replace('{id_utilisateur}', $id_utlilisateur, $url);
+
+$url = str_replace('{token}', $token, $url);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -53,7 +65,7 @@
         <p>Merci de cliquer sur le bouton afin de valider votre inscription.</p>
         <p>Cordialement,</p>
         <p>L'équipe d'Educ-Action</p>
-        <a href="https://localhost/www.example.com/confirmation" class="button">Valider</a>
+        <a href="<?=$url?>" class="button">Valider</a>
     </div>
 </body>
 </html>

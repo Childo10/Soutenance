@@ -35,7 +35,7 @@
  <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Educ - action</a></h1>
+      <h1 class="logo me-auto"><a href="index">Educ - action</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -47,11 +47,12 @@
           <li><a href="/soutenance/etudiant/pages/a_propos">A propos</a></li>
           <li><a href="/soutenance/etudiant/pages/contact">Contact</a></li>
           <li><a href="/soutenance/etudiant/connexion/" class="active">Se connecter</a></li>
+          <a href="/soutenance/etudiant/dashbord/" class="get-started-btn btn-sm pr-3  text-white">Tableau de bord</a>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="/soutenance/etudiant/dashbord/" class="get-started-btn">Tableau de bord</a>
+      
 
     </div>
   </header><!-- End Header -->
@@ -130,7 +131,8 @@
 
         <!-- Main Content -->
         <div id="content">
-            <div class="container-fluid"></div>
+            <div class="container-fluid">
+            </div>
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
