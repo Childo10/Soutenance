@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $title='Paramètres du profil(Directeur des études)';
     include('./app/Commun/dashbord_siedbar_DE.php');
 	if(isset($_SESSION['users']['0']['id_utilisateur']) and !empty($_SESSION['users']['0']['id_utilisateur'])){
@@ -10,31 +11,14 @@ $title='Paramètres du profil(Directeur des études)';
    
 <div class="container">
 		<div class="main-body">
-			<div class="row">
-				<div class="col-lg-4">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex flex-column align-items-center text-center">
-								<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
-								<div class="mt-3">
-									<h4><?=$_SESSION['users']['0']['nom']?> <?=$_SESSION['users']['0']['prenom']?></h4>
-									<p class="text-secondary mb-1">Directeur des études</p>
-									<p class="text-muted font-size-sm">Cotonou,Bénin</p>
-									<div class="row  gx-1">
-										<button class="btn btn-primary offset-md-1 col-md-5  btn-sm">Modifier</button>
-										<button class="btn btn-danger offset-md-1 col-md-5  btn-sm ">Supprimer</button>
-									</div>
-									
-								</div>
-							</div>
-			
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-8">
+				<div class="col-lg-8 offset-md-2 offset-0">
 					<form class="card" method="post" action="/soutenance/directeur_etudes/dashbord/edit_profil_traitement">
 					
-				  
+		 				<div class="card-header  bg-primary text-white">
+		 					<h5 class="card-title text-center">
+								Modifier mes informations personnelles
+							</h5>
+						</div>
 					
 						<div class="card-body">
 							<div class="row mb-3">
@@ -113,10 +97,39 @@ $title='Paramètres du profil(Directeur des études)';
 									<input type="text" name="profil" class="form-control" value="<?=$_SESSION['users']['0']['profil']?>">
 								</div>
 							</div>
+
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0 font-weight-bold">Entrer votre mot de passe</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									<input type="password" name="mot_de_passe" class="form-control <?= isset( $_SESSION['err_mdp']) ? 'is-invalid' : ''?> <?= isset( $_SESSION['errors']['mot_de_passe']) ? 'is-invalid' : ''?>">
+									<?php
+                                    if(isset($_SESSION['errors']['mot_de_passe'])){ 
+                                    ?>
+                                    <div class="invalid-feedback">
+                                        <?= $_SESSION['errors']['mot_de_passe']?>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+
+<?php
+                                    if(isset($_SESSION['err_mdp'])){ 
+                                    ?>
+                                    <div class="invalid-feedback">
+                                        <?= $_SESSION['err_mdp']?>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+								</div>
+							</div>
 							<div class="row">
 								<div class="col-sm-3"></div>
 								<div class="col-sm-6 text-secondary">
-									<input type="submit" class="btn btn-primary px-4" name="button" value="Enregistrer">
+									<input type="submit" class="btn btn-sm btn-primary px-2" name="button" value="Appliquer">
+									<input type="reset" class="btn btn-sm btn-danger px-2" name="button" value="Annuler">
 								</div>
 							</div>
 						</div>
@@ -131,6 +144,7 @@ $title='Paramètres du profil(Directeur des études)';
 
 	<?php
 	unset($_SESSION['errors']);
+	unset($_SESSION['err_mdp']);
     include('./app/Commun/dashbord_footer.php');
 ?>
    

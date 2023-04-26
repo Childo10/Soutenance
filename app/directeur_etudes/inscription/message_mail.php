@@ -1,3 +1,4 @@
+
 <?php $url = 'localhost/soutenance/directeur_etudes/inscription/confirmation/{id_utilisateur}/{token}';
 
 if (isset($_SESSION['validation_compte']) && !empty($_SESSION['validation_compte'])) {

@@ -2,9 +2,14 @@
     session_start();
     include('./app/commun/fonction.php');
     //Si l'utilisateur est connecté, je le redirige vers le dashbord.
-    if(est_connecter()){
+    if(isset($_SESSION['users']) and !empty($_SESSION['users'])){
         header('location:/soutenance/directeur_etudes/dashbord/index');
     }
+    
+    
+
+        
+        
 
     $title="Connexion - Directeur des études";
     include('./app/Commun/header.php');
@@ -49,7 +54,7 @@
                                 <div class="form-group">
                                     <label for="email">Entrer votre email</label>
                                     <input type="email" name="email"
-                                        id="email" aria-describedby="emailHelp" value="<?php if (isset($data['email']) && !empty($data['email'])) {echo $data['email'];} else{echo '';}?> <?= isset($users_mail) ? $users_mail : ''?>" 
+                                        id="email" aria-describedby="emailHelp" value="<?php if (isset($data['email']) && !empty($data['email'])) {echo $data['email'];} elseif(isset($users_mail)){echo $users_mail; unset($_SESSION['data']);}else{echo '';}?>" 
                                         class="form-control <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : ''?> <?= isset($_SESSION["err_connexion"]) ? 'is-invalid' : ''?>">
                                         
                                     <?php
@@ -59,6 +64,9 @@
                                         <?=$_SESSION['errors']['email']?>
                                     </div>
                                     <?php
+                                    }
+                                    elseif(isset($users_mail) and isset($_SESSION['errors']['email'])){
+                                        echo "";   
                                     }
                                     ?>
                                 </div>
@@ -98,7 +106,7 @@
                                 <div class="form-group row">
                                     <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
                                         <input type="submit" value="Connexion" class="mb-1 mb-md-0  btn btn-primary">
-                                        <input type="reset" class="btn btn-danger">
+                                        <input type="reset" value="Annuler" class="btn btn-danger">
                                     </div>
                                 </div>
                                
@@ -121,6 +129,6 @@
 </div>
 
 <?php 
-   
+    unset($_SESSION['errors']);
     include('./app/Commun/dashbord_footer.php');
 ?>

@@ -30,6 +30,20 @@ function check_username_exist($username){
 
 }
 
+function check_password_exist($password, int $id){
+    $users="false";
+    $bdd= database_login();
+    $req= $bdd->prepare('SELECT id_utilisateur from utilisateur WHERE mot_de_passe=:mot_de_passe AND id_utilisateur=:id');
+    $req->execute(array(
+        'mot_de_passe'=>sha1($password),
+        'id'=>$id
+    ));
+    $users= $req->fetch();
+    return $users;
+    
+
+}
+
 function check_email_exist($email){
     $users="false";
     $bdd= database_login();
@@ -92,11 +106,8 @@ return $data_users;
 }
 
 function est_connecter(){
-    $est_connecter="false";
-    if(isset($_SESSION['users']) and !empty($_SESSION['users'])){
-        $est_connecter=true;
-    }
-    return $est_connecter;
+    return isset($_SESSION['users']) and !empty($_SESSION['users']);
+    
 }
 
 
@@ -232,6 +243,83 @@ function maj(int $id_utilisateur): bool
     return $maj;
 }
 
+function insertion_token(int $user_id, string $type, string $token ): bool
+{
+
+    $insertion_token = false;
+
+    $db=database_login();
+
+    $request = "INSERT INTO token (user_id, type, token) VALUES (:user_id, :type, :token)";
+
+    $request_prepare = $db->prepare($request);
+
+    $request_execution = $request_prepare->execute(
+        [
+            'user_id' => $user_id,
+            'type' => $type,
+            'token' => $token
+        ]
+    );
+
+    if ($request_execution) {
+
+        $insertion_token = true;
+    }
+
+    return $insertion_token;
+}
+
+// Récupérer le token
+function recuperer_token(string $user_id){
+    $token =[];
+
+    $db=database_login();
+
+    $request = "SELECT token FROM token WHERE user_id=:user_id";
+
+    $request_prepare =$db->prepare($request);
+
+    $request_execution = $request_prepare->execute([
+        'user_id' => $user_id
+    ]);
+
+    if ($request_execution){
+
+        $data = $request_prepare->fetchAll(PDO::FETCH_ASSOC);
+
+        if(isset($data) && !empty($data) && is_array($data)) {
+            $token = $data;
+        }
+    }
+    return $token;
+}
+
+//Recupérer id de l'utilisateur
+
+function select_user_id(string $email){
+    $user_id =[];
+
+    $db=database_login();
+
+    $request = "SELECT id FROM utilisateur WHERE email=:email";
+
+    $request_prepare =$db->prepare($request);
+
+    $request_execution = $request_prepare->execute([
+        'email' => $email
+    ]);
+
+    if ($request_execution){
+
+        $data = $request_prepare->fetchAll(PDO::FETCH_ASSOC);
+
+        if(isset($data) && !empty($data) && is_array($data)){
+            $user_id = $data;
+        }
+    }
+    return $user_id;
+}
 
 // Exemple de fonction pour exécuter la requête UPDATE UTILISATEUR
 

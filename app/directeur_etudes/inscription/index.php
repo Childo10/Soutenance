@@ -2,6 +2,9 @@
     session_start();
     $title="Inscription - Directeur des études";
     include('./app/Commun/header.php');
+    if(isset($_SESSION['users']) and !empty($_SESSION['users'])){
+        header('location:/soutenance/directeur_etudes/dashbord/index');
+    }
     $data=[];
     if (isset($_SESSION['data']) && !empty($_SESSION['data'])){
         $data= $_SESSION['data'];
@@ -150,6 +153,6 @@
 </div>
 
 <?php
-session_destroy();
+    unset($_SESSION['errors']);
     include('./app/Commun/dashbord_footer.php');
 ?>

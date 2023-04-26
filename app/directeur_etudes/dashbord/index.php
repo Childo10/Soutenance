@@ -1,7 +1,9 @@
 <?php 
+session_start();
+    include('./app/commun/fonction.php');
     $title="Tableau de bord - Directeur des études";
-   include('./app/Commun/dashbord_siedbar_DE.php');
-    if(est_connecter()){
+    if(isset($_SESSION['users']) and !empty($_SESSION['users'])){ 
+        include('./app/Commun/dashbord_siedbar_DE.php');
     ?>
  
     

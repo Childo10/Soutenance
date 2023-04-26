@@ -42,11 +42,9 @@ if(empty ($errors)){
    //si oui, je le connecte et j'enregistre ses données dans une session.
     if(!empty($data_users) and is_array($data_users)){
         $_SESSION['users']=$data_users;
+        $_SESSION['data']="";
     
-       
-        
-
-            //Si l'utilisateur appuie sur le checkbox "se souvenir de moi"
+        //Si l'utilisateur appuie sur le checkbox "se souvenir de moi"
         if(isset($_POST['se_souvenir']) AND !empty($_POST['se_souvenir'])){
 
             //Je crée un cookie pour enregistrer ses données.

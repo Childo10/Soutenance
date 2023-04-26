@@ -1,11 +1,4 @@
-<?php
-session_start();
-  include('./app/commun/fonction.php');
-     
- ?>
-                          
-    
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -272,7 +265,7 @@ session_start();
                             <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à mettre fin à votre session en cours.</div>
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Retour</button>
-                                <a class="btn btn-primary" href="/soutenance/directeur_etudes/connexion/">Déconnexion</a>
+                                <a class="btn btn-primary" href="/soutenance/directeur_etudes/dashbord/deconnexion">Déconnexion</a>
                             </div>
                         </div>
                     </div>
