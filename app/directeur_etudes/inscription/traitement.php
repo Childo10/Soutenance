@@ -109,17 +109,17 @@ if(empty($errors)){
     ));
 
     if($req){
-        $_token = uniqid("");
-        $id_utilisateur = select_user_id($data['email'])[0]['id'];
+         $_token = uniqid("");
+        $id_utilisateur = select_user_id($data['email'])[0]['id_utilisateur'];
         if (insertion_token($id_utilisateur, 'VALIDATION_COMPTE', $_token)){
             $_SESSION['validation_compte']=[];
             $_SESSION['validation_compte']['id_utilisateur']=$id_utilisateur;
             $_SESSION['validation_compte']['token']=recuperer_token($id_utilisateur)[0]['token'];
         }
-    $objet = 'Validation de compte';
+
         $objet = 'Validation de compte';
         $corps = buffer_html_file('../soutenance/app/directeur_etudes/inscription/message_mail.php');
-        if (email($data["email"], $objet, $corps)){
+        if(email($data["email"], $objet, $corps)){
             die ('Envoyé');
         } else {
             die ('Non envoyé');

@@ -145,7 +145,7 @@ function est_connecter(){
             $mail->Port = 587;
 
             $mail->Username = 'childohouedanou1998@gmail.com';
-            $mail->Password = 'qecinatexorsgtup';
+            $mail->Password = 'ylbdsjngxhbzfetz';
 
             // Sender and recipient settings
             $mail->setFrom('childohouedanou1998@gmail.com', htmlspecialchars_decode('Education APP'));
@@ -302,7 +302,7 @@ function select_user_id(string $email){
 
     $db=database_login();
 
-    $request = "SELECT id FROM utilisateur WHERE email=:email";
+    $request = "SELECT id_utilisateur FROM utilisateur WHERE email=:email";
 
     $request_prepare =$db->prepare($request);
 
@@ -340,7 +340,7 @@ function maj1(int $id_utilisateur): bool
         [
             'id_utilisateur' => $id_utilisateur,
             'est_actif' => 1,
-            'maj_le' => $date
+            'mise_a_jour_le' => $date
         ]
     );
 
