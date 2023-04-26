@@ -332,7 +332,7 @@ function maj1(int $id_utilisateur): bool
 
     $db = database_login();
 
-    $request = "UPDATE utilisateur SET est_actif = :est_actif, maj_le = :maj_le WHERE id= :id_utilisateur";
+    $request = "UPDATE utilisateur SET est_actif = :est_actif, mis_a_jour_le = :mis_a_jour_le  WHERE id_utilisateur= :id_utilisateur";
 
     $request_prepare = $db->prepare($request);
 
@@ -340,7 +340,7 @@ function maj1(int $id_utilisateur): bool
         [
             'id_utilisateur' => $id_utilisateur,
             'est_actif' => 1,
-            'mise_a_jour_le' => $date
+            'mis_a_jour_le' => $date
         ]
     );
 
@@ -367,7 +367,7 @@ function check_id_utilisateur_exist_in_db(int $user_id, string $type, string $to
 
     $db = database_login();
 
-    $requette = "SELECT * FROM token WHERE user_id = :user_id and type= :type and token= :token and est_actif= :est_actif and est_supprimer= :est_supprimer";
+    $requette = "SELECT * FROM token WHERE user_id = :user_id and type = :type and token= :token and est_actif= :est_actif and est_supprimer= :est_supprimer";
 
     $verifier_id_utilisateur = $db->prepare($requette);
 
@@ -381,12 +381,12 @@ function check_id_utilisateur_exist_in_db(int $user_id, string $type, string $to
 
     if ($resultat) {
 
-        $data = $verifier_id_utilisateur->fetchAll(PDO::FETCH_ASSOC);
+       // $data = $verifier_id_utilisateur->fetchAll(PDO::FETCH_ASSOC);
 
-        if (isset($data) && !empty($data) && is_array($data)) {
+       // if (isset($data) && !empty($data) && is_array($data)) {
 
             $check = true;
-        }
+       // }
     }
 
     return $check;
