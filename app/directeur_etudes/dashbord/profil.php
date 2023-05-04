@@ -4,22 +4,9 @@ $title='Profil du directeur des études';
     include('./app/Commun/dashbord_siedbar_DE.php');
     
   ?>    
-
+ 
 <div class="container">
     <div class="main-body">
-
-         <?php
-              if(isset($_SESSION['success'])){ 
-              ?>
-            <h3 class="text-center alert alert-success  ">
-                <?=$_SESSION['success']?>
-            </h3>
-          <?php
-          }
-         ?>
-      
-              
-    
           <!-- Breadcrumb -->
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
@@ -34,7 +21,7 @@ $title='Profil du directeur des études';
             <div class="col-md-4 mb-3">
               <div class="card">
                 
-              <div class="card-header  bg-primary text-white">
+            <div class="card-header  bg-primary text-white">
 		 					<h5 class="card-title text-center">
 								 Photo de profil
 							</h5>
@@ -106,46 +93,122 @@ $title='Profil du directeur des études';
               </div>
 
             </div>
-
-            <!--Changement de mot de passe-->
-            <div class="col-md-8 offset-1 text-center">
-              <div class="card mb-3">
-              <div class="card-header  bg-danger text-white">
-		 					<h5 class="card-title">
-								Changer mot de passe(Sécurité)
-							</h5>
-						</div>
-                <form class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0 font-weight-bold">Mot de passe actuel</h6>
+             <!--Formulaire de suppression de changement de mot de passe-->
+             <div class="col-md-6 mt-5  offset-3 ">
+              <h5 class="font-weight-bold">Changer votre mot de passe</h5>
+              <p>(Si vous changez votre mot de passe, vous serez déconnecter automatiquement)</p>
+                <form class="" method="post" action="/soutenance/directeur_etudes/dashbord/edit_profil_traitement">
+                  <div class="row form-group">
+                    <div class="col-sm-6">
+                      <h6 class="mb-0 ">Mot de passe actuel</h6>
                     </div>
-                    <input type="password" class="col-sm-9 text-secondary form-control">
+                    <input type="password" name="mdp_actuel" class=" <?= isset($_SESSION['erreurs']['mdp_actuel']) ? 'is-invalid' : ''?> <?= isset($_SESSION['erreur']) ? 'is-invalid' : ''?> col-sm-9 text-secondary form-control">
+                      <?php
+                          if(isset($_SESSION['erreurs']['mdp_actuel'])){ 
+                            ?>
+                            <div class="invalid-feedback">
+                              <?=$_SESSION['erreurs']['mdp_actuel']?>
+                            </div>
+                      <?php
+                          }
+                        ?>
+
+                      <?php
+                          if(isset($_SESSION['erreur'])){ 
+                            ?>
+                            <div class="invalid-feedback">
+                              <?=$_SESSION['erreur']?>
+                            </div>
+                      <?php
+                          }
+                        ?>
                   </div>
                   
-                   
-                    
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0 font-weight-bold">Nouveau mot de passe</h6>
+                
+                  <div class="row form-group">
+                    <div class="col-sm-6">
+                      <h6 class="mb-0 ">Nouveau mot de passe</h6>
                     </div>
-                    <input type="password" class="col-sm-9 text-secondary form-control">
+                    <input type="password" name="mdp_nouveau"  class="  <?= isset($_SESSION['erreurs']['mdp_nouveau']) ? 'is-invalid' : ''?>  col-sm-9 text-secondary form-control ">
+                    <?php
+                          if(isset($_SESSION['erreurs']['mdp_nouveau'])){ 
+                            ?>
+                            <div class="invalid-feedback">
+                              <?=$_SESSION['erreurs']['mdp_nouveau']?>
+                            </div>
+                      <?php
+                          }
+                        ?>
                   </div>
-                  <hr>
-                  <div class="row">
+
+                  <div class="row form-group">
                     <div class="col-sm-12">
                     
-                  <input type="submit" class="btn btn-sm btn-primary px-2" name="button" value="Appliquer">
-									<input type="reset" class="btn btn-sm btn-danger px-2" name="button" value="Annuler">
+                  <input type="submit" class="btn btn-sm btn-primary px-2" name="changer_mot_de_passe" value="Appliquer">
+									<input type="reset" class="btn btn-sm btn-danger px-2"  value="Annuler">
+
                     </div>
                   </div>
               
             </form>
 
-            </div>
-
+            </div> 
+            <!--Formulaire de suppression de compte-->
+            <div class="col-6 mt-5 offset-3">
             
+            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#desactivation">Désactiver mon compte</button>
+            <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#suppression">Supprimer mon compte</button>
+              
+              
+              <form action="/soutenance/directeur_etudes/dashbord/edit_profil_traitement" class="form-group">
+
+              <div class="modal fade" id="desactivation" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="desactivationLabel" aria-hidden="true">
+                                        <div class="modal-dialog ">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="desactivationLabel">Désactivation de compte</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                               
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input type="submit" class="btn  btn-sm btn-danger" name="desactiver_compte"  value="Désactiver mon compte">
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal fade" id="suppression" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="suppressionLabel" aria-hidden="true">
+                                        <div class="modal-dialog ">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="#suppressionLabel">Suppression de compte</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                               
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input type="submit" class="btn  btn-sm btn-danger" name="desactiver_compte"  value="Valider">
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+            
+
+              <input class="btn btn-sm btn-outline-danger " type="submit" name="supprimer_compte"  value="Supprimer mon compte">
+              </form>
+             
+            
+                           
+
+            </div>
           </div>
         </div>
     </div>
@@ -153,6 +216,8 @@ $title='Profil du directeur des études';
 
 
 <?php
-unset($_SESSION['success']);
+unset($_SESSION['erreurs']);
+unset($_SESSION['erreur']);
+
     include('./app/Commun/dashbord_footer.php');
 ?>

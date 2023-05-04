@@ -38,7 +38,7 @@ $_SESSION['data']= $data;
 //S'il n'y a pas d'erreurs, je me connecte à la base de données. 
 if(empty ($errors)){
     //Je vérifie si l'utilisateur existe dans la base de données
-   $data_users= check_user_exist_in_db($data['email'], $data['mot_de_passe']);
+   $data_users= check_user_exist_in_db($data['email'], $data['mot_de_passe'],'Directeur des études', 1,0);
    //si oui, je le connecte et j'enregistre ses données dans une session.
     if(!empty($data_users) and is_array($data_users)){
         $_SESSION['users']=$data_users;

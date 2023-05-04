@@ -39,6 +39,9 @@ function check_password_exist($password, int $id){
         'id'=>$id
     ));
     $users= $req->fetch();
+    if($users){
+        $users=true;
+    }
     return $users;
     
 
@@ -55,17 +58,22 @@ function check_email_exist($email){
 
 }
 
+//Cette fonction permet de modifier les informations de l'utilisateur dans la base de données
 function update_profil_in_db( int $id,  string $nom,  string $prenom,  string $email, string $username){
     $modifier_profil="false";
+
+    $date=date("Y-m-d H:i:s");
+
     $bdd=database_login();
-    $requete= "UPDATE utilisateur SET nom= :nom, prenom=:prenom, email= :email, nom_utilisateur=:nom_utilisateur WHERE id_utilisateur= :id";
+    $requete= "UPDATE utilisateur SET nom= :nom, prenom=:prenom, email= :email, nom_utilisateur=:nom_utilisateur, mis_a_jour_le=:mis_a_jour_le WHERE id_utilisateur= :id";
     $requete_prepare= $bdd->prepare($requete);
     $requete_execute= $requete_prepare->execute(array(
         'id'=>$id,
         'nom'=>$nom,
         'prenom'=>$prenom,
         'email'=>$email,
-        'nom_utilisateur'=>$username
+        'nom_utilisateur'=>$username,
+        'mis_a_jour_le'=>$date
     ));
 
     if($requete_execute){
@@ -73,6 +81,27 @@ function update_profil_in_db( int $id,  string $nom,  string $prenom,  string $e
     }
 
     return $modifier_profil;
+}
+
+//Cette fonction permet de modifier le mot de passe de l'utilisateur dans la base de données
+function update_password_in_db( int $id,  string $password){
+    $update_password="false";
+
+
+    $bdd=database_login();
+    $requete= "UPDATE utilisateur SET mot_de_passe=:mot_de_passe WHERE id_utilisateur= :id";
+    $requete_prepare= $bdd->prepare($requete);
+    $requete_execute= $requete_prepare->execute(array(
+        'mot_de_passe'=>sha1($password),
+        'id'=>$id
+    ));
+
+    if($requete_execute){
+        $update_password= true;
+        
+    }
+
+    return  $update_password;
 }
 
 function recup_udpate_profil($id){
@@ -88,14 +117,18 @@ function recup_udpate_profil($id){
     }
     return $data;
 }
-
-function check_user_exist_in_db($email, $mot_de_passe){
+// Cette fonction permet de vérifier si l'utilisateur existe dans la base de données
+function check_user_exist_in_db($email, $mot_de_passe, $profil, int $est_actif, int $est_supprimer){
     $data_users=[];
     $bdd=database_login();
-    $req_recup=$bdd->prepare('SELECT id_utilisateur,nom,prenom,nom_utilisateur,profil,email FROM utilisateur WHERE email= :email AND mot_de_passe= :mot_de_passe');
+    $req_recup=$bdd->prepare('SELECT id_utilisateur,nom,prenom,nom_utilisateur,profil,email FROM utilisateur WHERE email= :email AND mot_de_passe= :mot_de_passe AND profil= :profil AND est_actif= :est_actif AND est_supprimer= :est_supprimer');
     $resultat=$req_recup->execute(array(
        'email'=> $email,
-       'mot_de_passe'=> sha1($mot_de_passe)   
+       'mot_de_passe'=> sha1($mot_de_passe),
+       'profil'=>$profil,
+       'est_actif'=>$est_actif,
+       'est_supprimer'=>$est_supprimer
+
     ));
    
     //Si la requete est exécuté, je récupère les données dans le tableau data_users
@@ -332,7 +365,7 @@ function maj1(int $id_utilisateur): bool
 
     $db = database_login();
 
-    $request = "UPDATE utilisateur SET est_actif = :est_actif, mis_a_jour_le = :mis_a_jour_le  WHERE id_utilisateur= :id_utilisateur";
+    $request = "UPDATE utilisateur SET est_actif = :est_actif, est_supprimer = :est_supprimer,  mis_a_jour_le = :mis_a_jour_le  WHERE id_utilisateur= :id_utilisateur";
 
     $request_prepare = $db->prepare($request);
 
@@ -340,6 +373,7 @@ function maj1(int $id_utilisateur): bool
         [
             'id_utilisateur' => $id_utilisateur,
             'est_actif' => 1,
+            'est_supprimer'=> 0,
             'mis_a_jour_le' => $date
         ]
     );

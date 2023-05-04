@@ -14,7 +14,7 @@
 
     <!-- Core plugin JavaScript-->
     <script src="/soutenance/public/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+    
     <!-- Custom scripts for all pages-->
     <script src="/soutenance/public/js/sb-admin-2.min.js"></script>
       <!-- Page level plugins -->
