@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 09 mars 2023 à 14:10
+-- Généré le : jeu. 11 mai 2023 à 11:50
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -262,6 +262,41 @@ CREATE TABLE IF NOT EXISTS `salle` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `token`
+--
+
+DROP TABLE IF EXISTS `token`;
+CREATE TABLE IF NOT EXISTS `token` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `est_actif` tinyint(4) NOT NULL DEFAULT '1',
+  `est_supprimer` tinyint(4) NOT NULL DEFAULT '0',
+  `creer_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `maj_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `token`
+--
+
+INSERT INTO `token` (`id`, `user_id`, `type`, `token`, `est_actif`, `est_supprimer`, `creer_le`, `maj_le`) VALUES
+(14, 71, 'VALIDATION_COMPTE', '644ab0559fc2c', 1, 0, '2023-04-27 17:26:45', '2023-04-27 17:26:45'),
+(13, 70, 'VALIDATION_COMPTE', '644a5315e2432', 1, 0, '2023-04-27 10:48:54', '2023-04-27 10:48:54'),
+(12, 69, 'VALIDATION_COMPTE', '644972e8aa97a', 0, 1, '2023-04-26 18:52:24', '2023-04-26 17:52:48'),
+(11, 68, 'VALIDATION_COMPTE', '644971e02f68a', 0, 1, '2023-04-26 18:48:00', '2023-04-26 17:48:47'),
+(10, 67, 'VALIDATION_COMPTE', '644970ef6bed2', 0, 1, '2023-04-26 18:43:59', '2023-04-26 17:44:27'),
+(9, 66, 'VALIDATION_COMPTE', '64496f3f563e1', 1, 0, '2023-04-26 18:36:47', '2023-04-26 18:36:47'),
+(8, 65, 'VALIDATION_COMPTE', '64496d290c6af', 1, 0, '2023-04-26 18:27:53', '2023-04-26 18:27:53'),
+(15, 72, 'VALIDATION_COMPTE', '644ab1a469038', 0, 1, '2023-04-27 17:32:20', '2023-04-27 16:36:05'),
+(16, 73, 'VALIDATION_COMPTE', '644ab3926eca4', 0, 1, '2023-04-27 17:40:34', '2023-04-27 16:41:18'),
+(17, 74, 'VALIDATION_COMPTE', '644ab4c9e79a8', 0, 1, '2023-04-27 17:45:45', '2023-04-27 16:54:46');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `utilisateur`
 --
 
@@ -270,22 +305,28 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
-  `sexe` varchar(255) NOT NULL,
-  `date_de_naissance` date NOT NULL,
+  `sexe` varchar(255) DEFAULT NULL,
+  `date_de_naissance` date DEFAULT NULL,
   `email` varchar(255) NOT NULL,
-  `mot_de_passe` varchar(255) NOT NULL,
-  `pays` varchar(255) NOT NULL,
-  `est_actif` int(11) NOT NULL,
-  `profil` varchar(255) NOT NULL,
-  `avatar` varchar(255) NOT NULL,
-  `est_supprimer` int(11) NOT NULL,
-  `creer_le` int(11) NOT NULL,
-  `mis_a_jour_le` timestamp NOT NULL,
-  `email_valide` varchar(255) NOT NULL,
-  `telephone_valide` int(11) NOT NULL,
-  `nom_utilisateur` varchar(255) NOT NULL,
+  `mot_de_passe` varchar(255) DEFAULT NULL,
+  `est_actif` int(11) DEFAULT NULL,
+  `profil` varchar(255) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `creer_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `est_supprimer` int(11) DEFAULT NULL,
+  `mis_a_jour_le` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `email_valide` varchar(255) DEFAULT NULL,
+  `nom_utilisateur` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_utilisateur`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id_utilisateur`, `nom`, `prenom`, `sexe`, `date_de_naissance`, `email`, `mot_de_passe`, `est_actif`, `profil`, `avatar`, `creer_le`, `est_supprimer`, `mis_a_jour_le`, `email_valide`, `nom_utilisateur`) VALUES
+(70, 'Ronney', 'Wayne', NULL, NULL, 'childohouedanou1998@gmail.com', 'a642a77abd7d4f51bf9226ceaf891fcbb5b299b8', NULL, 'Directeur des études', NULL, '2023-04-27 10:48:53', NULL, '2023-04-27 10:48:53', NULL, 'Ronney10'),
+(74, 'Houedanou', 'Rom&eacute;o', NULL, NULL, 'educactionapp@gmail.com', '04f081741466827161bede82a374af0ec9a39e31', 1, 'Directeur des études', NULL, '2023-04-27 17:45:45', 0, '2023-05-11 07:58:34', NULL, 'Childo10');
 
 --
 -- Contraintes pour les tables déchargées

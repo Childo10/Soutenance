@@ -7,6 +7,10 @@ $data=[];
 
 if(isset($_SESSION['users']['0']['id_utilisateur']) and !empty($_SESSION['users']['0']['id_utilisateur'])){
     $id= $_SESSION['users']['0']['id_utilisateur'];
+}
+
+
+    
     
      
 
@@ -84,7 +88,7 @@ if(isset($_SESSION['users']['0']['id_utilisateur']) and !empty($_SESSION['users'
 	   
 
 }
-}
+
 //Traitement du changement de mot de passe
 
 if(isset($_POST['changer_mot_de_passe'])){
@@ -144,6 +148,8 @@ if(isset($_POST['changer_mot_de_passe'])){
         header('location:/soutenance/directeur_etudes/dashbord/profil');
     }
    
-}
+}//Traitement de désactivation de compte
+   
+
 
 

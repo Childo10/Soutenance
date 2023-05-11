@@ -160,10 +160,10 @@ $title='Profil du directeur des études';
             <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#suppression">Supprimer mon compte</button>
               
               
-              <form action="/soutenance/directeur_etudes/dashbord/edit_profil_traitement" class="form-group">
+              <form action="/soutenance/directeur_etudes/dashbord/desactivation_compte" method="Post" class="form-group">
 
               <div class="modal fade" id="desactivation" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="desactivationLabel" aria-hidden="true">
-                                        <div class="modal-dialog ">
+                                        <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="desactivationLabel">Désactivation de compte</h5>
@@ -172,17 +172,33 @@ $title='Profil du directeur des études';
                                                 </button>
                                             </div>
                                             <div class="modal-body">
+                                              <p class="text-center">La désactivation de votre compte entrainera une déconnexion automatique.
+                                                Pour vous reconnecter, vous allez devoir réactiver votre compte.
+                                              </p>
+                                              
+                                               <div>
+                                              <h6 class="mb-0 ">Entrer votre mot de passe</h6>
+                                              <input type="password" name="mdp"  class="  text-secondary form-control">
+                   
+                                              </div>
+                                           
+                                          
+
                                                
                                             </div>
                                             <div class="modal-footer">
-                                                <input type="submit" class="btn  btn-sm btn-danger" name="desactiver_compte"  value="Désactiver mon compte">
+                                                <input type="submit" class="btn  btn-sm btn-primary" name="desactiver_compte"  value="Valider">
+                                                <input type="submit" class="btn  btn-sm btn-danger"   value="Annuler">
                                             </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="modal fade" id="suppression" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="suppressionLabel" aria-hidden="true">
-                                        <div class="modal-dialog ">
+              </form>
+
+              <form action="/soutenance/directeur_etudes/dashbord/edit_profil_traitement" method="post">
+              <div class="modal fade" id="suppression" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="suppressionLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="#suppressionLabel">Suppression de compte</h5>
@@ -191,18 +207,27 @@ $title='Profil du directeur des études';
                                                 </button>
                                             </div>
                                             <div class="modal-body">
+
+                                            <p class="text-center">Attention,la suppression de votre compte entrainera une déconnexion automatique.
+                                                
+                                              </p>
+                                              
+                                               <div>
+                                              <h6 class="mb-0 ">Entrer votre mot de passe</h6>
+                                              <input type="password" name="mdp"  class="  text-secondary form-control">
+                   
+                                              </div>
+                                           
                                                
                                             </div>
                                             <div class="modal-footer">
-                                                <input type="submit" class="btn  btn-sm btn-danger" name="desactiver_compte"  value="Valider">
+                                            <input type="submit" class="btn  btn-sm btn-primary" name="suppression_compte"  value="Valider">
+                                                <input type="submit" class="btn  btn-sm btn-danger"   value="Annuler">
                                             </div>
                                             </div>
                                         </div>
                                     </div>
-            
-            
-
-              <input class="btn btn-sm btn-outline-danger " type="submit" name="supprimer_compte"  value="Supprimer mon compte">
+          
               </form>
              
             

@@ -114,7 +114,7 @@ $title='Paramètres du profil(Directeur des études)';
                                     }
                                     ?>
 
-<?php
+						<?php
                                     if(isset($_SESSION['err_mdp'])){ 
                                     ?>
                                     <div class="invalid-feedback">
@@ -134,6 +134,22 @@ $title='Paramètres du profil(Directeur des études)';
 							</div>
 						</div>
 					</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					
 				</div>
 			</div>

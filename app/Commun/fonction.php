@@ -83,6 +83,28 @@ function update_profil_in_db( int $id,  string $nom,  string $prenom,  string $e
     return $modifier_profil;
 }
 
+//Cette fonction permet de modifier desactiver l'utilisateur.
+function desactiver_utilisateur( int $id){
+    $desactiver_utilisateur="false";
+
+    $date=date("Y-m-d H:i:s");
+
+    $bdd=database_login();
+    $requete= "UPDATE utilisateur SET est_actif= :est_actif, mis_a_jour_le=:mis_a_jour_le  WHERE id_utilisateur= :id";
+    $requete_prepare= $bdd->prepare($requete);
+    $requete_execute= $requete_prepare->execute(array(
+        'id'=>$id,
+        'est_actif'=>0,
+        'mis_a_jour_le'=>$date
+    ));
+
+    if($requete_execute){
+        $desactiver_utilisateur= true;
+    }
+
+    return  $desactiver_utilisateur;
+}
+
 //Cette fonction permet de modifier le mot de passe de l'utilisateur dans la base de données
 function update_password_in_db( int $id,  string $password){
     $update_password="false";
