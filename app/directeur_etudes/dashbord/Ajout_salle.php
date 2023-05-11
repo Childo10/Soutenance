@@ -1,4 +1,5 @@
-<?php 
+<?php session_start();
+
     $title='Ajouter une salle';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>

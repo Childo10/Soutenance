@@ -1,4 +1,5 @@
 <?php 
+session_start();
     $title='Ajouter une matière';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>

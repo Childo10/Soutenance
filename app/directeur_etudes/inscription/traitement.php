@@ -120,12 +120,11 @@ if(empty($errors)){
         $objet = 'Validation de compte';
         $corps = buffer_html_file('../soutenance/app/directeur_etudes/inscription/message_mail.php');
         if(email($data["email"], $objet, $corps)){
-            die ('Envoyé');
-        } else {
-            die ('Non envoyé');
-        }
-        $_SESSION['success']="Inscription réussie! Vous pouvez vous connectez";
+            header('location:/soutenance/directeur_Etudes/inscription/validation');
+        } 
+        
         header('location:../connexion/index');
+       
     }
     else{
         header('location:/soutenance/directeur_Etudes/inscription/');

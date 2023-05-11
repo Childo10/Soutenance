@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
     $title='Ajouter un chapitre';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>

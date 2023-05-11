@@ -130,5 +130,7 @@
 
 <?php 
     unset($_SESSION['errors']);
+    unset($_SESSION["err_connexion"]);
+
     include('./app/Commun/dashbord_footer.php');
 ?>

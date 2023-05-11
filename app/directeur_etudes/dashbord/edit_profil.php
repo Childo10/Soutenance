@@ -89,15 +89,7 @@ $title='Paramètres du profil(Directeur des études)';
                                     ?>
 								</div>
 							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0 font-weight-bold">Type de profil</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" name="profil" class="form-control" value="<?=$_SESSION['users']['0']['profil']?>">
-								</div>
-							</div>
-
+							
 							<div class="row mb-3">
 								<div class="col-sm-3">
 									<h6 class="mb-0 font-weight-bold">Entrer votre mot de passe</h6>

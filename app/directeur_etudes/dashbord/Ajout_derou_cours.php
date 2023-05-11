@@ -1,4 +1,5 @@
 <?php 
+session_start();
     $title="Ajouter le déroulerement d'un cours";
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>

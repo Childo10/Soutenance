@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
     $title='Ajouter un emploi du temps';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
