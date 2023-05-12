@@ -137,7 +137,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="course-item">
-              <img src="/soutenance/public/images/course-1.jpg" class="img-fluid" alt="...">
+              <img src="<?= CHEMIN_PROJET ?>public/images/course-1.jpg" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Web Development</h4>
@@ -153,7 +153,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="course-item">
-              <img src="/soutenance/public/images/course-2.jpg" class="img-fluid" alt="...">
+              <img src="<?= CHEMIN_PROJET ?>public/images/course-2.jpg" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Marketing</h4>
@@ -168,7 +168,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="course-item">
-              <img src="/soutenance/public/images/course-3.jpg" class="img-fluid" alt="...">
+              <img src="<?= CHEMIN_PROJET ?>public/images/course-3.jpg" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Content</h4>

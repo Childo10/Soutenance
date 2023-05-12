@@ -59,7 +59,7 @@ session_start();
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_inscription">Liste des inscriptions</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_inscription">Liste des inscriptions</a>
                     </div>
                 </div>
             </div>

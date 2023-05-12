@@ -10,7 +10,7 @@ $title='Profil du directeur des études';
           <!-- Breadcrumb -->
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="/soutenance/directeur_etudes/dashbord/">Accueil</a></li>
+              <li class="breadcrumb-item"><a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/">Accueil</a></li>
               <li class="breadcrumb-item active" aria-current="page">Profil de l'utilisateur</li>
             </ol>
           </nav>
@@ -29,7 +29,7 @@ $title='Profil du directeur des études';
 
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="/soutenance/public/images/avatar.jpg" alt="Admin" class="rounded-circle" width="150">
+                    <img src="<?= CHEMIN_PROJET ?>public/images/avatar.jpg" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4 class="font-weight-bold"><?=$_SESSION['users']['0']['nom']?> <?=$_SESSION['users']['0']['prenom']?></h4>
                       <p class="text-secondary mb-1"><?=$_SESSION['users']['0']['profil']?></p>
@@ -86,7 +86,7 @@ $title='Profil du directeur des études';
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a  class="btn btn-warning btn-sm" href="/soutenance/directeur_etudes/dashbord/edit_profil">Modifier</a>
+                      <a  class="btn btn-warning btn-sm" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/edit_profil">Modifier</a>
                     </div>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ $title='Profil du directeur des études';
              <div class="col-md-6 mt-5  offset-3 ">
               <h5 class="font-weight-bold">Changer votre mot de passe</h5>
               <p>(Si vous changez votre mot de passe, vous serez déconnecter automatiquement)</p>
-                <form class="" method="post" action="/soutenance/directeur_etudes/dashbord/edit_profil_traitement">
+                <form class="" method="post" action="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/edit_profil_traitement">
                   <div class="row form-group">
                     <div class="col-sm-6">
                       <h6 class="mb-0 ">Mot de passe actuel</h6>
@@ -160,7 +160,7 @@ $title='Profil du directeur des études';
             <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#suppression">Supprimer mon compte</button>
               
               
-              <form action="/soutenance/directeur_etudes/dashbord/desactivation_compte" method="Post" class="form-group">
+              <form action="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/desactivation_compte" method="Post" class="form-group">
 
               <div class="modal fade" id="desactivation" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="desactivationLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
@@ -196,7 +196,7 @@ $title='Profil du directeur des études';
 
               </form>
 
-              <form action="/soutenance/directeur_etudes/dashbord/edit_profil_traitement" method="post">
+              <form action="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/edit_profil_traitement" method="post">
               <div class="modal fade" id="suppression" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="suppressionLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">

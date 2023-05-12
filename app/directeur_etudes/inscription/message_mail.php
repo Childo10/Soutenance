@@ -1,5 +1,8 @@
 
-<?php $url = 'localhost/soutenance/directeur_etudes/inscription/confirmation/{id_utilisateur}/{token}';
+<?php 
+session_start();
+
+$url = 'localhost'.CHEMIN_PROJET.'/directeur_etudes/inscription/confirmation/{id_utilisateur}/{token}';
 
 if (isset($_SESSION['validation_compte']) && !empty($_SESSION['validation_compte'])) {
     $id_utlilisateur = $_SESSION['validation_compte']['id_utilisateur'];

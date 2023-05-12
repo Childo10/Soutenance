@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title?? 'Mon site' ?></title>
-    <link rel="stylesheet" href="/soutenance/public/css/profil_style.css">
-    <link rel="stylesheet" href="/soutenance/public/css/sb-admin-2.min.css">
-    <link href="/soutenance/public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <title><?= $title ? $title  : 'Mon site'  ?></title>
+    <link rel="stylesheet" href="<?= CHEMIN_PROJET ?>public/css/profil_style.css">
+    <link rel="stylesheet" href="<?= CHEMIN_PROJET ?>public/css/sb-admin-2.min.css">
+    <link href="<?= CHEMIN_PROJET ?>public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
      <!-- Custom styles for this page -->
-     <link href="/soutenance/public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+     <link href="<?= CHEMIN_PROJET ?>public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"rel="stylesheet">
 </head>
@@ -53,8 +53,8 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_cours">Ajouter un cours</a>
-                        <a class="collapse-item" href="Liste_cours">Liste des cours</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_cours">Ajouter un cours</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_cours">Liste des cours</a>
                     </div>
                 </div>
             </li>
@@ -67,8 +67,8 @@
                 </a>
                 <div id="collapsecours" class="collapse" aria-labelledby="cours" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_derou_cours">Ajouter un dérouler cours</a>
-                        <a class="collapse-item" href="Liste_derou_cours">Liste des dérouler cours </a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_derou_cours">Ajouter un dérouler cours</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_derou_cours">Liste des dérouler cours </a>
                     </div>
                 </div>
             </li>
@@ -81,8 +81,8 @@
                 </a>
                 <div id="collapseAbsence" class="collapse" aria-labelledby="cours" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_absence">Ajouter une absence</a>
-                        <a class="collapse-item" href="Liste_absence">Liste des absences </a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence">Ajouter une absence</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_absence">Liste des absences </a>
                     </div>
                 </div>
             </li>

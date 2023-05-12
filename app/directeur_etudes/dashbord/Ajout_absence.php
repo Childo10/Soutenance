@@ -44,7 +44,7 @@
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_absence">Liste des absences</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_absence">Liste des absences</a>
                     </div>
                 </div>
             </div>

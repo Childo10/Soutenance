@@ -9,22 +9,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title?? 'Mon site' ?></title>
-    <link rel="stylesheet" href="/soutenance/public/css/profil_style.css">
-    <link rel="stylesheet" href="/soutenance/public/css/sb-admin-2.min.css">
-    <link href="/soutenance/public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="/soutenance/public/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/bootstrap2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <title><?= $title ? $title  : 'Mon site'  ?></title>
+    <link rel="stylesheet" href="<?= CHEMIN_PROJET ?>public/css/profil_style.css">
+    <link rel="stylesheet" href="<?= CHEMIN_PROJET ?>public/css/sb-admin-2.min.css">
+    <link href="<?= CHEMIN_PROJET ?>public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= CHEMIN_PROJET ?>public/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/bootstrap2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="/soutenance/public/css/style.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/css/style.css" rel="stylesheet">
      <!-- Custom styles for this page -->
-     <link href="/soutenance/public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+     <link href="<?= CHEMIN_PROJET ?>public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"rel="stylesheet">
 </head>
@@ -41,13 +41,13 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a  href="/soutenance/etudiant/pages/Accueil">Accueil</a></li>
-          <li><a href="/soutenance/etudiant/pages/professeur">Professeurs</a></li>
-          <li><a href="/soutenance/etudiant/pages/filieres">Filières</a></li>
-          <li><a href="/soutenance/etudiant/pages/a_propos">A propos</a></li>
-          <li><a href="/soutenance/etudiant/pages/contact">Contact</a></li>
-          <li><a href="/soutenance/etudiant/connexion/" class="active">Se connecter</a></li>
-          <a href="/soutenance/etudiant/dashbord/" class="get-started-btn btn-sm pr-3  text-white">Tableau de bord</a>
+          <li><a  href="<?= CHEMIN_PROJET ?>etudiant/pages/Accueil">Accueil</a></li>
+          <li><a href="<?= CHEMIN_PROJET ?>etudiant/pages/professeur">Professeurs</a></li>
+          <li><a href="<?= CHEMIN_PROJET ?>etudiant/pages/filieres">Filières</a></li>
+          <li><a href="<?= CHEMIN_PROJET ?>etudiant/pages/a_propos">A propos</a></li>
+          <li><a href="<?= CHEMIN_PROJET ?>etudiant/pages/contact">Contact</a></li>
+          <li><a href="<?= CHEMIN_PROJET ?>etudiant/connexion/" class="active">Se connecter</a></li>
+          <a href="<?= CHEMIN_PROJET ?>etudiant/dashbord/" class="get-started-btn btn-sm pr-3  text-white">Tableau de bord</a>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

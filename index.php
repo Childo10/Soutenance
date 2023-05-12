@@ -1,5 +1,14 @@
 <?php
 require 'vendor/autoload.php';
+define('CHEMIN_PROJET', '/soutenance/');
+define('DATABASE_HOST', 'localhost');
+define('DATABASE_NAME', 'gestion_emploi');
+define('DATABASE_USERNAME', 'root');
+define('DATABASE_PASSWORD', '');
+define('EMAIL_ADDRESS', 'childohouedanou1998@gmail.com ');
+define('EMAIL_PASSWORD', 'ylbdsjngxhbzfetz');
+
+
 
 $default_profile = "Etudiant";
 $default_profile_folder = "app/Etudiant/index.php";

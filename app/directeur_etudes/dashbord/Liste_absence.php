@@ -13,7 +13,7 @@ $title='Liste des absences';
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="Ajout_absence" type="button" class="btn btn-primary" >Ajouter une absence </a>
+        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence" type="button" class="btn btn-primary" >Ajouter une absence </a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -50,7 +50,7 @@ $title='Liste des absences';
                             <td>Edwige</td>
                             <td>Masculin</td>
                             <td>
-                                <a href="Modifier_absence" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_absence" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -64,22 +64,7 @@ $title='Liste des absences';
                             <td>Edwige</td>
                             <td>Masculin</td>
                             <td>
-                                <a href="Modifier_absence" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
-                            </td>
-                           
-                        </tr>
-
-
-                        <tr>
-                            <td>001544</td>
-                            <td>10/05/2022</td>
-                            <td>001547</td>
-                            <td>AGBO</td>
-                            <td>Edwige</td>
-                            <td>Masculin</td>
-                            <td>
-                                <a href="Modifier_absence" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_absence" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -94,7 +79,22 @@ $title='Liste des absences';
                             <td>Edwige</td>
                             <td>Masculin</td>
                             <td>
-                                <a href="Modifier_absence" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_absence" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
+                            </td>
+                           
+                        </tr>
+
+
+                        <tr>
+                            <td>001544</td>
+                            <td>10/05/2022</td>
+                            <td>001547</td>
+                            <td>AGBO</td>
+                            <td>Edwige</td>
+                            <td>Masculin</td>
+                            <td>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_absence" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            

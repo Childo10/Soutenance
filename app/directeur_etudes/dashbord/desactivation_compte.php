@@ -28,7 +28,7 @@ if(isset($_POST["desactiver_compte"])){
         if(check_password_exist($data['mdp'],$id)){
             if(desactiver_utilisateur($id)){
             session_destroy();
-            header("Location:/soutenance/directeur_etudes/connexion/index");
+            header("Location:".CHEMIN_PROJET."directeur_etudes/connexion/index");
             }
         }
     }

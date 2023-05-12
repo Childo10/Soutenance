@@ -17,16 +17,16 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="/soutenance/public/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/bootstrap2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/bootstrap2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="/soutenance/public/css/style.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -43,17 +43,17 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a  href="/soutenance/etudiant/pages/Accueil">Accueil</a></li>
-          <li><a href="/soutenance/etudiant/pages/professeur">Professeurs</a></li>
-          <li><a href="/soutenance/etudiant/pages/filieres">Filières</a></li>
-          <li><a href="/soutenance/etudiant/pages/a_propos">A propos</a></li>
-          <li><a href="/soutenance/etudiant/pages/contact">Contact</a></li>
-          <li><a href="/soutenance/etudiant/connexion/" class="active">Se connecter</a></li>
+          <li><a  href="<?= CHEMIN_PROJET ?>etudiant/pages/Accueil">Accueil</a></li>
+          <li><a href="<?= CHEMIN_PROJET ?>etudiant/pages/professeur">Professeurs</a></li>
+          <li><a href="<?= CHEMIN_PROJET ?>etudiant/pages/filieres">Filières</a></li>
+          <li><a href="<?= CHEMIN_PROJET ?>etudiant/pages/a_propos">A propos</a></li>
+          <li><a href="<?= CHEMIN_PROJET ?>etudiant/pages/contact">Contact</a></li>
+          <li><a href="<?= CHEMIN_PROJET ?>etudiant/connexion/" class="active">Se connecter</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="/soutenance/etudiant/dashbord/" class="get-started-btn">Tableau de bord</a>
+      <a href="<?= CHEMIN_PROJET ?>etudiant/dashbord/" class="get-started-btn">Tableau de bord</a>
 
     </div>
   </header><!-- End Header -->

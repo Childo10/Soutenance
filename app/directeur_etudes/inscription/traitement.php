@@ -119,15 +119,17 @@ if(empty($errors)){
 
         $objet = 'Validation de compte';
         $corps = buffer_html_file('../soutenance/app/directeur_etudes/inscription/message_mail.php');
-        if(email($data["email"], $objet, $corps)){
-            header('location:/soutenance/directeur_Etudes/inscription/validation');
+        if(send_email($data["email"], $objet, $corps)){
+            header('location:'.CHEMIN_PROJET.'directeur_Etudes/inscription');
+            $_SESSION['success']="Merci pour votre inscription, veuillez consulter votre boite email pour valider votre compte.";
+
         } 
-        
+
         header('location:../connexion/index');
        
     }
     else{
-        header('location:/soutenance/directeur_Etudes/inscription/');
+        header('location:'.CHEMIN_PROJET.'directeur_Etudes/inscription/');
     }
 
 
@@ -135,5 +137,5 @@ if(empty($errors)){
 //Si les informations de l'utilisateur sont incorrects, je le redirige vers la page d'inscription avec des messages d'erreurs 
 else{
     $_SESSION['errors']= $errors;
-   header('location:/soutenance/directeur_Etudes/inscription/');
+   header('location:'.CHEMIN_PROJET.'directeur_Etudes/inscription/');
 }

@@ -44,7 +44,7 @@
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_professeur">Liste des professeurs</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_professeur">Liste des professeurs</a>
                     </div>
                 </div>
             </div>

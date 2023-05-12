@@ -13,7 +13,7 @@ $title='Liste des matières';
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="Ajout_matiere" type="button" class="btn btn-primary" >Ajouter une matière</a>
+        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_matiere" type="button" class="btn btn-primary" >Ajouter une matière</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -88,15 +88,15 @@ $title='Liste des matières';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a href="Ajout_chapitre" type="button" class="btn btn-primary">Ajouter</a>
-                                                <a href="modifier_chapitre" type="button" class="btn btn-warning">Modifier</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_chapitre" type="button" class="btn btn-primary">Ajouter</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/modifier_chapitre" type="button" class="btn btn-warning">Modifier</a>
                                             </div>
                                             </div>
                                         </div>
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -150,15 +150,15 @@ $title='Liste des matières';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
-                                                <a href="modifier_chapitre.php" type="button" class="btn btn-warning" >Modifier</a>
+                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/modifier_chapitre.php" type="button" class="btn btn-warning" >Modifier</a>
                                             </div>
                                             </div>
                                         </div>
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -213,15 +213,15 @@ $title='Liste des matières';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
-                                                <a href="modifier_chapitre.php" type="button" class="btn btn-warning">Modifier</a>
+                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/modifier_chapitre.php" type="button" class="btn btn-warning">Modifier</a>
                                             </div>
                                             </div>
                                         </div>
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -276,15 +276,15 @@ $title='Liste des matières';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
-                                                <a href="modifier_chapitre.php" type="button" class="btn btn-warning">Modifier</a>
+                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/modifier_chapitre.php" type="button" class="btn btn-warning">Modifier</a>
                                             </div>
                                             </div>
                                         </div>
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            

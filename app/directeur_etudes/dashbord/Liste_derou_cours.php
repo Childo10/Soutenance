@@ -13,7 +13,7 @@ $title='Liste du déroulement des cours';
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="Ajout_derou_cours" type="button" class="btn btn-primary" >Ajouter un déroulement de cours</a>
+        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_derou_cours" type="button" class="btn btn-primary" >Ajouter un déroulement de cours</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -92,7 +92,7 @@ $title='Liste du déroulement des cours';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
+                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                             </div>
                                             </div>
@@ -100,7 +100,7 @@ $title='Liste du déroulement des cours';
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_derou_cours" type="button" class="btn btn-sm btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_derou_cours" type="button" class="btn btn-sm btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -158,7 +158,7 @@ $title='Liste du déroulement des cours';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
+                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                             </div>
                                             </div>
@@ -166,7 +166,7 @@ $title='Liste du déroulement des cours';
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -225,7 +225,7 @@ $title='Liste du déroulement des cours';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
+                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                             </div>
                                             </div>
@@ -233,7 +233,7 @@ $title='Liste du déroulement des cours';
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_derou_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_derou_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -292,7 +292,7 @@ $title='Liste du déroulement des cours';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
+                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                             </div>
                                             </div>
@@ -300,7 +300,7 @@ $title='Liste du déroulement des cours';
                                     </div> 
                             </td>
                             <td>
-                                <a href="Modifier_derou_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_derou_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            

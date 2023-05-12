@@ -64,7 +64,7 @@
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_salle">Liste des salles</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_salle">Liste des salles</a>
                     </div>
                 </div>
             </div>

@@ -22,14 +22,14 @@
  
 
   <!-- Vendor JS Files -->
-  <script src="/soutenance/public/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="/soutenance/public/vendor/aos/aos.js"></script>
-  <script src="/soutenance/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/soutenance/public/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="/soutenance/public/vendor/php-email-form/validate.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/vendor/aos/aos.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="/soutenance/public/js/main.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/js/main.js"></script>
   
 
 </body>

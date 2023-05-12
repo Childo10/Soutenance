@@ -53,7 +53,7 @@ session_start();
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_derou_cours">Liste du déroulement des cours</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_derou_cours">Liste du déroulement des cours</a>
                     </div>
                 </div>
             </div>

@@ -9,6 +9,8 @@
     if (isset($_SESSION['data']) && !empty($_SESSION['data'])){
         $data= $_SESSION['data'];
     }
+
+    
     
 ?>
 
@@ -23,6 +25,15 @@
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
+                    <?php
+                                    if(isset($_SESSION['success'])){ 
+                                    ?>
+                                    <div class="alert alert-primary">
+                                        <?=$_SESSION['success']?>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
                         <h1 class="h4 text-gray-900 mb-4">Créer un compte!</h1>
                     </div>
                     <form action="/soutenance/directeur_Etudes/inscription/traitement" method="post"  class="user" >
@@ -139,10 +150,10 @@
                     </form>
                     <hr>
                     <div class="text-center">
-                        <a class="small" href="/soutenance/directeur_etudes/mot_de_passe_oublie/">Mot de passe oublié?</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_etudes/mot_de_passe_oublie/">Mot de passe oublié?</a>
                     </div>
                     <div class="text-center">
-                        <a class="small" href="/soutenance/directeur_etudes/connexion/">Avez vous déja un compte? Connectez-vous!</a>
+                        <a class="small" href=" <?= CHEMIN_PROJET ?>directeur_etudes/connexion/">Avez vous déja un compte? Connectez-vous!</a>
                     </div>
                 </div>
             </div>

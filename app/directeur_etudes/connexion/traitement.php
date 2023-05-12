@@ -76,19 +76,19 @@ if(empty ($errors)){
                
         }
 
-             header('location:/soutenance/directeur_etudes/dashbord/index');
+             header('location:'.CHEMIN_PROJET.'directeur_etudes/dashbord/index');
         }
     
         else{
             $_SESSION["err_connexion"]="Email ou mot de passe incorrect, veuillez réesayer";
             
-            header('location:/soutenance/directeur_Etudes/connexion/');
+            header('location:'.CHEMIN_PROJET.'directeur_Etudes/connexion/');
         }
         
      }
      else{
         $_SESSION['errors']= $errors;
-        header('location:/soutenance/directeur_Etudes/connexion/');
+        header('location:'.CHEMIN_PROJET.'directeur_Etudes/connexion/');
      }    
 
 

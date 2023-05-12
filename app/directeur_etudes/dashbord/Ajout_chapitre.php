@@ -45,7 +45,7 @@ session_start();
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_chapitre">Liste des chapitres</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_chapitre">Liste des chapitres</a>
                     </div>
                 </div>
             </div>

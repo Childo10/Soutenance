@@ -13,7 +13,7 @@ $title='Liste des inscriptions';
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="Ajout_inscription" type="button" class="btn btn-primary" >Ajouter une inscription</a>
+        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_inscription" type="button" class="btn btn-primary" >Ajouter une inscription</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -90,7 +90,7 @@ $title='Liste des inscriptions';
                                     </div>
                             </td>
                             <td>
-                                <a href="Modifier_inscription" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_inscription" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="#" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -148,7 +148,7 @@ $title='Liste des inscriptions';
                                     </div>
                             </td>
                             <td>
-                                <a href="Modifier_inscription" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_inscription" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="#" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -206,7 +206,7 @@ $title='Liste des inscriptions';
                                     </div>
                             </td>
                             <td>
-                                <a href="Modifier_inscription" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_inscription" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="#" type="button" class="btn-sm  btn-circle btn-danger"><i class="fas fa-times-circle"></i></a>
                             </td>
                            

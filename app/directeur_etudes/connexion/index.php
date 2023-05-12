@@ -3,7 +3,7 @@
     include('./app/commun/fonction.php');
     //Si l'utilisateur est connecté, je le redirige vers le dashbord.
     if(isset($_SESSION['users']) and !empty($_SESSION['users'])){
-        header('location:/soutenance/directeur_etudes/dashbord/index');
+        header('location:'.CHEMIN_PROJET.'/directeur_etudes/dashbord/index');
     }
     
     
@@ -113,10 +113,11 @@
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="/soutenance/directeur_etudes/mot_de_passe_oublie/">Mot de passe oublié ?</a>
-                            </div>
+                            <a class="small" href="<?= CHEMIN_PROJET ?>directeur_etudes/mot_de_passe_oublie/">Mot de passe oublié ?</a>
+                                </div>
+                               
                             <div class="text-center">
-                                <a class="small" href="/soutenance/directeur_Etudes/inscription/">Créez un compte!</a>
+                                <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/inscription/">Créez un compte!</a>
                             </div>
                         </div>
                     </div>

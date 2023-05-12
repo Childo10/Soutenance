@@ -68,13 +68,13 @@ if(isset($_SESSION['users']['0']['id_utilisateur']) and !empty($_SESSION['users'
                     $_SESSION['users']=recup_udpate_profil($id);
                     
                    
-                    header('location:/soutenance/directeur_etudes/dashbord/profil');
+                    header('location:'.CHEMIN_PROJET.'directeur_etudes/dashbord/profil');
             }
       
            }
            else{
             $_SESSION['err_mdp']= $err_mdp = "Mot de passe incorrect, veuillez réessayer.";
-            header('location:/soutenance/directeur_etudes/dashbord/edit_profil');
+            header('location:'.CHEMIN_PROJET.'directeur_etudes/dashbord/edit_profil');
            }
 
             
@@ -82,7 +82,7 @@ if(isset($_SESSION['users']['0']['id_utilisateur']) and !empty($_SESSION['users'
         }
         else{
             $_SESSION['errors']= $errors;
-            header('location:/soutenance/directeur_etudes/dashbord/edit_profil');
+            header('location:'.CHEMIN_PROJET.'directeur_etudes/dashbord/edit_profil');
         }
 		
 	   
@@ -131,24 +131,24 @@ if(isset($_POST['changer_mot_de_passe'])){
         ));
         if($requete_execute){
             session_destroy();
-            header("Location:/soutenance/directeur_etudes/connexion/index");
+            header("Location:".CHEMIN_PROJET."directeur_etudes/connexion/index");
         }
             
            
         }
         else{
             $_SESSION['erreur']= 'Mot de passe incorrect, veuillez reéssayer';
-            header('location:/soutenance/directeur_etudes/dashbord/profil');
+            header('location:'.CHEMIN_PROJET.'directeur_etudes/dashbord/profil');
     
         }
     
     }
     else{
         $_SESSION['erreurs']= $erreurs;
-        header('location:/soutenance/directeur_etudes/dashbord/profil');
+        header('location:'.CHEMIN_PROJET.'directeur_etudes/dashbord/profil');
     }
    
-}//Traitement de désactivation de compte
+}
    
 
 

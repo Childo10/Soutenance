@@ -19,7 +19,7 @@
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="/soutenance/public/images/trainers/trainer-1.jpg" class="img-fluid" alt="">
+              <img src="<?= CHEMIN_PROJET ?>public/images/trainers/trainer-1.jpg" class="img-fluid" alt="">
               <div class="member-content">
                 <h4>Walter White</h4>
                 <span>Web Development</span>
@@ -33,7 +33,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="/soutenance/public/images/trainers/trainer-2.jpg" class="img-fluid" alt="">
+              <img src="<?= CHEMIN_PROJET ?>public/images/trainers/trainer-2.jpg" class="img-fluid" alt="">
               <div class="member-content">
                 <h4>Sarah Jhinson</h4>
                 <span>Marketing</span>
@@ -47,7 +47,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="/soutenance/public/images/trainers/trainer-3.jpg" class="img-fluid" alt="">
+              <img src="<?= CHEMIN_PROJET ?>public/images/trainers/trainer-3.jpg" class="img-fluid" alt="">
               <div class="member-content">
                 <h4>William Anderson</h4>
                 <span>Content</span>

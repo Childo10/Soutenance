@@ -11,29 +11,29 @@
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <link href="/soutenance/public/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="/soutenance/public/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="<?= CHEMIN_PROJET ?>public/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="<?= CHEMIN_PROJET ?>public/css/nucleo-svg.css" rel="stylesheet" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   
-  <link href="/soutenance/public/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/soutenance/public/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="/soutenance/public//vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public//vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="/soutenance/public/css/style.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/css/style.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
-  <link  href="/soutenance/public/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+  <link  href="<?= CHEMIN_PROJET ?>public/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
 
 </head>
 
@@ -100,14 +100,14 @@
 
 
 <!-- Vendor JS Files -->
-<script src="/soutenance/public/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="/soutenance/public/vendor/aos/aos.js"></script>
-<script src="/soutenance/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/soutenance/public/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="/soutenance/public/vendor/php-email-form/validate.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/aos/aos.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/php-email-form/validate.js"></script>
 
 <!-- Template Main JS File -->
-<script src="/soutenance/public/js/main.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/js/main.js"></script>
 
 
 </body>

@@ -10,7 +10,7 @@ function verifier_info($info){
 function database_login(){
     $bdd= "";
     try {
-        $bdd= new PDO('mysql:host=localhost; dbname=gestion_emploi; charset=utf8','root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd= new PDO('mysql:host=' .DATABASE_HOST. ';dbname=' .DATABASE_NAME. ';charset=utf8', DATABASE_USERNAME, DATABASE_PASSWORD);
     } 
     catch (Exception $e) {
         die('Erreur : '. $e->getMessage());
@@ -181,7 +181,7 @@ function est_connecter(){
      * @param string $body The body.
      * @return bool The result.
      */
-    function email(string $destination, string $subject, string $body): bool
+    function send_email(string $destination, string $subject, string $body): bool
     {
         // passing true in constructor enables exceptions in PHPMailer
         $mail = new PHPMailer(true);
@@ -199,13 +199,13 @@ function est_connecter(){
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->Username = 'childohouedanou1998@gmail.com';
-            $mail->Password = 'ylbdsjngxhbzfetz';
+            $mail->Username = EMAIL_ADDRESS;
+            $mail->Password = EMAIL_PASSWORD;
 
             // Sender and recipient settings
-            $mail->setFrom('childohouedanou1998@gmail.com', htmlspecialchars_decode('Education APP'));
+            $mail->setFrom(EMAIL_ADDRESS, htmlspecialchars_decode('Education APP'));
             $mail->addAddress($destination, 'UTILISATEUR');
-            $mail->addReplyTo('childohouedanou1998@gmail.com', htmlspecialchars_decode('Education APP'));
+            $mail->addReplyTo(EMAIL_ADDRESS, htmlspecialchars_decode('Education APP'));
 
             // Setting the email content
             $mail->IsHTML(true);

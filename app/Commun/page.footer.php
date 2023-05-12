@@ -26,28 +26,28 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="/soutenance/public/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="/soutenance/public/vendor/aos/aos.js"></script>
-<script src="/soutenance/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/soutenance/public/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="/soutenance/public/vendor/php-email-form/validate.js"></script>
-<script src="/soutenance/public/vendor/jquery/jquery.min.js"></script>
-<script src="/soutenance/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/aos/aos.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/php-email-form/validate.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/jquery/jquery.min.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-<script src="/soutenance/public/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-<script src="/soutenance/public/js/sb-admin-2.min.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/js/sb-admin-2.min.js"></script>
       <!-- Page level plugins -->
-<script src="/soutenance/public/vendor/datatables/jquery.dataTables.js"></script>
-<script src="/soutenance/public/vendor/datatables/dataTables.bootstrap4.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/datatables/jquery.dataTables.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendor/datatables/dataTables.bootstrap4.js"></script>
 
     <!-- Page level custom scripts -->
-<script src="/soutenance/public/js/demo/datatables-demo.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/js/demo/datatables-demo.js"></script>
 
 <!-- Template Main JS File -->
-<script src="/soutenance/public/js/main.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/js/main.js"></script>
 
 </body>
 

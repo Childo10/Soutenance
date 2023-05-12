@@ -12,7 +12,7 @@ $title='Paramètres du profil(Directeur des études)';
 <div class="container">
 		<div class="main-body">
 				<div class="col-lg-8 offset-md-2 offset-0">
-					<form class="card" method="post" action="/soutenance/directeur_etudes/dashbord/edit_profil_traitement">
+					<form class="card" method="post" action="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/edit_profil_traitement">
 					
 		 				<div class="card-header  bg-primary text-white">
 		 					<h5 class="card-title text-center">
@@ -126,21 +126,6 @@ $title='Paramètres du profil(Directeur des études)';
 							</div>
 						</div>
 					</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 					
 				</div>

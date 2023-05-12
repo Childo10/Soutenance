@@ -126,7 +126,7 @@ session_start();
 <?php
    }
    else{
-    header('location:/soutenance/directeur_etudes/connexion/index');
+    header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
    } 
     include('./app/Commun/dashbord_footer.php');
 ?>

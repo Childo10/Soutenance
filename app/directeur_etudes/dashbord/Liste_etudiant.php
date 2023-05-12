@@ -13,7 +13,7 @@ $title='Liste des étudiants';
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="Ajout_etudiant" type="button" class="btn btn-primary" >Ajouter un étudiant</a>
+        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_etudiant" type="button" class="btn btn-primary" >Ajouter un étudiant</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -44,7 +44,7 @@ $title='Liste des étudiants';
                             <td>Gbodja</td>
                             <td>Masculin</td>
                             <td>
-                                <a href="Modifier_etudiant" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_etudiant" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="#" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -56,20 +56,7 @@ $title='Liste des étudiants';
                             <td>Gbodja</td>
                             <td>Masculin</td>
                             <td>
-                                <a href="Modifier_etudiant" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="#" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
-                            </td>
-                           
-                        </tr>
-
-
-                        <tr>
-                            <td>001544</td>
-                            <td>Clément</td>
-                            <td>Gbodja</td>
-                            <td>Masculin</td>
-                            <td>
-                                <a href="Modifier_etudiant" type="button" class="btn-sm btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_etudiant" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="#" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -82,7 +69,20 @@ $title='Liste des étudiants';
                             <td>Gbodja</td>
                             <td>Masculin</td>
                             <td>
-                                <a href="Modifier_etudiant" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_etudiant" type="button" class="btn-sm btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="#" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
+                            </td>
+                           
+                        </tr>
+
+
+                        <tr>
+                            <td>001544</td>
+                            <td>Clément</td>
+                            <td>Gbodja</td>
+                            <td>Masculin</td>
+                            <td>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_etudiant" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="#" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
