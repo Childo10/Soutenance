@@ -1,10 +1,12 @@
 <?php
-session_start();
+
 include('./app/commun/fonction.php');
 $data=[];
 $errors=[];
 $_SESSION['data']=[];
 $_SESSION['success']="";
+$message_erreur_global = "";
+$message_success_global = "";
 
 
 //Je vérifie si les informations envoyés par le visiteur sont corrrects.
@@ -77,7 +79,7 @@ if(verifier_info($_POST["mot_de_passe"]) && verifier_info($_POST["repeter_mot_de
     $data['mot_de_passe']= sha1($_POST['mot_de_passe']);
     
 }
-$_SESSION['data']= $data;
+
 
 
 
@@ -89,53 +91,45 @@ $_SESSION['data']= $data;
 //Je vérifie si les informations entrés par léutilisateur sont corrects
 if(empty($errors)){
 
-    $bdd=database_login();
     $data['profil']= "Directeur des études";
-   
-    
+    $inscription = inscrire_utilisateur($data["nom"], $data["prenom"], $data["username"],$data["email"], $data["mot_de_passe"], $data["profil"]);
 
-
-    //Récupération des informations saisies par l'utilisateur dans la base de données
-    $req=$bdd->prepare('INSERT INTO utilisateur(nom, prenom, nom_utilisateur,email,mot_de_passe,profil)
-     VALUES (:nom, :prenom, :nom_utilisateur,  :email, :mot_de_passe, :profil)');
-    $req->execute(array(
-        'nom'=>$data['nom'],
-        'prenom'=>$data['prenom'],
-        'nom_utilisateur'=>$data['username'],
-        'email'=>$data['email'],
-        'mot_de_passe'=>$data['mot_de_passe'],
-        'profil'=>$data['profil']
+    if($inscription){
+        $token = uniqid("");
+        $id_utilisateur = recuperer_id_utilisateur_par_son_mail($data['email']);
+        if (!insertion_token($id_utilisateur, 'VALIDATION_COMPTE', $token)) {
+            $message_erreur_global = "Votre inscription s'est effectué avec succès mais une erreur est survenue lors de la génération de la clè de validation de votre compte. Veuillez contacter un administrateur.";
        
-    ));
-
-    if($req){
-         $_token = uniqid("");
-        $id_utilisateur = select_user_id($data['email'])[0]['id_utilisateur'];
-        if (insertion_token($id_utilisateur, 'VALIDATION_COMPTE', $_token)){
-            $_SESSION['validation_compte']=[];
-            $_SESSION['validation_compte']['id_utilisateur']=$id_utilisateur;
-            $_SESSION['validation_compte']['token']=recuperer_token($id_utilisateur)[0]['token'];
         }
+        else{
+            $objet = 'Validation de votre inscription';
+            ob_start(); // Démarre la temporisation de sortie
+            include 'app/directeur_etudes/inscription/message_mail.php'; // Inclut le fichier HTML dans le tampon
+            $template_mail = ob_get_contents(); // Récupère le contenu du tampon
+            ob_end_clean(); // Arrête et vide la temporisation de sortie
 
-        $objet = 'Validation de compte';
-        $corps = buffer_html_file('../soutenance/app/directeur_etudes/inscription/message_mail.php');
-        if(send_email($data["email"], $objet, $corps)){
-            header('location:'.CHEMIN_PROJET.'directeur_Etudes/inscription');
-            $_SESSION['success']="Merci pour votre inscription, veuillez consulter votre boite email pour valider votre compte.";
-
-        } 
-
-        header('location:../connexion/index');
-       
+            if (send_email($data["email"], $objet, $template_mail)) {
+                $message_success_global = "Votre inscription s'est effectuée avec succès. Veuillez consulter votre adresse mail pour valider votre compte.";
+                header('location: ' . CHEMIN_PROJET. 'directeur_etudes/inscription');
+            } else {
+                $message_erreur_global = "Votre inscription s'est effectuée avec succès mais une erreur est survenue lors de l'envoi du mail de validation de votre compte. Veuillez contacter un administrateur.";
+                header('location: ' . CHEMIN_PROJET. 'directeur_etudes/inscription');
+            }
+        }
     }
-    else{
-        header('location:'.CHEMIN_PROJET.'directeur_Etudes/inscription/');
+    
+    else {
+        $message_erreur_global = "Oups ! Une erreur s'est produite lors de l'enregistrement de l'utilisateur.";
+        header('location: ' . CHEMIN_PROJET . 'directeur_etudes/inscription');
     }
+    } else {
+        $_SESSION['data']= $data;
+        $_SESSION['errors'] = $errors;
+        header('location: ' . CHEMIN_PROJET . 'directeur_etudes/inscription');
+    }
+    $_SESSION['inscription-message-erreur-global'] = $message_erreur_global;
+    $_SESSION['inscription-message-success-global'] = $message_success_global;
+    header('location: ' . CHEMIN_PROJET. 'directeur_etudes/inscription');
 
 
-}
-//Si les informations de l'utilisateur sont incorrects, je le redirige vers la page d'inscription avec des messages d'erreurs 
-else{
-    $_SESSION['errors']= $errors;
-   header('location:'.CHEMIN_PROJET.'directeur_Etudes/inscription/');
-}
+    

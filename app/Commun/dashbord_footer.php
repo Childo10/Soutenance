@@ -7,6 +7,16 @@
                 </div>
             </footer>
             <!-- End of Footer -->
+            <script>
+  // Code JavaScript pour les papillons et le message
+  document.addEventListener("DOMContentLoaded", function(event) {
+    const alertMessage = document.querySelector(".alert-message");
+    setTimeout(function() {
+      alertMessage.classList.add("hide");
+    }, 3000);
+  });
+</script>
+
 
              <!-- Bootstrap core JavaScript-->
     <script src="<?= CHEMIN_PROJET ?>public/vendor/jquery/jquery.min.js"></script>

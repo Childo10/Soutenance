@@ -1,4 +1,5 @@
 <?php
+session_start();
 $params = explode('/', $_GET['p']);
 $profile = "Directeur_Etudes";
 $default_ressource = "connexion";

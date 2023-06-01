@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -15,16 +15,22 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 </head>
 
+
+
 <body id="page-top">
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
+  
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
+      
+
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= CHEMIN_PROJET ?>directeur_etudes/dashbord/index">
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-school"></i>
                 </div>
@@ -36,7 +42,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index">
+                <a class="nav-link" href="<?= CHEMIN_PROJET ?>directeur_etudes/dashbord/index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Tableau de bord</span></a>
             </li>
@@ -225,12 +231,12 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$_SESSION['users']['0']['nom']?> <?=$_SESSION['users']['0']['prenom']?> </span>
-                                <img class="img-profile rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$_SESSION['users']['nom']?> <?=$_SESSION['users']['prenom']?> </span>
+                                <img class="img-profile rounded-circle" src="<?= CHEMIN_PROJET ?>public/images/user.png">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="profil">
+                                <a class="dropdown-item" href="<?= CHEMIN_PROJET ?>directeur_etudes/profil/index">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profil
                                 </a>
@@ -270,3 +276,4 @@
                         </div>
                     </div>
                 </div>
+
