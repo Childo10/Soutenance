@@ -1,7 +1,4 @@
 <?php
-
-include './app/commum/fonction.php';
-
 $_SESSION['photo-erreurs'] = "";
 
 $_SESSION['donnees-utilisateur'] = [];

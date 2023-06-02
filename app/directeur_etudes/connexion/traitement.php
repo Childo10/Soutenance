@@ -1,5 +1,4 @@
 <?php
-include('./app/commun/fonction.php');
 $_SESSION['errors'] = [];
 $data = [];
 $errors = [];
@@ -74,7 +73,7 @@ if (empty($errors)) {
 
         header('location:' . CHEMIN_PROJET . 'directeur_etudes/dashbord/index');
     } else {
-        $_SESSION["err_connexion"] = "Email ou mot de passe incorrect, veuillez réesayer";
+        $_SESSION["erreur_connexion_global"] = "Email ou mot de passe incorrect, veuillez réesayer";
 
         header('location:' . CHEMIN_PROJET . 'directeur_Etudes/connexion/');
     }

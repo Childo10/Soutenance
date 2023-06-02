@@ -1,6 +1,4 @@
 
-
-include('./app/commun/fonction.php');
 $errors=[];
 $erreurs=[];
 $data=[];

@@ -243,7 +243,7 @@ if (isset($_SESSION['data']) && !empty($_SESSION['data'])) {
 
     <?php
     unset($_SESSION['errors']);
-    //unset($_SESSION['inscription-message-erreur-global']);
+    unset($_SESSION['inscription-message-erreur-global']);
     unset($_SESSION['inscription-message-success-global']);
 
     include('./app/Commun/dashbord_footer.php');

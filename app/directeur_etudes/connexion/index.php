@@ -1,5 +1,4 @@
 <?php
-include('./app/commun/fonction.php');
 //Si l'utilisateur est connecté, je le redirige vers le dashbord.
 if (isset($_SESSION['users']) and !empty($_SESSION['users'])) {
     header('location:' . CHEMIN_PROJET . '/directeur_etudes/dashbord/index');
@@ -36,15 +35,109 @@ if (isset($_COOKIE['data_users']) and !empty($_COOKIE['data_users'])) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="p-5">
-                                <?php
-                                if (isset($_SESSION['success']) && !empty($_SESSION['success'])) {
+
+                            <!----message d'erreur de connexion----->
+                            <?php
+                                if (!empty($_SESSION["erreur_connexion_global"]) or !empty($_SESSION["erreur_connexion_global"])) {
                                 ?>
-                                    <div class="bg-primary text-white">
-                                        <?= $_SESSION['success'] ?>
+                                    <div class="alert-message">
+                                        <?= $_SESSION["erreur_connexion_global"]?>
                                     </div>
+                                    <style>
+                                        .alert-message {
+                                            position: fixed;
+                                            top: 30px;
+                                            left: 50%;
+                                            transform: translateX(-50%);
+                                            padding: 10px 20px;
+                                            background-color: red;
+                                            color: white;
+                                            font-size: 16px;
+                                            border-radius: 5px;
+                                            opacity: 1;
+                                            transition: opacity 0.4s ease-in-out;
+                                        }
+
+
+
+                                        .hide {
+                                            opacity: 0;
+                                        }
+                                    </style>
+
                                 <?php
                                 }
                                 ?>
+
+
+                                <!----message de succès global après validation de mail----->
+                                <?php
+                                if (!empty($_SESSION['validation-compte-message-success']) or !empty($_SESSION['validation-compte-message-success'])) {
+                                ?>
+                                    <div class="alert-message">
+                                        <?= $_SESSION['validation-compte-message-success'] ?>
+                                    </div>
+                                    <style>
+                                        .alert-message {
+                                            position: fixed;
+                                            top: 30px;
+                                            left: 50%;
+                                            transform: translateX(-50%);
+                                            padding: 10px 20px;
+                                            background-color: #007bff;
+                                            color: white;
+                                            font-size: 16px;
+                                            border-radius: 5px;
+                                            opacity: 1;
+                                            transition: opacity 0.4s ease-in-out;
+                                        }
+
+
+
+                                        .hide {
+                                            opacity: 0;
+                                        }
+                                    </style>
+
+                                <?php
+                                }
+                                ?>
+
+
+                                <!----message d'erreur global après validation de mail----->
+                                <?php
+                                if (!empty($_SESSION['validation-compte-message-erreur']) or !empty($_SESSION['validation-compte-message-erreur'])) {
+                                ?>
+                                    <div class="alert-message">
+                                        <?= $_SESSION['validation-compte-message-erreur'] ?>
+                                    </div>
+                                    <style>
+                                        .alert-message {
+                                            position: fixed;
+                                            top: 30px;
+                                            left: 50%;
+                                            transform: translateX(-50%);
+                                            padding: 10px 20px;
+                                            background-color: red;
+                                            color: white;
+                                            font-size: 16px;
+                                            border-radius: 5px;
+                                            opacity: 1;
+                                            transition: opacity 0.4s ease-in-out;
+                                        }
+
+
+
+                                        .hide {
+                                            opacity: 0;
+                                        }
+                                    </style>
+
+                                <?php
+                                }
+                                ?>
+
+
                                 <div class="text-center">
 
                                     <h1 class="h4 text-gray-900 mb-4">Bienvenue!</h1>
@@ -59,7 +152,7 @@ if (isset($_COOKIE['data_users']) and !empty($_COOKIE['data_users'])) {
                                                                                                                             unset($_SESSION['data']);
                                                                                                                         } else {
                                                                                                                             echo '';
-                                                                                                                        } ?>" class="form-control <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : '' ?> <?= isset($_SESSION["err_connexion"]) ? 'is-invalid' : '' ?>">
+                                                                                                                        } ?>" class="form-control <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : '' ?> <?= isset($_SESSION["erreur_connexion_global"]) ? 'is-invalid' : '' ?>">
 
                                         <?php
                                         if (isset($_SESSION['errors']['email'])) {
@@ -79,7 +172,7 @@ if (isset($_COOKIE['data_users']) and !empty($_COOKIE['data_users'])) {
                                                                                                 echo $data['mot_de_passe'];
                                                                                             } else {
                                                                                                 echo '';
-                                                                                            } ?>" class="form-control <?= isset($_SESSION['errors']['mot_de_passe']) ? 'is-invalid' : '' ?> <?= isset($_SESSION["err_connexion"]) ? 'is-invalid' : '' ?>" id="mot_de_passe">
+                                                                                            } ?>" class="form-control <?= isset($_SESSION['errors']['mot_de_passe']) ? 'is-invalid' : '' ?> <?= isset($_SESSION["erreur_connexion_global"]) ? 'is-invalid' : '' ?>" id="mot_de_passe">
                                         <?php
                                         if (isset($_SESSION['errors']['mot_de_passe'])) {
                                         ?>
@@ -90,15 +183,6 @@ if (isset($_COOKIE['data_users']) and !empty($_COOKIE['data_users'])) {
                                         }
                                         ?>
 
-                                        <?php
-                                        if (isset($_SESSION["err_connexion"])) {
-                                        ?>
-                                            <div class="invalid-feedback">
-                                                <?= $_SESSION["err_connexion"] ?>
-                                            </div>
-                                        <?php
-                                        }
-                                        ?>
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
@@ -136,7 +220,10 @@ if (isset($_COOKIE['data_users']) and !empty($_COOKIE['data_users'])) {
 
     <?php
     unset($_SESSION['errors']);
-    unset($_SESSION["err_connexion"]);
+    unset($_SESSION["erreur_connexion_global"]);
+    unset($_SESSION["validation-compte-message-erreur"]);
+    unset($_SESSION["validation-compte-message-success"]);
+
 
     include('./app/Commun/dashbord_footer.php');
     ?>

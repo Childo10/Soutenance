@@ -1,16 +1,16 @@
 <?php 
+ $id_utilisateur  = $params[3];
+ $token  = $params[4];
 
-include('./app/commun/fonction.php');
-
-
-if (check_id_utilisateur_exist_in_db($params[3], $params[4], "VALIDATION_COMPTE", 1, 0)){
-    if(maj($params[3]) && maj1($params[3])){
-        $_SESSION['success'] = "Inscription éffectué avec succès. Vous pouvez vous connecter";
-        header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
+if (check_token_exist($id_utilisateur ,  $token , "VALIDATION_COMPTE")){
+    if(suppression_logique_token($id_utilisateur) && activation_compte_utilisateur($id_utilisateur)){
+        $_SESSION['validation-compte-message-success'] = "Votre compte est a présent validé. Vous pouvez vous connecter";
     }else{
-        echo 'échec';
+        $_SESSION['validation-compte-message-erreur'] = "Oups!!! Une erreur s'est produite lors de la validation du compte. Veuillez contacter un administrateur";
     }
+
+}else{
+    $_SESSION['validation-compte-message-erreur'] = "Oups!!! la clé d'activation de compte est introuvable. Veuillez contacter un administrateur";
 }
-else{
-    echo 'échec';
-}
+
+header('location: ' . CHEMIN_PROJET. 'directeur_etudes/connexion/');

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('./app/commun/fonction.php');
 $params = explode('/', $_GET['p']);
 $profile = "Directeur_Etudes";
 $default_ressource = "connexion";

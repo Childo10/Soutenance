@@ -1,6 +1,6 @@
 
 <?php 
-$url = $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["HTTP_HOST"] . CHEMIN_PROJET . 'membre/inscription/confirmation/{id_utilisateur}/{token}';
+$url = $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["HTTP_HOST"] . CHEMIN_PROJET . 'directeur_etudes/inscription/confirmation/{id_utilisateur}/{token}';
 
 $url = str_replace('{id_utilisateur}', $id_utilisateur, $url);
 
