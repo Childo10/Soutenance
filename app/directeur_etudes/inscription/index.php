@@ -84,7 +84,7 @@ if (isset($_SESSION['data']) && !empty($_SESSION['data'])) {
                                             font-size: 17px;
                                             border-radius: 5px;
                                             opacity: 1;
-                                            transition: opacity 0.4s ease-in-out;
+                                            transition: opacity 3s ease-in-out;
                                         }
 
 

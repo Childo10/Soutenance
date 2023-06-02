@@ -13,7 +13,7 @@
     const alertMessage = document.querySelector(".alert-message");
     setTimeout(function() {
       alertMessage.classList.add("hide");
-    }, 3000);
+    }, 8000);
   });
 </script>
 

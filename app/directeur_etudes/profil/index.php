@@ -174,6 +174,28 @@ if (!empty($_SESSION['erreur']) OR !empty($_SESSION['erreurs'])) {
               </div>
             </div>
 
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0 font-weight-bold">Adresse</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <?= $_SESSION['users']['date_de_naissance'] ?>
+              </div>
+            </div>
+
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0 font-weight-bold">Téléphone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <?= $_SESSION['users']['date_de_naissance'] ?>
+              </div>
+            </div>
+
+
+
 
 
 

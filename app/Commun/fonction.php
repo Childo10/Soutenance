@@ -705,7 +705,7 @@ function check_id_utilisateur_exist_in_db(int $user_id, string $type, string $to
 function mettre_a_jour_informations_utilisateur(int $id, string $nom = null, string $prenom = null, string $sexe = null, string $date_naissance = null, string $telephone = null, string $avatar = null, string $nom_utilisateur = null, string $adresse = null): bool
 {
 	$mettre_a_jour_informations_utilisateur = false;
-	$data = ["id" => $id, "maj_le" => date("Y-m-d H:i:s")];
+	$data = ["id_utilisateur" => $id, "	mis_a_jour_le" => date("Y-m-d H:i:s")];
 	$db = database_login();
 	if (is_object($db)) {
 		$request = "UPDATE utilisateur SET";
@@ -749,9 +749,9 @@ function mettre_a_jour_informations_utilisateur(int $id, string $nom = null, str
 			$data["nom_utilisateur"] = $nom_utilisateur;
 		}
 
-		$request .= " maj_le = :maj_le";
+		$request .= "	mis_a_jour_le= :	mis_a_jour_le";
 
-		$request .= " WHERE id= :id";
+		$request .= " WHERE id_utilisateur= :id";
 
 		//die(var_dump($request, $data));
 
@@ -774,9 +774,9 @@ function recup_mettre_a_jour_informations_utilisateur($id): bool
 
 	$recup = false;
 
-	$db = connect_db();
+	$db = database_login();
 
-	$request_recupere = $db->prepare('SELECT  id, nom, prenom, sexe, date_naissance, email, telephone, nom_utilisateur, avatar, adresse, profil FROM utilisateur WHERE id= :id');
+	$request_recupere = $db->prepare('SELECT  id_utilisateur, nom, prenom, sexe, date_naissance, email, telephone, nom_utilisateur, avatar, adresse, profil FROM utilisateur WHERE id_utilisateur= :id');
 
 	$resultat = $request_recupere->execute(array(
 		'id' => $id,
@@ -787,7 +787,7 @@ function recup_mettre_a_jour_informations_utilisateur($id): bool
 
 		$data = $request_recupere->fetch(PDO::FETCH_ASSOC);
 
-		$_SESSION['utilisateur_connecter'] = $data;
+		$_SESSION['users'] = $data;
 
 		$recup = true;
 	}
@@ -806,7 +806,7 @@ function check_token_exist(int $user_id, string $token, string $type, int $est_a
 
 	$check = false;
 
-	$db = connect_db();
+	$db = database_login();
 
 	if (is_object($db)) {
 
@@ -845,7 +845,7 @@ function suppression_logique_token(int $id_utilisateur): bool
 
 	$date = date("Y-m-d H:i:s");
 
-	$db = connect_db();
+	$db = database_login();
 
 	$request = "UPDATE token SET est_actif = :est_actif, est_supprimer = :est_supprimer, maj_le = :maj_le WHERE user_id= :id_utilisateur";
 
@@ -878,9 +878,9 @@ function activation_compte_utilisateur(int $id_utilisateur): bool
 
 	$date = date("Y-m-d H:i:s");
 
-	$db = connect_db();
+	$db = database_login();
 
-	$request = "UPDATE utilisateur SET est_actif = :est_actif, maj_le = :maj_le WHERE id= :id_utilisateur";
+	$request = "UPDATE utilisateur SET est_actif = :est_actif, 	mis_a_jour_le = :mis_a_jour_le WHERE id_utilisateur= :id_utilisateur";
 
 	$request_prepare = $db->prepare($request);
 

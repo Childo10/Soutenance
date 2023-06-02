@@ -73,7 +73,7 @@ if (empty($errors)) {
 
         header('location:' . CHEMIN_PROJET . 'directeur_etudes/dashbord/index');
     } else {
-        $_SESSION["erreur_connexion_global"] = "Email ou mot de passe incorrect, veuillez réesayer";
+        $_SESSION["erreur_connexion_global"] = "Email ou mot de passe incorrect, veuillez réessayer";
 
         header('location:' . CHEMIN_PROJET . 'directeur_Etudes/connexion/');
     }

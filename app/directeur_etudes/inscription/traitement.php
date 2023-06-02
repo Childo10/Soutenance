@@ -1,6 +1,5 @@
 <?php
 
-include('./app/commun/fonction.php');
 $data=[];
 $errors=[];
 $_SESSION['data']=[];
