@@ -43,7 +43,7 @@ $url = str_replace('{token}', $token, $url);
             display: inline-block;
             padding: 10px 20px;
             background-color: #1E90FF;
-            color: #FFFFFF;
+            color: white;
             border-radius: 5px;
             text-decoration: none;
             cursor: pointer;
@@ -51,7 +51,7 @@ $url = str_replace('{token}', $token, $url);
         }
         .button:hover {
             background-color: #f6f9ff;
-            color: #FFFFFF;
+            color: #1E90FF;
             border: 1px solid #1E90FF;
         }
     </style>

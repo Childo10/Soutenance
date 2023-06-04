@@ -33,7 +33,7 @@ function verifier_info(string $info){
 function database_login(){
     $bdd= "";
     try {
-        $bdd= new PDO('mysql:host=' .DATABASE_HOST. ';dbname=' .DATABASE_NAME. ';charset=utf8', DATABASE_USERNAME, DATABASE_PASSWORD);
+        $bdd= new PDO('mysql:host=' .DATABASE_HOST. ';dbname=' .DATABASE_NAME. ';charset=utf8', DATABASE_USERNAME, DATABASE_PASSWORD,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     } 
     catch (Exception $e) {
         die('Erreur : '. $e->getMessage());
@@ -270,7 +270,9 @@ function recuperer_donnees_utilisateur($email, $mot_de_passe, $profil, int $est_
    
     //Si la requete est exécuté, je récupère les données dans le tableau data_users
     if($resultat){
+        die(var_dump($resultat));
        $data_users=$req_recup->fetch();
+      
 }  
 return $data_users;
 }
@@ -293,19 +295,19 @@ function est_connecter(){
      * @param string $email Email de l'utilisateur.
      * @param string $mot_de_passe Mot de passe de l'utilisateur.
      * @param string $profil Profil de l'utilisateur.
-     * @return bool les données de l'utilisateur.
+     * @return bool $inscription
  */
-function inscrire_utilisateur($nom, $prenom, $nom_utilisateur,$email,$mot_de_passe,$profil) {
+/*function inscrire_utilisateur($nom, $prenom, $nom_utilisateur,$email,$mot_de_passe,$profil) {
 
     $inscription=false;
 
     $bdd=database_login();
 
     //Récupération des informations saisies par l'utilisateur dans la base de données
-$req=$bdd->prepare('INSERT INTO utilisateur(nom, prenom, nom_utilisateur,email,mot_de_passe,profil)
+$req=$bdd->prepare('INSERT INTO utilisateur (nom, prenom, nom_utilisateur,email,mot_de_passe,profil)
 VALUES (:nom, :prenom, :nom_utilisateur,  :email, :mot_de_passe, :profil)');
-$req->execute(array(
-   'nom'=>$nom,
+$reqexecute=$req->execute(array(
+    'nom'=>$nom,
    'prenom'=>$prenom,
    'nom_utilisateur'=>$nom_utilisateur,
    'email'=>$email,
@@ -314,13 +316,53 @@ $req->execute(array(
   
 ));
 
-if($req){
+//die(var_dump($reqexecute));
+if($reqexecute){
+   
     $inscription=true;
 }
 
 return $inscription;
 
+}*/
+
+function inscrire_utilisateur(string $nom, string $prenom, string $nom_utilisateur, string $email, string $mot_de_passe, string $profil)
+{
+	$inscription = false;
+
+	$db = database_login();
+
+	if (!is_null($db)) {
+
+		// Ecriture de la requête
+		$requette = 'INSERT INTO utilisateur (nom, prenom, nom_utilisateur,email,mot_de_passe,profil) VALUES (:nom, :prenom, :nom_utilisateur,  :email, :mot_de_passe, :profil)';
+
+		// Préparation
+		$inserer_utilisateur = $db->prepare($requette);
+
+		// Exécution ! La requête est maintenant en base de données
+		$resultat = $inserer_utilisateur->execute([
+            'nom'=>$nom,
+            'prenom'=>$prenom,
+            'nom_utilisateur'=>$nom_utilisateur,
+            'email'=>$email,
+            'mot_de_passe'=> sha1($mot_de_passe) ,
+            'profil'=>$profil
+           
+		]);
+
+        if($resultat){
+            $inscription = true;
+        }
+
+        return $inscription;
+		
+
+	}
+
 }
+
+
 
 
 
@@ -417,7 +459,7 @@ function recuperer_id_utilisateur_par_son_mail(string $email): int
 
 	if (is_object($db)) {
 
-		$request = "SELECT id FROM utilisateur WHERE email=:email";
+		$request = "SELECT id_utilisateur FROM utilisateur WHERE email=:email";
 
 		$request_prepare = $db->prepare($request);
 
@@ -428,7 +470,7 @@ function recuperer_id_utilisateur_par_son_mail(string $email): int
 		if ($request_execution) {
 			$data = $request_prepare->fetch(PDO::FETCH_ASSOC);
 			if (isset($data) && !empty($data) && is_array($data)) {
-				$user_id = $data["id"];
+				$user_id = $data["id_utilisateur"];
 			}
 		}
 	}
@@ -888,7 +930,7 @@ function activation_compte_utilisateur(int $id_utilisateur): bool
 		[
 			'id_utilisateur' => $id_utilisateur,
 			'est_actif' => 1,
-			'maj_le' => $date
+			'mis_a_jour_le' => $date
 		]
 	);
 

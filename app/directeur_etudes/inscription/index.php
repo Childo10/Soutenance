@@ -44,7 +44,7 @@ if (isset($_SESSION['data']) && !empty($_SESSION['data'])) {
                                         .alert-message {
                                             position: fixed;
                                             top: 30px;
-                                            left: 60%;
+                                            left: 50%;
                                             transform: translateX(-50%);
                                             padding: 10px 20px;
                                             background-color: #007bff;

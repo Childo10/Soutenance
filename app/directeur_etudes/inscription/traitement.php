@@ -91,11 +91,12 @@ if(verifier_info($_POST["mot_de_passe"]) && verifier_info($_POST["repeter_mot_de
 if(empty($errors)){
 
     $data['profil']= "Directeur des études";
-    $inscription = inscrire_utilisateur($data["nom"], $data["prenom"], $data["username"],$data["email"], $data["mot_de_passe"], $data["profil"]);
+     //inscrire_utilisateur($data["nom"], $data["prenom"], $data["username"],$data["email"], $data["mot_de_passe"], $data["profil"]);
 
-    if($inscription){
+    if (inscrire_utilisateur($data["nom"], $data["prenom"], $data["username"],$data["email"], $data["mot_de_passe"], $data["profil"]  )){
         $token = uniqid("");
         $id_utilisateur = recuperer_id_utilisateur_par_son_mail($data['email']);
+        
         if (!insertion_token($id_utilisateur, 'VALIDATION_COMPTE', $token)) {
             $message_erreur_global = "Votre inscription s'est effectué avec succès mais une erreur est survenue lors de la génération de la clè de validation de votre compte. Veuillez contacter un administrateur.";
        
@@ -128,7 +129,7 @@ if(empty($errors)){
     }
     $_SESSION['inscription-message-erreur-global'] = $message_erreur_global;
     $_SESSION['inscription-message-success-global'] = $message_success_global;
-    header('location: ' . CHEMIN_PROJET. 'directeur_etudes/inscription');
+   header('location: ' . CHEMIN_PROJET. 'directeur_etudes/inscription');
 
 
     
