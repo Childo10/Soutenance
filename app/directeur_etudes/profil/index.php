@@ -1,8 +1,6 @@
 <?php
 $title = 'Profil du directeur des études';
 include('./app/Commun/dashbord_siedbar_DE.php');
-$_SESSION['users']['sexe'] = "";
-$_SESSION['users']['date_de_naissance'] = "";
 
 
 ?>
@@ -160,7 +158,7 @@ if (!empty($_SESSION['erreur']) OR !empty($_SESSION['erreurs'])) {
                 <h6 class="mb-0 font-weight-bold">Sexe</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= $_SESSION['users']['sexe'] ?>
+                <?= !empty($_SESSION['users']['sexe']) ? $_SESSION['users']['sexe'] : ''?>
               </div>
             </div>
 
@@ -170,7 +168,7 @@ if (!empty($_SESSION['erreur']) OR !empty($_SESSION['erreurs'])) {
                 <h6 class="mb-0 font-weight-bold">Date de naissance</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= $_SESSION['users']['date_de_naissance'] ?>
+                <?= !empty($_SESSION['users']['date_naissance']) ? $_SESSION['users']['date_naissance'] : ''?>
               </div>
             </div>
 
@@ -180,7 +178,7 @@ if (!empty($_SESSION['erreur']) OR !empty($_SESSION['erreurs'])) {
                 <h6 class="mb-0 font-weight-bold">Adresse</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= $_SESSION['users']['date_de_naissance'] ?>
+                <?= !empty($_SESSION['users']['adresse']) ? $_SESSION['users']['adresse'] : ''?>
               </div>
             </div>
 
@@ -190,7 +188,7 @@ if (!empty($_SESSION['erreur']) OR !empty($_SESSION['erreurs'])) {
                 <h6 class="mb-0 font-weight-bold">Téléphone</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= $_SESSION['users']['date_de_naissance'] ?>
+                <?= !empty($_SESSION['users']['telephone']) ? $_SESSION['users']['telephone'] : ''?>
               </div>
             </div>
 

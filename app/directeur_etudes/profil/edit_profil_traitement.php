@@ -129,13 +129,13 @@ if (empty($errors)) {
             
               )) {
 
-    die();
-            if (recup_mettre_a_jour_informations_utilisateur($data['id_utilisateur'])) {
+  
+             recup_mettre_a_jour_informations_utilisateur($data['id_utilisateur']);
                 $message_success_global = "Modification(s) effectuée(s) avec succès";
                 $_SESSION['message_global'] = $message_success_global;
     
                 header('location:' . CHEMIN_PROJET . 'directeur_etudes/profil/index');
-            } 
+        
         }
     }
     else {
