@@ -64,7 +64,7 @@ $message_success_global = "";
     //}
 
     if (verifier_info($_POST['nom_utilisateur'])) {
-        $data['nom_utilisateur'] = htmlentities($_POST['nom_utilisateur']);
+        $new_data['nom_utilisateur'] = htmlentities($_POST['nom_utilisateur']);
     } else {
         $errors['nom_utilisateur'] = "Le champs nom_utilisateur est vide, veuillez le remplir";
     }
@@ -112,23 +112,24 @@ $message_success_global = "";
         header('location:' . CHEMIN_PROJET . 'directeur_etudes/profil/edit_profil');
     }*/
 
-if (empty($errors["mot_de_passe"])) {
+if (empty($errors)) {
     //die(var_dump($data['id_utilisateur']));
     
 
     if(check_password_exist(($new_data['mot_de_passe']), $data['id_utilisateur'])){
-        if (mettre_a_jour_informations_utilisateur(
+        if (mettre_a_jour_donnees_utilisateur(
             $data['id_utilisateur'],
             $new_data['nom'],
             $new_data['prenom'],
-            $new_data['sexe'],
-            $new_data['date_naissance'],
-            $new_data['telephone'],
-            $new_data['avatar'],
             $new_data['nom_utilisateur'],
-            $new_data['adresse']
-        )) {
-    
+            $new_data['adresse'],
+            $new_data['date_naissance'],
+            $new_data['sexe'],
+            $new_data['telephone']
+            
+              )) {
+
+    die();
             if (recup_mettre_a_jour_informations_utilisateur($data['id_utilisateur'])) {
                 $message_success_global = "Modification(s) effectuée(s) avec succès";
                 $_SESSION['message_global'] = $message_success_global;

@@ -130,19 +130,26 @@ function check_email_exist(string $email){
      *Elle prend en paramètre  l'id, le nom, le prenom, l'email et le nom de l'utilisateur
      *Elle retourne un booléen.
 */
-function update_profil_in_db( int $id,  string $nom,  string $prenom, string $username){
+function mettre_a_jour_donnees_utilisateur( int $id,  string $nom,  string $prenom, string $username, string $adresse, $date_naissance,$sexe, int $telephone){
     $update_profil="false";
 
     $date=date("Y-m-d H:i:s");
 
     $bdd=database_login();
-    $requete= "UPDATE utilisateur SET nom= :nom, prenom=:prenom, nom_utilisateur=:nom_utilisateur, mis_a_jour_le=:mis_a_jour_le WHERE id_utilisateur= :id";
+    $requete= "UPDATE utilisateur SET nom= :nom, prenom=:prenom, nom_utilisateur=:nom_utilisateur, adresse =:adresse,
+     date_naissance =:date_naissance, sexe =:sexe, telephone =:telephone  
+     , mis_a_jour_le=:mis_a_jour_le WHERE id_utilisateur= :id";
+
     $requete_prepare= $bdd->prepare($requete);
     $requete_execute= $requete_prepare->execute(array(
         'id'=>$id,
         'nom'=>$nom,
         'prenom'=>$prenom,
         'nom_utilisateur'=>$username,
+        'adresse'=>$adresse,
+        'date_naissance'=>$date_naissance,
+        'sexe'=>$sexe,
+        'telephone'=>$telephone,
         'mis_a_jour_le'=>$date
     ));
 
@@ -253,28 +260,35 @@ function recup_update_profil($id){
      * @param string  $profil Profil de l'utilisateur.
      * @param int $est_actif  Champ est_actif de l'utilisateur.
      * @param int $est_supprimer Champ est_supprimer de l'utilisateur.
-     * @return array les données de l'utilisateur.
+     * @return array $data les données de l'utilisateur.
  */
-function recuperer_donnees_utilisateur($email, $mot_de_passe, $profil, int $est_actif, int $est_supprimer){
-    $data_users=[];
-    $bdd=database_login();
-    $req_recup=$bdd->prepare('SELECT id_utilisateur,nom,prenom,nom_utilisateur,profil,email FROM utilisateur WHERE email= :email AND mot_de_passe= :mot_de_passe AND profil= :profil AND est_actif= :est_actif AND est_supprimer= :est_supprimer');
-    $resultat=$req_recup->execute(array(
-       'email'=> $email,
-       'mot_de_passe'=> sha1($mot_de_passe),
-       'profil'=>$profil,
-       'est_actif'=>$est_actif,
-       'est_supprimer'=>$est_supprimer
 
-    ));
-   
-    //Si la requete est exécuté, je récupère les données dans le tableau data_users
-    if($resultat){
-        die(var_dump($resultat));
-       $data_users=$req_recup->fetch();
-      
-}  
-return $data_users;
+
+
+function recuperer_donnees_utilisateur(string $email, string $mot_de_passe, string $profil, int $est_actif )
+{
+
+	$data = [];
+
+	$db = database_login();
+
+	$requette = "SELECT id_utilisateur, nom, prenom, sexe, email, nom_utilisateur, avatar, profil, telephone, adresse, date_naissance FROM utilisateur WHERE email = :email and mot_de_passe = :mot_de_passe and profil = :profil and est_actif = :est_actif ";
+
+	$verifier_nom_utilisateur = $db->prepare($requette);
+
+	$resultat = $verifier_nom_utilisateur->execute([
+		'email' => $email,
+		'mot_de_passe' => sha1($mot_de_passe),
+		'profil' => $profil,
+		'est_actif' => $est_actif,
+	]);
+  
+	if ($resultat) {
+		$data= $verifier_nom_utilisateur->fetch();
+
+
+	}
+	return $data;
 }
 
 function est_connecter(){
@@ -297,35 +311,6 @@ function est_connecter(){
      * @param string $profil Profil de l'utilisateur.
      * @return bool $inscription
  */
-/*function inscrire_utilisateur($nom, $prenom, $nom_utilisateur,$email,$mot_de_passe,$profil) {
-
-    $inscription=false;
-
-    $bdd=database_login();
-
-    //Récupération des informations saisies par l'utilisateur dans la base de données
-$req=$bdd->prepare('INSERT INTO utilisateur (nom, prenom, nom_utilisateur,email,mot_de_passe,profil)
-VALUES (:nom, :prenom, :nom_utilisateur,  :email, :mot_de_passe, :profil)');
-$reqexecute=$req->execute(array(
-    'nom'=>$nom,
-   'prenom'=>$prenom,
-   'nom_utilisateur'=>$nom_utilisateur,
-   'email'=>$email,
-   'mot_de_passe'=>$mot_de_passe,
-   'profil'=>$profil
-  
-));
-
-//die(var_dump($reqexecute));
-if($reqexecute){
-   
-    $inscription=true;
-}
-
-return $inscription;
-
-}*/
-
 function inscrire_utilisateur(string $nom, string $prenom, string $nom_utilisateur, string $email, string $mot_de_passe, string $profil)
 {
 	$inscription = false;

@@ -113,9 +113,9 @@ if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['i
 						<div class="col-sm-9 text-secondary">
 
 							<select name="sexe" id="sexe" class="form-control">
-								<option value="france">Masculin</option>
-								<option value="espagne">Féminin</option>
-								<option value="espagne">Autre</option>
+								<option value="Masculin ">Masculin</option>
+								<option value="Féminin ">Féminin</option>
+								<option value="Autre ">Autre</option>
 							</select>
 
 							<?php

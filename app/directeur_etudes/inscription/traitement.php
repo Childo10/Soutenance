@@ -75,7 +75,7 @@ if ((isset($_POST["repeter_mot_de_passe"]) && !empty($_POST["repeter_mot_de_pass
 }
 
 if(verifier_info($_POST["mot_de_passe"]) && verifier_info($_POST["repeter_mot_de_passe"]) && strlen(($_POST["mot_de_passe"])) >= 8 && strlen(($_POST["repeter_mot_de_passe"])) >= 8 && $_POST["repeter_mot_de_passe"] == $_POST["mot_de_passe"]){
-    $data['mot_de_passe']= sha1($_POST['mot_de_passe']);
+    $data['mot_de_passe']=($_POST['mot_de_passe']);
     
 }
 
