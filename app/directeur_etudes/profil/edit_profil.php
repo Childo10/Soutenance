@@ -119,10 +119,10 @@ if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['i
 							</select>
 
 							<?php
-							if (isset($_SESSION['errors']['email'])) {
+							if (isset($_SESSION['errors']['sexe'])) {
 							?>
 								<div class="invalid-feedback">
-									<?= $_SESSION['errors']['email'] ?>
+									<?= $_SESSION['errors']['sexe'] ?>
 								</div>
 							<?php
 							}
@@ -135,12 +135,12 @@ if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['i
 							<h6 class="mb-0 font-weight-bold">Date de naissance</h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
-							<input type="date" name="date_naissance" class="form-control <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : '' ?>"  value="<?= !empty($_SESSION['users']['date_naissance']) ? $_SESSION['users']['date_naissance'] : ''?>">
+							<input type="date" name="date_naissance" class="form-control <?= isset($_SESSION['errors']['date_naissance']) ? 'is-invalid' : '' ?>"  value="<?= !empty($_SESSION['users']['date_naissance']) ? $_SESSION['users']['date_naissance'] : ''?>">
 							<?php
-							if (isset($_SESSION['errors']['email'])) {
+							if (isset($_SESSION['errors']['date_naissance'])) {
 							?>
 								<div class="invalid-feedback">
-									<?= $_SESSION['errors']['email'] ?>
+									<?= $_SESSION['errors']['date_naissance'] ?>
 								</div>
 							<?php
 							}
@@ -153,12 +153,12 @@ if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['i
 							<h6 class="mb-0 font-weight-bold">Adresse</h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
-							<input type="text" name="adresse" class="form-control <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : '' ?>" value="<?= !empty($_SESSION['users']['adresse']) ? $_SESSION['users']['adresse'] : ''?>">
+							<input type="text" name="adresse" class="form-control <?= isset($_SESSION['errors']['adresse']) ? 'is-invalid' : '' ?>" value="<?= !empty($_SESSION['users']['adresse']) ? $_SESSION['users']['adresse'] : ''?>">
 							<?php
-							if (isset($_SESSION['errors']['email'])) {
+							if (isset($_SESSION['errors']['adresse'])) {
 							?>
 								<div class="invalid-feedback">
-									<?= $_SESSION['errors']['email'] ?>
+									<?= $_SESSION['errors']['adresse'] ?>
 								</div>
 							<?php
 							}
@@ -171,12 +171,12 @@ if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['i
 							<h6 class="mb-0 font-weight-bold">Téléphone</h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
-							<input type="number" name="telephone" class="form-control <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : '' ?>" value="<?= !empty($_SESSION['users']['telephone']) ? $_SESSION['users']['telephone'] : ''?>">
+							<input type="number" name="telephone" class="form-control <?= isset($_SESSION['errors']['telephone']) ? 'is-invalid' : '' ?>" value="<?= !empty($_SESSION['users']['telephone']) ? $_SESSION['users']['telephone'] : ''?>">
 							<?php
-							if (isset($_SESSION['errors']['email'])) {
+							if (isset($_SESSION['errors']['telephone'])) {
 							?>
 								<div class="invalid-feedback">
-									<?= $_SESSION['errors']['email'] ?>
+									<?= $_SESSION['errors']['telephone'] ?>
 								</div>
 							<?php
 							}

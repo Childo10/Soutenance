@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 12 mai 2023 à 09:57
+-- Généré le : mar. 06 juin 2023 à 13:11
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -276,7 +276,7 @@ CREATE TABLE IF NOT EXISTS `token` (
   `creer_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `maj_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -290,10 +290,9 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `sexe` varchar(255) DEFAULT NULL,
-  `date_de_naissance` date DEFAULT NULL,
   `email` varchar(255) NOT NULL,
-  `mot_de_passe` varchar(255) DEFAULT NULL,
-  `est_actif` int(11) DEFAULT '0',
+  `mot_de_passe` varchar(255) NOT NULL,
+  `est_actif` int(11) NOT NULL DEFAULT '0',
   `profil` varchar(255) DEFAULT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `creer_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -301,8 +300,11 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mis_a_jour_le` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `email_valide` varchar(255) DEFAULT NULL,
   `nom_utilisateur` varchar(255) DEFAULT NULL,
+  `adresse` varchar(255) DEFAULT NULL,
+  `telephone` int(11) DEFAULT NULL,
+  `date_naissance` date DEFAULT NULL,
   PRIMARY KEY (`id_utilisateur`)
-) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
 
 --
 -- Contraintes pour les tables déchargées

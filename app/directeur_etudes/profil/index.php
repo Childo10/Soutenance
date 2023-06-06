@@ -94,7 +94,7 @@ if (!empty($_SESSION['erreur']) OR !empty($_SESSION['erreurs'])) {
               <img src="<?= CHEMIN_PROJET ?>public/images/user.png" alt="Admin" class="rounded-circle" width="150">
               <form class="mt-3" method="post" enctype="multipart/form-data" action="<?= CHEMIN_PROJET ?>directeur_Etudes/edit_profil_traitement">
 
-                <input class="btn btn-outline-danger btn-sm " type="file" value="Importer un fichier">
+                <input class="btn btn-outline-danger btn-sm " type="" value="Importer un fichier">
                 <input class="btn btn-outline-primary btn-sm  mt-md-1 mt-lg-0" type="submit" value="Mettre à jour">
 
               </form>
