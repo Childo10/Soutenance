@@ -1,6 +1,6 @@
 <?php
 require 'vendor/autoload.php';
-define('CHEMIN_PROJET', '/soutenance/');
+define('CHEMIN_PROJET', '/stage/gestion-emploi-du-temps/');
 define('DATABASE_HOST', 'localhost');
 define('DATABASE_NAME', 'gestion_emploi');
 define('DATABASE_USERNAME', 'root');
