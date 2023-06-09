@@ -13,7 +13,7 @@ Pré-requis :
 
 - Importer le ficher de la base de données situé dans le dossier : base_de_donnees/gestion_emploi.sql.
 
-- Configurer la constante PROJECT dans le fichier index.php a la racine du projet en spécifiant le path de votre projet a partir du répertoire web. 
+- Configurer la constante CHEMIN_PROJET dans le fichier index.php a la racine du projet en spécifiant le path de votre projet a partir du répertoire web. 
 Exemple : C:\wamp64\www\soutenance. Ma constante PROJECT aura comme valeur : /soutenance/
 
 - Configurer les constantes DATABASE_NAME, DATABASE_USERNAME, DATABASE_PASSWORD dans le fichier index.php a la racine du projet en spécifiant les informations de la base de données.
