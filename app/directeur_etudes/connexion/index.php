@@ -142,7 +142,7 @@ if (isset($_COOKIE['data_users']) and !empty($_COOKIE['data_users'])) {
 
                                     <h1 class="h4 text-gray-900 mb-4">Bienvenue!</h1>
                                 </div>
-                                <form action="traitement" method="post" class="user">
+                                <form action="<?= CHEMIN_PROJET ?>directeur_etudes/connexion/traitement" method="post" class="user">
                                     <div class="form-group">
                                         <label for="email">Entrer votre email</label>
                                         <input type="email" name="email" id="email" aria-describedby="emailHelp" value="<?php if (isset($data['email']) && !empty($data['email'])) {

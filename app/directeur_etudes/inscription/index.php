@@ -104,7 +104,7 @@ if (isset($_SESSION['data']) && !empty($_SESSION['data'])) {
 
                                 <h1 class="h4 text-gray-900 mb-4">Créer un compte!</h1>
                             </div>
-                            <form action="/soutenance/directeur_Etudes/inscription/traitement" method="post" class="user">
+                            <form action="<?= CHEMIN_PROJET ?>directeur_Etudes/inscription/traitement" method="post" class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <label for="nom">Nom<span class="text-danger">(*)</span></label>
