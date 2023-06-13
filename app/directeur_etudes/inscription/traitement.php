@@ -43,12 +43,19 @@ else{
 
 
 
-if (verifier_info($_POST['email'])){
+if (!isset($_POST['terms_condition'])){
+    $errors['terms_condition'] = "<p>Veuillez accepter les termes et conditions!</p>";
+}
+
+
+
+
+if (verifier_info($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ){
     if(check_email_exist($_POST['email'])){
         $errors['email']="<p> Désolé,cet adresse email existe déjà <p>";
     }
     else{
-        $data['email']= filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+        $data['email']= htmlentities($_POST['email']);
        
     }
 }
@@ -87,7 +94,7 @@ if(verifier_info($_POST["mot_de_passe"]) && verifier_info($_POST["repeter_mot_de
 
 
 
-//Je vérifie si les informations entrés par léutilisateur sont corrects
+//Je vérifie si les informations entrées par l'utilisateur sont correctes
 if(empty($errors)){
 
     $data['profil']= "Directeur des études";

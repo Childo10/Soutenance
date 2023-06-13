@@ -107,7 +107,7 @@ if (isset($_SESSION['data']) && !empty($_SESSION['data'])) {
                             <form action="<?= CHEMIN_PROJET ?>directeur_Etudes/inscription/traitement" method="post" class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label for="nom">Nom<span class="text-danger">(*)</span></label>
+                                        <label for="nom">Nom <span class="text-danger">(*)</span></label>
                                         <input type="text" value="<?php if (isset($data['nom']) && !empty($data['nom'])) {
                                                                         echo $data['nom'];
                                                                     } else {
@@ -181,7 +181,7 @@ if (isset($_SESSION['data']) && !empty($_SESSION['data'])) {
 
                                 <div class="form-group row">
                                     <div class="col-sm-6">
-                                        <label for="mot_de_passe"> <span class="text-danger">(*)</span> Mot de passe</label>
+                                        <label for="mot_de_passe">Mot de passe <span class="text-danger">(*)</span> </label>
                                         <input type="password" class="form-control <?= isset($_SESSION['errors']['mot_de_passe']) ? 'is-invalid' : '' ?>" name="mot_de_passe" id="mot_de_passe">
                                         <?php
                                         if (isset($_SESSION['errors']['mot_de_passe'])) {
@@ -212,9 +212,17 @@ if (isset($_SESSION['data']) && !empty($_SESSION['data'])) {
 
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox small">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                                        <label class="custom-control-label" for="customCheck">Accepter les conditions et les politiques d'utilisations
-                                        </label>
+                                        <input type="checkbox" class="custom-control-input <?= isset($_SESSION['errors']['terms_condition']) ? 'is-invalid' : '' ?> " name="terms_condition" id="customCheck">
+                                        <label class="custom-control-label" for="customCheck">Accepter les conditions et les politiques d'utilisations</label>
+                                        <?php
+                                        if (isset($_SESSION['errors']['terms_condition'])) {
+                                        ?>
+                                            <div class="invalid-feedback">
+                                                <?= $_SESSION['errors']['terms_condition'] ?>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
 

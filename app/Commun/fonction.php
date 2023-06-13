@@ -194,6 +194,39 @@ function desactiver_utilisateur(int $id)
     return  $desactiver_utilisateur;
 }
 
+
+/**
+ * .3++++++
+ * 
+ *desactiver_utilisateur
+
+
+ *Elle permet de  desactiver l'utilisateur.
+ * @param int $id Id de l'utilisateur.
+ * @return bool le resultat.
+ */
+function supprimer_utilisateur(int $id)
+{
+    $supprimer_utilisateur = "false";
+
+    $date = date("Y-m-d H:i:s");
+
+    $bdd = database_login();
+    $requete = "UPDATE utilisateur SET est_supprimer= :est_supfprimer, mis_a_jour_le=:mis_a_jour_le  WHERE id_utilisateur= :id";
+    $requete_prepare = $bdd->prepare($requete);
+    $requete_execute = $requete_prepare->execute(array(
+        'id' => $id,
+        'est_supprimer' => 1,
+        'mis_a_jour_le' => $date
+    ));
+
+    if ($requete_execute) {
+        $supprimer_utilisateur = true;
+    }
+
+    return $supprimer_utilisateur;
+}
+
 /**
  * .3++++++
  * 
@@ -241,14 +274,14 @@ function update_password_in_db(int $id,  string $password)
  * @return array $data les données de l'utilisateur.
  */
 
-function recuperer_donnees_utilisateur(string $email, string $mot_de_passe, string $profil, int $est_actif)
+function recuperer_donnees_utilisateur(string $email, string $mot_de_passe, string $profil, int $est_actif,int $est_supprimer)
 {
 
     $data = [];
 
     $db = database_login();
 
-    $requette = "SELECT id_utilisateur, nom, prenom, sexe, email, nom_utilisateur, avatar, profil, telephone, adresse, date_naissance FROM utilisateur WHERE email = :email and mot_de_passe = :mot_de_passe and profil = :profil and est_actif = :est_actif ";
+    $requette = "SELECT id_utilisateur, nom, prenom, sexe, email, nom_utilisateur, avatar, profil, telephone, adresse, date_naissance FROM utilisateur WHERE email = :email and mot_de_passe = :mot_de_passe and profil = :profil and est_actif = :est_actif and est_supprimer = :est_supprimer ";
 
     $verifier_nom_utilisateur = $db->prepare($requette);
 
@@ -257,6 +290,7 @@ function recuperer_donnees_utilisateur(string $email, string $mot_de_passe, stri
         'mot_de_passe' => sha1($mot_de_passe),
         'profil' => $profil,
         'est_actif' => $est_actif,
+        'est_supprimer' => $est_supprimer,
     ]);
 
     if ($resultat) {
