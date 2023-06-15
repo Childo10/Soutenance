@@ -22,11 +22,11 @@
  
 
   <!-- Vendor JS Files -->
-  <script src="<?= CHEMIN_PROJET ?>public/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="<?= CHEMIN_PROJET ?>public/vendor/aos/aos.js"></script>
-  <script src="<?= CHEMIN_PROJET ?>public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?= CHEMIN_PROJET ?>public/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="<?= CHEMIN_PROJET ?>public/vendor/php-email-form/validate.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/vendors/purecounter/purecounter_vanilla.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/vendors/aos/aos.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/vendors/swiper/swiper-bundle.min.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/vendors/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="<?= CHEMIN_PROJET ?>public/js/main.js"></script>

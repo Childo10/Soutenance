@@ -1,6 +1,6 @@
  <?php
     //Si l'utilisateur est connecté, je le redirige vers le dashbord.
-    if (isset($_SESSION['users']) and !empty($_SESSION['users'])) {
+    if (isset($_SESSION['users_DE']) and !empty($_SESSION['users_DE'])) {
         header('location:' . CHEMIN_PROJET . '/directeur_etudes/dashbord/index');
     }
 
@@ -17,8 +17,8 @@
         $data = $_SESSION['data'];
     }
 
-    if (isset($_COOKIE['data_users']) and !empty($_COOKIE['data_users'])) {
-        $users_mail = json_decode($_COOKIE['data_users']);
+    if (isset($_COOKIE['data_users_DE']) and !empty($_COOKIE['data_users_DE'])) {
+        $users_mail = json_decode($_COOKIE['data_users_DE']);
     }
 
     ?>

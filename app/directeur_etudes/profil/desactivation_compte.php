@@ -3,9 +3,9 @@ $errors = [];
 $erreur_global ="";
 $data = [];
 
-if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['id_utilisateur'])) {
-    //die($_SESSION['users']['id_utilisateur']);
-    $id = $_SESSION['users']['id_utilisateur'];
+if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_DE']['id_utilisateur'])) {
+    //die($_SESSION['users_DE']['id_utilisateur']);
+    $id = $_SESSION['users_DE']['id_utilisateur'];
 }
 
 
@@ -31,7 +31,7 @@ if (empty($errors)){
         //die(var_dump($data['mdp']));
         if (desactiver_utilisateur($id)) {
             session_destroy();
-            header("Location:" . CHEMIN_PROJET . "directeur_etudes/connexion/index");
+            header("Location:" . CHEMIN_PROJET . "directeur_etudes/connexion/");
         }
         else{
             $erreur_global= "Echec lors de la désactivation de votre compte!";

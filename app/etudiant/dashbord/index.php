@@ -12,19 +12,19 @@
     <title><?= $title ? $title  : 'Mon site'  ?></title>
     <link rel="stylesheet" href="<?= CHEMIN_PROJET ?>public/css/profil_style.css">
     <link rel="stylesheet" href="<?= CHEMIN_PROJET ?>public/css/sb-admin-2.min.css">
-    <link href="<?= CHEMIN_PROJET ?>public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="<?= CHEMIN_PROJET ?>public/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/aos/aos.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/bootstrap2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="<?= CHEMIN_PROJET ?>public/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= CHEMIN_PROJET ?>public/vendors/animate.css/animate.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/aos/aos.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/bootstrap2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="<?= CHEMIN_PROJET ?>public/css/style.css" rel="stylesheet">
      <!-- Custom styles for this page -->
-     <link href="<?= CHEMIN_PROJET ?>public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+     <link href="<?= CHEMIN_PROJET ?>public/vendors/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"rel="stylesheet">
 </head>

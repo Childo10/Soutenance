@@ -23,7 +23,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/">
             <div class="sidebar-brand-icon">
                 <i class="fas fa-school"></i>
             </div>
@@ -35,7 +35,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index">
+            <a class="nav-link" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Tableau de bord</span></a>
         </li>
@@ -54,8 +54,8 @@
                 <div id="collapseProfesseur" class="collapse" aria-labelledby="headingProfesseur"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_professeur">Ajouter un professeur</a>
-                        <a class="collapse-item" href="Liste_professeur">Liste des professeurs</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Ajout_professeur">Ajouter un professeur</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Liste_professeur">Liste des professeurs</a>
                     </div>
                 </div>
             </li>
@@ -69,8 +69,8 @@
                 <div id="collapseEtudiant" class="collapse" aria-labelledby="headingEtudiant"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_etudiant">Ajouter un étudiant</a>
-                        <a class="collapse-item" href="Liste_etudiant">Liste des étudiants</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Ajout_etudiant">Ajouter un étudiant</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Liste_etudiant">Liste des étudiants</a>
                     </div>
                 </div>
             </li>
@@ -89,8 +89,8 @@
                 </a>
                 <div id="collapsefiliere" class="collapse" aria-labelledby="headingfiliere" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_filiere">Ajouter une filière</a>
-                        <a class="collapse-item" href="Liste_filiere">Liste des filières</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Ajout_filiere">Ajouter une filière</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Liste_filiere">Liste des filières</a>
                     </div>
                 </div>
             </li>
@@ -103,8 +103,8 @@
                 </a>
                 <div id="collapsematiere" class="collapse" aria-labelledby="matiere" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_matiere">Ajouter une matière</a>
-                        <a class="collapse-item" href="Liste_matiere">Liste des matières</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Ajout_matiere">Ajouter une matière</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Liste_matiere">Liste des matières</a>
                     </div>
                 </div>
             </li>
@@ -116,8 +116,8 @@
                 </a>
                 <div id="collapseChapitre" class="collapse" aria-labelledby="cours" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_chapitre">Ajouter un chapitre</a>
-                        <a class="collapse-item" href="Liste_chapitre">Liste des chapitres</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Ajout_chapitre">Ajouter un chapitre</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Liste_chapitre">Liste des chapitres</a>
                     </div>
                 </div>
             </li>
@@ -133,8 +133,8 @@
                 </a>
                 <div id="collapsesalle" class="collapse" aria-labelledby="salle" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_salle">Ajouter une salle</a>
-                        <a class="collapse-item" href="Liste_salle">Liste salles </a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Ajout_salle">Ajouter une salle</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/Liste_salle">Liste salles </a>
                     </div>
                 </div>
             </li>
@@ -146,8 +146,6 @@
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
-
-
     </ul>
     <!-- End of Sidebar -->
      <!-- Content Wrapper -->
@@ -291,14 +289,14 @@
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"> Ariane Dossou</span>
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <?=$_SESSION['users_SDG']['nom']?> <?=$_SESSION['users_SDG']['prenom']?></span>
                     <img class="img-profile rounded-circle"
-                        src="https://bootdey.com/img/Content/avatar/avatar8.png">
+                        src="<?= CHEMIN_PROJET ?>public/images/user.png">
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="profil">
+                    <a class="dropdown-item" href="<?= CHEMIN_PROJET ?>secretaire_dg/profil/">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profil
                     </a>
@@ -334,7 +332,7 @@ aria-hidden="true">
     <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à mettre fin à votre session en cours.</div>
     <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Retour</button>
-        <a class="btn btn-primary" href="connexion">Déconnexion</a>
+        <a class="btn btn-primary" href="<?= CHEMIN_PROJET ?>secretaire_dg/dashbord/deconnexion">Déconnexion</a>
     </div>
 </div>
 </div>

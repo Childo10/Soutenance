@@ -1,6 +1,6 @@
 <?php
 session_start();
-session_destroy();
+unset($_SESSION['users_DE']);
 header("Location:".CHEMIN_PROJET."directeur_etudes/connexion/index");
 
 ?>

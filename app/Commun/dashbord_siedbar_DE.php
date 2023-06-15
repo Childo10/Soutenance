@@ -104,8 +104,8 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_cours">Ajouter un cours</a>
-                        <a class="collapse-item" href="Liste_cours">Liste des cours</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_cours">Ajouter un cours</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_cours">Liste des cours</a>
                     </div>
                 </div>
             </li>
@@ -117,8 +117,8 @@
                 </a>
                 <div id="collapsefiliere" class="collapse" aria-labelledby="headingfiliere" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_filiere">Ajouter une filière</a>
-                        <a class="collapse-item" href="Liste_filiere">Liste des filières</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_filiere">Ajouter une filière</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_filiere">Liste des filières</a>
                     </div>
                 </div>
             </li>
@@ -130,8 +130,8 @@
                 </a>
                 <div id="collapsematiere" class="collapse" aria-labelledby="matiere" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_matiere">Ajouter une matière</a>
-                        <a class="collapse-item" href="Liste_matiere">Liste des matières</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_matiere">Ajouter une matière</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_matiere">Liste des matières</a>
                     </div>
                 </div>
             </li>
@@ -144,8 +144,8 @@
                 </a>
                 <div id="collapsecours" class="collapse" aria-labelledby="cours" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_derou_cours">Ajouter un dérouler cours</a>
-                        <a class="collapse-item" href="Liste_derou_cours">Liste des dérouler cours </a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_derou_cours">Ajouter un dérouler cours</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_derou_cours">Liste des dérouler cours </a>
                     </div>
                 </div>
             </li>
@@ -157,8 +157,8 @@
                 </a>
                 <div id="collapseAbsence" class="collapse" aria-labelledby="cours" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_absence">Ajouter une absence</a>
-                        <a class="collapse-item" href="Liste_absence">Liste des absences </a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence">Ajouter une absence</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_absence">Liste des absences </a>
                     </div>
                 </div>
             </li>
@@ -170,8 +170,8 @@
                 </a>
                 <div id="collapseChapitre" class="collapse" aria-labelledby="cours" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_chapitre">Ajouter un chapitre</a>
-                        <a class="collapse-item" href="Liste_chapitre">Liste des chapitres</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_chapitre">Ajouter un chapitre</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_chapitre">Liste des chapitres</a>
                     </div>
                 </div>
             </li>
@@ -186,8 +186,8 @@
                 </a>
                 <div id="collapsesalle" class="collapse" aria-labelledby="salle" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_salle">Ajouter une salle</a>
-                        <a class="collapse-item" href="Liste_salle">Liste salles </a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_salle">Ajouter une salle</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_salle">Liste salles </a>
                     </div>
                 </div>
             </li>
@@ -231,12 +231,12 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$_SESSION['users']['nom']?> <?=$_SESSION['users']['prenom']?> </span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$_SESSION['users_DE']['nom']?> <?=$_SESSION['users_DE']['prenom']?> </span>
                                 <img class="img-profile rounded-circle" src="<?= CHEMIN_PROJET ?>public/images/user.png">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="<?= CHEMIN_PROJET ?>directeur_etudes/profil/index">
+                                <a class="dropdown-item" href="<?= CHEMIN_PROJET ?>directeur_etudes/profil/">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profil
                                 </a>

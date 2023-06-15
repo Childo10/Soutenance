@@ -1,7 +1,12 @@
 <?php
+if (isset($_SESSION['users_DE']) and !empty($_SESSION['users_DE'])) {
+    header('location:/soutenance/directeur_etudes/dashbord/index');
+}
+
 $title = "Mot de passe oublié - Directeur des études";
 include('./app/Commun/header.php');
 ?>
+
 
 <div class="container">
 

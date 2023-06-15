@@ -5,7 +5,7 @@ $data="";
 
 
 if(!isset($_POST['email']) or empty($_POST['email'])){
-    $errors['email'] = '<p> Le champs Email est vide,veuillez reéssayer!</p>';
+    $errors['email'] = '<p> Le champs Email est vide,veuillez le remplir !</p>';
 }
 if(isset($_POST['email']) && !empty($_POST['email']) && !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
     $errors['email'] = '<p> Email incorrect,veuillez reéssayer!</p>';

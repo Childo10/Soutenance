@@ -74,7 +74,7 @@ if (!empty($_SESSION['erreur']) or !empty($_SESSION['erreurs'])) {
 if (isset($_SESSION['erreur_globale']) && !empty($_SESSION['erreur_globale'])) {
 ?>
   <div class="alert-message">
-    <?= $_SESSION['erreur_globale']?>
+    <?= $_SESSION['erreur_globale'] ?>
   </div>
   <style>
     .alert-message {
@@ -184,7 +184,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
                 <h6 class="mb-0 font-weight-bold">Nom complet</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= $_SESSION['users']['nom'] ?> <?= $_SESSION['users']['prenom'] ?>
+                <?= $_SESSION['users_DE']['nom'] ?> <?= $_SESSION['users_DE']['prenom'] ?>
               </div>
             </div>
 
@@ -194,7 +194,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
                 <h6 class="mb-0 font-weight-bold">Nom utilisateur</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= $_SESSION['users']['nom_utilisateur'] ?>
+                <?= $_SESSION['users_DE']['nom_utilisateur'] ?>
               </div>
             </div>
 
@@ -204,7 +204,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
                 <h6 class="mb-0 font-weight-bold">Email</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= $_SESSION['users']['email'] ?>
+                <?= $_SESSION['users_DE']['email'] ?>
               </div>
             </div>
 
@@ -214,7 +214,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
                 <h6 class="mb-0 font-weight-bold">Type de profil</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= $_SESSION['users']['profil'] ?>
+                <?= $_SESSION['users_DE']['profil'] ?>
               </div>
             </div>
 
@@ -224,7 +224,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
                 <h6 class="mb-0 font-weight-bold">Sexe</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= !empty($_SESSION['users']['sexe']) ? $_SESSION['users']['sexe'] : '' ?>
+                <?= !empty($_SESSION['users_DE']['sexe']) ? $_SESSION['users_DE']['sexe'] : '' ?>
               </div>
             </div>
 
@@ -234,7 +234,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
                 <h6 class="mb-0 font-weight-bold">Date de naissance</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= !empty($_SESSION['users']['date_naissance']) ? $_SESSION['users']['date_naissance'] : '' ?>
+                <?= !empty($_SESSION['users_DE']['date_naissance']) ? $_SESSION['users_DE']['date_naissance'] : '' ?>
               </div>
             </div>
 
@@ -244,7 +244,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
                 <h6 class="mb-0 font-weight-bold">Adresse</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= !empty($_SESSION['users']['adresse']) ? $_SESSION['users']['adresse'] : '' ?>
+                <?= !empty($_SESSION['users_DE']['adresse']) ? $_SESSION['users_DE']['adresse'] : '' ?>
               </div>
             </div>
 
@@ -254,7 +254,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
                 <h6 class="mb-0 font-weight-bold">Téléphone</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?= !empty($_SESSION['users']['telephone']) ? $_SESSION['users']['telephone'] : '' ?>
+                <?= !empty($_SESSION['users_DE']['telephone']) ? $_SESSION['users_DE']['telephone'] : '' ?>
               </div>
             </div>
 
@@ -268,7 +268,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
         </div>
 
 
-        <div class="col-md-8">
+        <div class="col-md-8 mt-5">
           <div class="card mb-3">
             <div class="card-header  bg-primary text-white">
               <div class="card-title text-center">
@@ -277,48 +277,77 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
             </div>
 
 
-            <form class="card-body" method="post" action="<?= CHEMIN_PROJET ?>directeur_Etudes/profil/traitement_mot_de_passe">
+            <form class="card-body text-center" method="post" action="<?= CHEMIN_PROJET ?>directeur_Etudes/profil/traitement_mot_de_passe">
               <p>(Si vous changez votre mot de passe, vous serez déconnecter automatiquement)</p>
               <div class="row form-group">
                 <div class="col-sm-6">
                   <h6 class="mb-0 ">Mot de passe actuel</h6>
                 </div>
-                <input type="password" name="mdp_actuel" class=" <?= isset($_SESSION['erreurs']['mdp_actuel']) ? 'is-invalid' : '' ?> <?= isset($_SESSION['erreur']) ? 'is-invalid' : '' ?> col-sm-9 text-secondary form-control">
-                <?php
-                if (isset($_SESSION['erreurs']['mdp_actuel'])) {
-                ?>
-                  <div class="invalid-feedback">
-                    <?= $_SESSION['erreurs']['mdp_actuel'] ?>
-                  </div>
-                <?php
-                }
-                ?>
+                <div class="col-sm-6 form-group">
+                  <input type="password" name="mdp_actuel" class="<?= isset($_SESSION['erreurs']['mdp_actuel']) ? 'is-invalid' : '' ?> <?= isset($_SESSION['erreur']) ? 'is-invalid' : '' ?> col-sm-12 text-secondary form-control">
+                  <?php
+                  if (isset($_SESSION['erreurs']['mdp_actuel'])) {
+                  ?>
+                    <div class="invalid-feedback text-center">
+                      <?= $_SESSION['erreurs']['mdp_actuel'] ?>
+                    </div>
+                  <?php
+                  }
+                  ?>
 
-                <?php
-                if (isset($_SESSION['erreur'])) {
-                ?>
-                  <div class="invalid-feedback">
-                    <?= $_SESSION['erreur'] ?>
-                  </div>
-                <?php
-                }
-                ?>
+                  <?php
+                  if (isset($_SESSION['erreur'])) {
+                  ?>
+                    <div class="invalid-feedback text-center">
+                      <?= $_SESSION['erreur'] ?>
+                    </div>
+                  <?php
+                  }
+                  ?>
+                </div>
+
               </div>
 
               <div class="row form-group">
                 <div class="col-sm-6">
                   <h6 class="mb-0 ">Nouveau mot de passe</h6>
                 </div>
-                <input type="password" name="mdp_nouveau" class="  <?= isset($_SESSION['erreurs']['mdp_nouveau']) ? 'is-invalid' : '' ?>  col-sm-9 text-secondary form-control ">
-                <?php
-                if (isset($_SESSION['erreurs']['mdp_nouveau'])) {
-                ?>
-                  <div class="invalid-feedback">
-                    <?= $_SESSION['erreurs']['mdp_nouveau'] ?>
-                  </div>
-                <?php
-                }
-                ?>
+
+                <div class="col-sm-6 form-group">
+                  <input type="password" name="mdp_nouveau" class= " <?= isset($_SESSION['erreurs']['mdp_nouveau']) ? 'is-invalid' : '' ?>  col-sm-12 text-secondary form-control ">
+                  <?php
+                  if (isset($_SESSION['erreurs']['mdp_nouveau'])) {
+                  ?>
+                    <div class="invalid-feedback text-center">
+                      <?= $_SESSION['erreurs']['mdp_nouveau'] ?>
+                    </div>
+                  <?php
+                  }
+                  ?>
+                </div>
+
+
+              </div>
+
+              <div class="row form-group">
+                <div class="col-sm-6">
+                  <h6 class="mb-0 ">Retaper le nouveau mot de passe</h6>
+                </div>
+
+                <div class="col-sm-6 form-group">
+                  <input type="password" name="retaper_mdp_nouveau" class= " <?= isset($_SESSION['erreurs']['retaper_mdp_nouveau']) ? 'is-invalid' : '' ?>  col-sm-12 text-secondary form-control ">
+                  <?php
+                  if (isset($_SESSION['erreurs']['retaper_mdp_nouveau'])) {
+                  ?>
+                    <div class="invalid-feedback text-center">
+                      <?= $_SESSION['erreurs']['retaper_mdp_nouveau'] ?>
+                    </div>
+                  <?php
+                  }
+                  ?>
+                </div>
+
+
               </div>
 
 

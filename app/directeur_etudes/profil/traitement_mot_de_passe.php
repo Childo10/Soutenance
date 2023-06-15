@@ -2,8 +2,8 @@
 $erreurs = [];
 
 
-if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['id_utilisateur'])) {
-    $id = $_SESSION['users']['id_utilisateur'];
+if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_DE']['id_utilisateur'])) {
+    $id = $_SESSION['users_DE']['id_utilisateur'];
 }
 
 
@@ -28,11 +28,19 @@ if (isset($_POST['changer_mot_de_passe'])) {
         $erreurs["mdp_nouveau"] = "Le champs doit contenir minimum 8 caractères. <br>  Les espaces ne sont pas pris en compte.";
     }
 
+    if (isset($_POST["mdp_nouveau"]) && !empty($_POST["mdp_nouveau"]) && strlen(($_POST["mdp_nouveau"])) >= 8 && empty($_POST["retaper_mdp_nouveau"])) {
+        $erreurs["retaper_mdp_nouveau"] = "Entrez votre mot de passe à nouveau.";
+    }
+    
+    if ((isset($_POST["retaper_mdp_nouveau"]) && !empty($_POST["retaper_mdp_nouveau"]) && strlen(($_POST["mdp_nouveau"])) >= 8 && $_POST["retaper_mdp_nouveau"] != $_POST["mdp_nouveau"])) {
+        $erreurs["retaper_mdp_nouveau"] = "Mot de passe erroné. Entrez le mot de passe du précédent champs";
+    }
+
     if (verifier_info($_POST["mdp_actuel"]) && strlen(($_POST["mdp_actuel"])) >= 8) {
         $donnees['mdp_actuel'] = $_POST['mdp_actuel'];
     }
 
-    if (verifier_info($_POST["mdp_nouveau"]) && strlen(($_POST["mdp_nouveau"])) >= 8) {
+    if (verifier_info($_POST["mdp_nouveau"]) && verifier_info($_POST["retaper_mdp_nouveau"]) && strlen(($_POST["mdp_nouveau"])) >= 8 && strlen(($_POST["retaper_mdp_nouveau"])) >= 8 && $_POST["retaper_mdp_nouveau"] == $_POST["mdp_nouveau"]) {
         $donnees['mdp_nouveau'] = $_POST['mdp_nouveau'];
     }
 

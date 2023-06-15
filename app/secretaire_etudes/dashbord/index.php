@@ -1,6 +1,7 @@
 <?php 
-    $title="Tableau de bord du sécrétaire des études";
-        include('./app/Commun/dashbord_siedbar_SE.php');
+$title="Tableau de bord - Sécrétaire des études";
+if(isset($_SESSION['users_SE']) and !empty($_SESSION['users_SE'])){ 
+    include('./app/Commun/dashbord_siedbar_SE.php');
 ?>
 
 
@@ -109,6 +110,10 @@
             </div>
             <!-- End of Main Content -->
  
-<?php 
+            <?php
+   }
+   else{
+    header('location:'.CHEMIN_PROJET.'secretaire_etudes/connexion/index');
+   } 
     include('./app/Commun/dashbord_footer.php');
 ?>

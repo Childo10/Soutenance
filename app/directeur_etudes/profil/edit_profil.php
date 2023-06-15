@@ -1,7 +1,7 @@
 <?php
 $title = 'Paramètres du profil(Directeur des études)';
 include('./app/Commun/dashbord_siedbar_DE.php');
-if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['id_utilisateur'])) {
+if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_DE']['id_utilisateur'])) {
 }
 
 ?>
@@ -60,7 +60,7 @@ if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['i
 							<h6 class="mb-0 font-weight-bold">Nom</h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
-							<input type="text" name="nom" class="form-control <?= isset($_SESSION['errors']['nom']) ? 'is-invalid' : '' ?>" value="<?= $_SESSION['users']['nom'] ?>">
+							<input type="text" name="nom" class="form-control <?= isset($_SESSION['errors']['nom']) ? 'is-invalid' : '' ?>" value="<?= $_SESSION['users_DE']['nom'] ?>">
 							<?php
 							if (isset($_SESSION['errors']['nom'])) {
 							?>
@@ -77,7 +77,7 @@ if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['i
 							<h6 class="mb-0 font-weight-bold">Prenom</h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
-							<input type="text" name="prenom" class="form-control <?= isset($_SESSION['errors']['prenom']) ? 'is-invalid' : '' ?>" value="<?= $_SESSION['users']['prenom'] ?>">
+							<input type="text" name="prenom" class="form-control <?= isset($_SESSION['errors']['prenom']) ? 'is-invalid' : '' ?>" value="<?= $_SESSION['users_DE']['prenom'] ?>">
 							<?php
 							if (isset($_SESSION['errors']['prenom'])) {
 							?>
@@ -94,7 +94,7 @@ if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['i
 							<h6 class="mb-0 font-weight-bold">Nom utilisateur</h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
-							<input type="text" name="nom_utilisateur" class="form-control <?= isset($_SESSION['errors']['nom_utilisateur']) ? 'is-invalid' : '' ?>" value="<?= $_SESSION['users']['nom_utilisateur'] ?>">
+							<input type="text" name="nom_utilisateur" class="form-control <?= isset($_SESSION['errors']['nom_utilisateur']) ? 'is-invalid' : '' ?>" value="<?= $_SESSION['users_DE']['nom_utilisateur'] ?>">
 							<?php
 							if (isset($_SESSION['errors']['nom_utilisateur'])) {
 							?>
@@ -135,7 +135,7 @@ if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['i
 							<h6 class="mb-0 font-weight-bold">Date de naissance</h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
-							<input type="date" name="date_naissance" class="form-control <?= isset($_SESSION['errors']['date_naissance']) ? 'is-invalid' : '' ?>"  value="<?= !empty($_SESSION['users']['date_naissance']) ? $_SESSION['users']['date_naissance'] : ''?>">
+							<input type="date" name="date_naissance" class="form-control <?= isset($_SESSION['errors']['date_naissance']) ? 'is-invalid' : '' ?>"  value="<?= !empty($_SESSION['users_DE']['date_naissance']) ? $_SESSION['users_DE']['date_naissance'] : ''?>">
 							<?php
 							if (isset($_SESSION['errors']['date_naissance'])) {
 							?>
@@ -153,7 +153,7 @@ if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['i
 							<h6 class="mb-0 font-weight-bold">Adresse</h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
-							<input type="text" name="adresse" class="form-control <?= isset($_SESSION['errors']['adresse']) ? 'is-invalid' : '' ?>" value="<?= !empty($_SESSION['users']['adresse']) ? $_SESSION['users']['adresse'] : ''?>">
+							<input type="text" name="adresse" class="form-control <?= isset($_SESSION['errors']['adresse']) ? 'is-invalid' : '' ?>" value="<?= !empty($_SESSION['users_DE']['adresse']) ? $_SESSION['users_DE']['adresse'] : ''?>">
 							<?php
 							if (isset($_SESSION['errors']['adresse'])) {
 							?>
@@ -171,7 +171,7 @@ if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['i
 							<h6 class="mb-0 font-weight-bold">Téléphone</h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
-							<input type="number" name="telephone" class="form-control <?= isset($_SESSION['errors']['telephone']) ? 'is-invalid' : '' ?>" value="<?= !empty($_SESSION['users']['telephone']) ? $_SESSION['users']['telephone'] : ''?>">
+							<input type="number" name="telephone" class="form-control <?= isset($_SESSION['errors']['telephone']) ? 'is-invalid' : '' ?>" value="<?= !empty($_SESSION['users_DE']['telephone']) ? $_SESSION['users_DE']['telephone'] : ''?>">
 							<?php
 							if (isset($_SESSION['errors']['telephone'])) {
 							?>

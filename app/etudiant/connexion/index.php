@@ -1,3 +1,9 @@
+<?php
+$title = "Connexion - Etudiant";
+include('./app/Commun/header.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,13 +25,13 @@
 
   <!-- Vendor CSS Files -->
   
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/aos/aos.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="<?= CHEMIN_PROJET ?>public//vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/animate.css/animate.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/aos/aos.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public/vendors/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?= CHEMIN_PROJET ?>public//vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="<?= CHEMIN_PROJET ?>public/css/style.css" rel="stylesheet">
@@ -100,11 +106,11 @@
 
 
 <!-- Vendor JS Files -->
-<script src="<?= CHEMIN_PROJET ?>public/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="<?= CHEMIN_PROJET ?>public/vendor/aos/aos.js"></script>
-<script src="<?= CHEMIN_PROJET ?>public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="<?= CHEMIN_PROJET ?>public/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="<?= CHEMIN_PROJET ?>public/vendor/php-email-form/validate.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendors/purecounter/purecounter_vanilla.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendors/aos/aos.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendors/swiper/swiper-bundle.min.js"></script>
+<script src="<?= CHEMIN_PROJET ?>public/vendors/php-email-form/validate.js"></script>
 
 <!-- Template Main JS File -->
 <script src="<?= CHEMIN_PROJET ?>public/js/main.js"></script>

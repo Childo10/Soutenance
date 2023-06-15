@@ -1,13 +1,14 @@
 <?php
 $errors = [];
 $erreurs = [];
-$data = $_SESSION['users'];
+$data = $_SESSION['users_DE'];
+//die(var_dump($data['id_utilisateur']));
 $new_data = [];
 $message_erreur_global = "";
 $message_success_global = "";
 
-/*if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['id_utilisateur'])) {
-    $id = $_SESSION['users']['id_utilisateur'];
+/*if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_DE']['id_utilisateur'])) {
+    $id = $_SESSION['users_DE']['id_utilisateur'];
 }*/
 
 
@@ -91,7 +92,7 @@ $message_success_global = "";
             if (update_profil_in_db($id, $data['nom'], $data['prenom'],  $data['nom_utilisateur'])) {
 
 
-                $_SESSION['users'] = recup_update_profil($id);
+                $_SESSION['users_DE'] = recup_update_profil($id);
 
                 $message_success_global = "Modification(s) effectuée(s) avec succès";
                 $_SESSION['message_global'] = $message_success_global;
@@ -130,11 +131,11 @@ if (empty($errors)) {
               )) {
 
   
-             recup_mettre_a_jour_informations_utilisateur($data['id_utilisateur']);
+             $_SESSION['users_DE'] = recup_mettre_a_jour_informations_utilisateur($data['id_utilisateur']);
                 $message_success_global = "Modification(s) effectuée(s) avec succès";
                 $_SESSION['message_global'] = $message_success_global;
     
-                header('location:' . CHEMIN_PROJET . 'directeur_etudes/profil/index');
+                header('location:' . CHEMIN_PROJET . 'directeur_etudes/profil/');
         
         }
     }

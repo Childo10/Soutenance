@@ -1,4 +1,8 @@
 <?php
+if (isset($_SESSION['users']) and !empty($_SESSION['users'])) {
+    header('location:/soutenance/directeur_etudes/dashbord/index');
+}
+
 $title = "Rénitialisation mot de passe - Directeur des études";
 include('./app/Commun/header.php');
 ?>
@@ -20,15 +24,33 @@ include('./app/Commun/header.php');
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-2">Rénitialiser votre mot de passe!</h1>
                             </div>
-                            <form action="<?= CHEMIN_PROJET ?>directeur_etudes/mot_de_passe_oublie/traitement" method="post" class="user">
+                            <form action="<?= CHEMIN_PROJET ?>directeur_etudes/mot_de_passe_oublie/renitialisation_traitement" method="post" class="user">
                                 <div class="form-group">
                                     <label for="mdp">Nouveau mot de passe <span class="text-danger">(*)</span> </label>
-                                    <input type="password" name="mdp" class="form-control" id="mdp" aria-describedby="emailHelp">
+                                    <input type="password" name="mot_de_passe" class="form-control <?= isset($_SESSION['errors']['mot_de_passe']) ? 'is-invalid' : '' ?> " id="mdp" aria-describedby="emailHelp">
+                                    <?php
+                                    if (isset($_SESSION['errors']['mot_de_passe'])) {
+                                    ?>
+                                        <div class="invalid-feedback">
+                                            <?= $_SESSION['errors']['mot_de_passe'] ?>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="new_mdp">Retaper le nouveau mot de passe <span class="text-danger">(*)</span></label>
-                                    <input type="password" name="new_mdp" class="form-control" id="new_mdp" aria-describedby="emailHelp">
+                                    <input type="password" name="repeter_mot_de_passe" class="form-control <?= isset($_SESSION['errors']['repeter_mot_de_passe']) ? 'is-invalid' : '' ?> " id="new_mdp" aria-describedby="emailHelp">
+                                    <?php
+                                    if (isset($_SESSION['errors']['repeter_mot_de_passe'])) {
+                                    ?>
+                                        <div class="invalid-feedback">
+                                            <?= $_SESSION['errors']['repeter_mot_de_passe'] ?>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
 
                                 <div class="form-group row">
@@ -56,5 +78,6 @@ include('./app/Commun/header.php');
 </div>
 
 <?php
+unset($_SESSION['errors']);
 include('./app/Commun/dashbord_footer.php');
 ?>

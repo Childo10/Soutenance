@@ -3,10 +3,8 @@ $errors = [];
 $erreur_global ="";
 $data = [];
 
-if (isset($_SESSION['users']['id_utilisateur']) and !empty($_SESSION['users']['id_utilisateur'])) {
-    //die($_SESSION['users']['id_utilisateur']);
-    $id = $_SESSION['users']['id_utilisateur'];
-}
+    //die($_SESSION['users_DE']['id_utilisateur']);
+    $id = $_SESSION['users_DE']['id_utilisateur'];
 
 
 

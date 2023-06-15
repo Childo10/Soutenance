@@ -6,7 +6,7 @@ include('./app/Commun/header.php');
 $data = [];
 
 
-if (isset($_SESSION['users']) and !empty($_SESSION['users'])) {
+if (isset($_SESSION['users_DE']) and !empty($_SESSION['users_DE'])) {
     header('location:/soutenance/directeur_etudes/dashbord/index');
 }
 

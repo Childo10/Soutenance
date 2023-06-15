@@ -1,6 +1,6 @@
 <?php 
     $title="Tableau de bord - Directeur des études";
-    if(isset($_SESSION['users']) and !empty($_SESSION['users'])){ 
+    if(isset($_SESSION['users_DE']) and !empty($_SESSION['users_DE'])){ 
         include('./app/Commun/dashbord_siedbar_DE.php');
     ?>
  

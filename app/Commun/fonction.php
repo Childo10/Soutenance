@@ -212,7 +212,7 @@ function supprimer_utilisateur(int $id)
     $date = date("Y-m-d H:i:s");
 
     $bdd = database_login();
-    $requete = "UPDATE utilisateur SET est_supprimer= :est_supfprimer, mis_a_jour_le=:mis_a_jour_le  WHERE id_utilisateur= :id";
+    $requete = "UPDATE utilisateur SET est_supprimer= :est_supprimer, mis_a_jour_le=:mis_a_jour_le  WHERE id_utilisateur= :id";
     $requete_prepare = $bdd->prepare($requete);
     $requete_execute = $requete_prepare->execute(array(
         'id' => $id,
@@ -239,7 +239,7 @@ function supprimer_utilisateur(int $id)
  * @return bool le resultat.
      
  */
-function update_password_in_db(int $id,  string $password)
+function update_password(int $id,  string $password)
 {
     $update_password = "false";
 
@@ -740,10 +740,10 @@ function mettre_a_jour_informations_utilisateur(int $id, string $nom = null, str
  *
  * @return bool $recup
  */
-function recup_mettre_a_jour_informations_utilisateur($id): bool
+function recup_mettre_a_jour_informations_utilisateur($id)
 {
 
-    $recup = false;
+    $data=[];
 
     $db = database_login();
 
@@ -758,11 +758,11 @@ function recup_mettre_a_jour_informations_utilisateur($id): bool
 
         $data = $request_recupere->fetch(PDO::FETCH_ASSOC);
 
-        $_SESSION['users'] = $data;
+        //$_SESSION['users'] = $data;
 
-        $recup = true;
+        //$recup = true;
     }
-    return $recup;
+    return $data;
 }
 
 

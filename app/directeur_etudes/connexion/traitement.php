@@ -39,7 +39,7 @@ if (empty($errors)) {
     //die(var_dump($data_users));
     //si oui, je le connecte et j'enregistre ses données dans une session.
     if (is_array(  $data_users)) {
-        $_SESSION['users'] = $data_users;
+        $_SESSION['users_DE'] = $data_users;
         $_SESSION['data'] = "";
 
         //Si l'utilisateur appuie sur le checkbox "se souvenir de moi"
@@ -47,7 +47,7 @@ if (empty($errors)) {
 
             //Je crée un cookie pour enregistrer ses données.
             setcookie(
-                "data_users",
+                "data_users_DE",
                 json_encode($data['email']),
                 [
                     'expires' => time() + 365 * 24 * 3600,
@@ -62,7 +62,7 @@ if (empty($errors)) {
         //Je modifie le cookie en le vidant
         else {
             setcookie(
-                "data_users",
+                "data_users_DE",
                 "",
                 [
                     'expires' => time() + 365 * 24 * 3600,
