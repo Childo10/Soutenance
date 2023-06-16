@@ -188,7 +188,7 @@ if (isset($_COOKIE['data_users_SE']) and !empty($_COOKIE['data_users_SE'])) {
                                     <div class="form-group row">
                                         <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
                                             <input type="submit" value="Connexion" class="mb-1 mb-md-0  btn btn-primary">
-                                            <input type="reset" class="btn btn-danger">
+                                            <input type="reset" class="btn btn-danger" value="Annuler">
                                         </div>
                                     </div>
 

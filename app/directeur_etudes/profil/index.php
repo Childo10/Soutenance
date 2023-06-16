@@ -373,10 +373,6 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
 
         <div class="col-6 mt-5 offset-3">
 
-          <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#desactivation">Désactiver mon compte</button>
-          <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#suppression">Supprimer mon compte</button>
-
-
           <form action="<?= CHEMIN_PROJET ?>directeur_etudes/profil/desactivation_compte" method="post" class="form-group">
 
             <div class="modal fade" id="desactivation" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="desactivationLabel" aria-hidden="true">
@@ -453,6 +449,55 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-4 mb-3">
+        <div class="card">
+
+          <div class="bg-light text-danger">
+            <h6 class="card-title  text-center"> 
+                  Désactivation de compte
+
+            </h6>
+          </div>
+
+          <div class="card-body ">
+            <div class="text-center">
+              Pour désactiver votre compte,cliquez sur ce bouton
+           
+
+              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#desactivation">Désactiver mon compte</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4 mb-3">
+        <div class="card">
+
+          <div class="bg-danger text-white">
+            <h6 class="card-title  text-center"> 
+                  Suppression de compte
+
+            </h6>
+          </div>
+
+          <div class="card-body ">
+            <div class=" text-center">
+              Pour supprimer votre compte,cliquez sur ce bouton
+           
+
+              <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#suppression">Supprimer mon compte</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
   </div>
 
 

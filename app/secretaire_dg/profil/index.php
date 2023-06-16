@@ -152,7 +152,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
         <div class="card">
 
           <div class="card-header  bg-primary text-white">
-            <h5 class="card-title text-center">
+            <h5 class="card-title text-center"> Photo de profil </h5>
           </div>
 
           <div class="card-body">
@@ -373,8 +373,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
 
         <div class="col-6 mt-5 offset-3">
 
-          <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#desactivation">Désactiver mon compte</button>
-          <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#suppression">Supprimer mon compte</button>
+         
 
 
           <form action="<?= CHEMIN_PROJET ?>secretaire_dg/profil/desactivation_compte" method="post" class="form-group">
@@ -383,14 +382,14 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="desactivationLabel">Désactivation de compte</h5>
+                    <h5 class="modal-title fw-bold" id="desactivationLabel">Désactivation de compte</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <p class="text-center">La désactivation de votre compte entrainera une déconnexion automatique.
-                      Pour vous reconnecter, vous allez devoir réactiver votre compte.
+                    <p class="text-center">Attention! La désactivation de votre compte entrainera une déconnexion automatique.
+                      Pour vous reconnecter, vous allez devoir réactiver votre compte par le biais d'un <a href="#">Administrateur</a>
                     </p>
 
                     <div>
@@ -453,6 +452,56 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
         </div>
       </div>
     </div>
+
+
+  
+    <div class="row justify-content-center mt-5">
+    <div class="col-md-4 mb-3">
+        <div class="card">
+
+          <div class="bg-light text-danger">
+            <h6 class="card-title  text-center"> 
+                  Désactivation de compte
+
+            </h6>
+          </div>
+
+          <div class="card-body ">
+            <div class="text-center">
+              Pour désactiver votre compte,cliquez sur ce bouton
+           
+
+              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#desactivation">Désactiver mon compte</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4 mb-3">
+        <div class="card">
+
+          <div class="bg-danger text-white">
+            <h6 class="card-title  text-center"> 
+                  Suppression de compte
+
+            </h6>
+          </div>
+
+          <div class="card-body ">
+            <div class=" text-center">
+              Pour supprimer votre compte,cliquez sur ce bouton
+           
+
+              <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#suppression">Supprimer mon compte</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
   </div>
 
 
