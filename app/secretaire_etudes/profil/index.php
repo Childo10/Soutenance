@@ -14,6 +14,7 @@ if (isset($_SESSION['message_global']) && !empty($_SESSION['message_global'])) {
   <style>
     .alert-message {
       position: fixed;
+      z-index: 10;
       top: 30px;
       left: 60%;
       transform: translateX(-50%);
@@ -46,10 +47,11 @@ if (!empty($_SESSION['erreur']) or !empty($_SESSION['erreurs'])) {
   <style>
     .alert-message {
       position: fixed;
+      z-index: 10;
       top: 30px;
       left: 60%;
       transform: translateX(-50%);
-      padding: 10px 20px;
+      padding: 5px 15px;
       background-color: red;
       color: white;
       font-size: 17px;
@@ -79,6 +81,7 @@ if (isset($_SESSION['erreur_globale']) && !empty($_SESSION['erreur_globale'])) {
   <style>
     .alert-message {
       position: fixed;
+      z-index: 10;
       top: 30px;
       left: 60%;
       transform: translateX(-50%);

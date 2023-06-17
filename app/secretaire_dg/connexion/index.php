@@ -115,6 +115,7 @@ if (isset($_COOKIE['data_users_SE']) and !empty($_COOKIE['data_users_SE'])) {
                                     <style>
                                         .alert-message {
                                             position: fixed;
+                                            z-index: 10;
                                             top: 30px;
                                             left: 50%;
                                             transform: translateX(-50%);

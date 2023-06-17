@@ -22,6 +22,38 @@ include('./app/Commun/header.php');
                     <div class="col-lg-12">
                         <div class="p-5">
                             <div class="text-center">
+                                <?php
+                                if (isset($_SESSION['mot_de_passe-message-success']) && !empty($_SESSION['mot_de_passe-message-success'])) {
+                                ?>
+                                    <div class="alert-message">
+                                        <?= $_SESSION['mot_de_passe-message-success'] ?>
+                                    </div>
+                                    <style>
+                                        .alert-message {
+                                            position: fixed;
+                                            z-index: 10;
+                                            top: 30px;
+                                            left: 50%;
+                                            transform: translateX(-50%);
+                                            padding: 10px 20px;
+                                            background-color: #007bff;
+                                            color: white;
+                                            font-size: 14px;
+                                            border-radius: 5px;
+                                            opacity: 1;
+                                            transition: opacity 3s ease-in-out;
+                                        }
+
+
+
+                                        .hide {
+                                            opacity: 0;
+                                        }
+                                    </style>
+
+                                <?php
+                                }
+                                ?>
                                 <h1 class="h4 text-gray-900 mb-2">Rénitialiser votre mot de passe!</h1>
                             </div>
                             <form action="<?= CHEMIN_PROJET ?>secretaire_etudes/mot_de_passe_oublie/renitialisation_traitement" method="post" class="user">
@@ -78,6 +110,7 @@ include('./app/Commun/header.php');
 </div>
 
 <?php
+unset($_SESSION['mot_de_passe-message-success']);
 unset($_SESSION['errors']);
 include('./app/Commun/dashbord_footer.php');
 ?>

@@ -32,6 +32,7 @@ $url = str_replace('{token}', $token, $url);
             font-size: 24px;
             margin: 0;
             color: #444444;
+            background-color: #1E90FF;
         }
         p {
             font-size: 16px;
@@ -58,12 +59,11 @@ $url = str_replace('{token}', $token, $url);
 </head>
 <body>
     <div class="container">
-        <h1>BIENVENUE,</h1>
-        <p>Merci de vous êtes inscrit dans notre application.</p>
-        <p>Merci de cliquer sur le bouton afin de valider votre inscription.</p>
-        <p>Cordialement,</p>
+        <h1>BIENVENUE!</h1>
+        <p>Merci pour votre inscription.</p>
+        <p>Veuillez patienter pendant qu'un administrateur valide votre compte pour que vous puissez vous connecter.</p>
+        <p>Cordialement</p>
         <p>L'équipe d'Educ-Action</p>
-        <a href="<?=$url?>" class="button">Valider</a>
     </div>
 </body>
 </html>

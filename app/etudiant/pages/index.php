@@ -87,7 +87,7 @@
                 Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
               </p>
               <div class="text-center">
-                <a href="about.html" class="more-btn">En savoir plus <i class="bx bx-chevron-right"></i></a>
+                <a href="<?= CHEMIN_PROJET ?>etudiant/pages/a_propos" class="more-btn">En savoir plus <i class="bx bx-chevron-right"></i></a>
               </div>
             </div>
           </div>

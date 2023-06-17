@@ -11,7 +11,7 @@ if (check_token_exist($id_utilisateur ,  $token , "MOT_DE_PASSE_OUBLIE")){
     }
 
 }else{
-    $_SESSION['mot_de_passe-compte-message-erreur'] = "Oups!!! la clé d'activation de vérification est introuvable. Veuillez contacter un administrateur";
+    $_SESSION['validation-compte-message-erreur'] = "Oups!!! la clé d'activation de vérification est introuvable. Veuillez contacter un administrateur";
 }
 
-header('location: ' . CHEMIN_PROJET. 'directeur_etudes/mot_de_passe_oublie/renitialisation');
+header('location: ' . CHEMIN_PROJET. 'secretaire_dg/mot_de_passe_oublie/renitialisation');

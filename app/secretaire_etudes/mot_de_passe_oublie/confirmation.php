@@ -5,9 +5,9 @@
 
 if (check_token_exist($id_utilisateur ,  $token , "MOT_DE_PASSE_OUBLIE")){
     if(suppression_logique_token($id_utilisateur) && activation_compte_utilisateur($id_utilisateur)){
-        $_SESSION['validation-compte-message-success'] = "Votre compte est a présent vérifié. Vous pouvez vous changer votre mot de passe";
+        $_SESSION['mot_de_passe-message-success'] = "Votre compte est à présent vérifié. Vous pouvez vous changer votre mot de passe";
     }else{
-        $_SESSION['validation-compte-message-erreur'] = "Oups!!! Une erreur s'est produite lors de la vérification du compte. Veuillez contacter un administrateur";
+        $_SESSION['mot_de_passe-compte-message-erreur'] = "Oups!!! Une erreur s'est produite lors de la vérification du compte. Veuillez contacter un administrateur";
     }
 
 }else{

@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 $url = $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["HTTP_HOST"] . CHEMIN_PROJET . 'secretaire_etudes/inscription/confirmation/{id_utilisateur}/{token}';
 
 $url = str_replace('{id_utilisateur}', $id_utilisateur, $url);
@@ -10,6 +9,7 @@ $url = str_replace('{token}', $token, $url);
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +19,7 @@ $url = str_replace('{token}', $token, $url);
             font-family: Arial, sans-serif;
             background-color: #F5F5F5;
         }
+
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -28,18 +29,30 @@ $url = str_replace('{token}', $token, $url);
             border-radius: 5px;
             box-shadow: 0px 0px 10px #DDDDDD;
         }
+
         h1 {
             font-size: 24px;
             margin: 0;
             color: #444444;
         }
+
         p {
             font-size: 16px;
             margin-top: 10px;
             margin-bottom: 20px;
             line-height: 1.5;
+           
         }
-        .button{
+
+        .footer {
+            font-size: 10px;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .button {
             display: inline-block;
             padding: 10px 20px;
             background-color: #1E90FF;
@@ -49,6 +62,7 @@ $url = str_replace('{token}', $token, $url);
             cursor: pointer;
             transition: all 0.3s ease-in-out;
         }
+
         .button:hover {
             background-color: #f6f9ff;
             color: #1E90FF;
@@ -56,14 +70,15 @@ $url = str_replace('{token}', $token, $url);
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>BIENVENUE,</h1>
-        <p>Merci de vous êtes inscrit dans notre application.</p>
-        <p>Merci de cliquer sur le bouton afin de valider votre inscription.</p>
-        <p>Cordialement,</p>
-        <p>L'équipe d'Educ-Action</p>
-        <a href="<?=$url?>" class="button">Valider</a>
+        <h1>BIENVENUE!</h1>
+        <p>Merci pour votre inscription.</p>
+        <p>Veuillez patienter pendant qu'un administrateur valide votre compte pour que vous puissez vous connecter.</p>
+        <p>Cordialement</p>
+        <p class="footer">L'équipe d'Educ-Action</p>
     </div>
 </body>
+
 </html>

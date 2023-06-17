@@ -33,6 +33,8 @@
 
   <!-- Page level custom scripts -->
   <script src="<?= CHEMIN_PROJET ?>public/js/demo/datatables-demo.js"></script>
+
+  
   </body>
 
   </html>

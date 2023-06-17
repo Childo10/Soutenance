@@ -111,7 +111,7 @@ if(empty($errors)){
         else{
             $objet = 'Validation de votre inscription';
             ob_start(); // Démarre la temporisation de sortie
-            include 'app/directeur_dg/inscription/message_mail.php'; // Inclut le fichier HTML dans le tampon
+            include 'app/secretaire_dg/inscription/message_mail.php'; // Inclut le fichier HTML dans le tampon
             $template_mail = ob_get_contents(); // Récupère le contenu du tampon
             ob_end_clean(); // Arrête et vide la temporisation de sortie
 

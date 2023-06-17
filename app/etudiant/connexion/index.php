@@ -53,18 +53,18 @@ include('./app/Commun/header.php');
           <div class="col-lg-4 col-md-8 col-12 mx-auto">
             <div class="card z-index-0 fadeIn3 fadeInBottom">
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                <div class="bg-gradient-info  border-radius-lg py-3 pe-1">
                   <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Connectez-vous</h4>
                  
                 </div>
               </div>
               <div class="card-body">
-                <form action="traitement" method="post" role="form" class="text-start">
+                <form action="<?= CHEMIN_PROJET ?>etudiant/connexion/traitement" method="post" role="form" class="text-start">
                   <div class="input-group input-group-outline my-3">
-                    <input type="email" placeholder="Email"  class="form-control">
+                    <input type="email" placeholder="Email" name="email" class="form-control">
                   </div>
                   <div class="input-group input-group-outline mb-3">
-                    <input type="password" placeholder="Mot de passe" class="form-control">
+                    <input type="password" placeholder="Mot de passe" name="mot_de_passe" class="form-control">
                   </div>
                   <div class="form-check form-switch d-flex align-items-center mb-3">
                     <input class="form-check-input" name="se_souvenir" type="checkbox" id="rememberMe">
