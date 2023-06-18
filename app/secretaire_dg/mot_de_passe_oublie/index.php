@@ -63,7 +63,7 @@ include('./app/Commun/header.php');
                             <form action="<?= CHEMIN_PROJET ?>secretaire_dg/mot_de_passe_oublie/traitement" method="post" class="user">
                                 <div class="form-group">
                                     <label for="email">Entrer votre adresse email <span class="text-danger">(*)</span> </label>
-                                    <input type="email" name="email" class="form-control <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : '' ?>" value="" id="email">
+                                    <input type="email" name="email" class="form-control <?= isset($_SESSION['errors']['email']) ? 'is-invalid' : '' ?>" value="<?= isset($_SESSION['data']) ? $_SESSION['data'] : '' ?>" id="email">
                                     <?php
                                         if (isset($_SESSION['errors']['email'])) {
                                         ?>

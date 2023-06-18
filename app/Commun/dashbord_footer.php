@@ -20,7 +20,7 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="<?= CHEMIN_PROJET ?>public/vendors/jquery/jquery.min.js"></script>
-  <script src="<?= CHEMIN_PROJET ?>public/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= CHEMIN_PROJET ?>public/vendors/bootstrap2/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="<?= CHEMIN_PROJET ?>/public/vendors/jquery-easing/jquery.easing.min.js"></script>

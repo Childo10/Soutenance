@@ -11,16 +11,16 @@ if(isset($_POST['email']) && !empty($_POST['email']) && !filter_var($_POST['emai
     $errors['email'] = '<p> Email incorrect,veuillez reéssayer!</p>';
     
 }
-if (isset($_POST['email']) && !empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && !check_email_exist($_POST['email'])) {
+if (isset($_POST['email']) && !empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && !check_email_exist_by_profil($_POST['email'],'Sécrétaire du directeur générale')) {
     $errors['email']="<p> Désolé,cet adresse email n'existe pas<p>";
     
 }
 
 
-if (verifier_info($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && check_email_exist($_POST['email'])){
+if (verifier_info($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && check_email_exist_by_profil($_POST['email'], 'Sécrétaire du directeur générale')){
     $data_email= htmlentities($_POST['email']);
   }
-  $data=$_POST['email'];
+ 
 
  
  if(empty($errors)){
@@ -43,9 +43,10 @@ if (verifier_info($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDAT
         }
    
     }
+    $_SESSION['data']=$data_email;
 }
 else{
-    $_SESSION['data']= $data;
+    $_SESSION['data']= $_POST['email'];
     $_SESSION['errors']=$errors;
     header('location: ' . CHEMIN_PROJET. 'secretaire_dg/mot_de_passe_oublie/');
 

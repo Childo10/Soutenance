@@ -11,15 +11,14 @@ if(isset($_POST['email']) && !empty($_POST['email']) && !filter_var($_POST['emai
     $errors['email'] = '<p> Email incorrect,veuillez reéssayer!</p>';
     
 }
-if (isset($_POST['email']) && !empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && !check_email_exist($_POST['email'])) {
+if (isset($_POST['email']) && !empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && !check_email_exist_by_profil($_POST['email'],'Sécrétaire des études')) {
     $errors['email']="<p> Désolé,cet adresse email n'existe pas<p>";
     
 }
 
 
-if (verifier_info($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && check_email_exist($_POST['email'])){
+if (verifier_info($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && check_email_exist_by_profil($_POST['email'],'Sécrétaire des études')){
     $data_email= htmlentities($_POST['email']);
-    $data=$data_email;
   }
 
  
@@ -43,7 +42,7 @@ if (verifier_info($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDAT
         }
    
     }
-    $_SESSION['data']= $data;
+    $_SESSION['data']= $data_email;
 }
 else{
 

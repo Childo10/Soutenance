@@ -107,9 +107,38 @@ function check_email_exist(string $email)
     $bdd = database_login();
     $req = $bdd->prepare('SELECT id_utilisateur from utilisateur WHERE email=?');
     $req->execute([$email]);
-    $users = $req->fetch();
+    if($req){
+        $users = $req->fetch();
+    }
+
+    if(is_array($users) && !empty($users)){
+        $users=true;
+    }
     return $users;
 }
+
+function check_email_exist_by_profil(string $email, string $profil)
+{
+    $users = "false";
+    $bdd = database_login();
+    $req = $bdd->prepare('SELECT id_utilisateur from utilisateur WHERE email=:email and profil=:profil');
+    $req->execute([
+        'email'=>$email,
+        'profil'=>$profil
+        ]);
+
+    if($req){
+        $users = $req->fetch();
+    }
+
+    if(is_array($users) && !empty($users)){
+        $users=true;
+    }
+    return $users;
+}
+
+
+
 
 
 /**

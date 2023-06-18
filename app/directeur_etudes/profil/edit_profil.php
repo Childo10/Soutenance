@@ -32,6 +32,7 @@ if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_D
 					<style>
 						.alert-message {
 							position: fixed;
+							z-index: 10;
 							top: 30px;
 							left: 60%;
 							transform: translateX(-50%);
