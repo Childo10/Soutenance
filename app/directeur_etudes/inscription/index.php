@@ -43,6 +43,7 @@ if (isset($_SESSION['data']) && !empty($_SESSION['data'])) {
                                     <style>
                                         .alert-message {
                                             position: fixed;
+                                            z-index: 10;
                                             top: 30px;
                                             left: 50%;
                                             transform: translateX(-50%);
@@ -75,6 +76,7 @@ if (isset($_SESSION['data']) && !empty($_SESSION['data'])) {
                                     <style>
                                         .alert-message {
                                             position: fixed;
+                                            z-index: 10;
                                             top: 30px;
                                             left: 50%;
                                             transform: translateX(-50%);

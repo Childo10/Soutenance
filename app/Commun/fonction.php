@@ -138,6 +138,36 @@ function check_email_exist_by_profil(string $email, string $profil)
 }
 
 
+/**
+ * .3++++++
+ * 
+ *update_avatar
+
+
+ *Elle permet de mettre à jour l'avatar de l'utilisateur
+ * @param id $id id de l'utilisateur.
+ * @param avatar $avatar avatar de l'utilisateur.
+ * @return bool update_avatar
+ */
+function update_avatar(int $id, string $avatar ){
+    $update_avatar=false;
+    $bdd=database_login();
+
+    $req=$bdd->prepare('UPDATE utilisateur set avatar=:avatar where id_utilisateur=:id ');
+    $req_exec=$req->execute(array(
+        'id'=>$id,
+        'avatar'=>$avatar
+    ));
+
+    if($req_exec){
+        $update_avatar=true;
+    }
+    return $update_avatar;
+
+
+}
+
+
 
 
 
@@ -287,6 +317,7 @@ function update_password(int $id,  string $password)
 
     return  $update_password;
 }
+
 
 
 /**
@@ -787,12 +818,73 @@ function recup_mettre_a_jour_informations_utilisateur($id)
 
         $data = $request_recupere->fetch(PDO::FETCH_ASSOC);
 
-        //$_SESSION['users'] = $data;
-
-        //$recup = true;
     }
     return $data;
 }
+
+
+/**
+* .3++++++
+* 
+*delete_avatar
+
+
+*Elle permet de mettre à jour l'avatar de l'utilisateur
+* @param id $id id de l'utilisateur.
+* @return bool update_avatar
+*/
+function delete_avatar(int $id){
+    $delete_avatar=false;
+    $bdd=database_login();
+ 
+    $req=$bdd->prepare('UPDATE utilisateur set avatar=:avatar where id_utilisateur=:id ');
+    $req_exec=$req->execute(array(
+        'id'=>$id,
+        'avatar'=>'null'
+    ));
+ 
+    if($req_exec){
+        $delete_avatar=true;
+    }
+    return $delete_avatar;
+ 
+ 
+ }
+
+
+
+//Fonction pour récupérer l'avatar du profil
+
+/**
+ * Cette fonction permet de récupérer la photo du profil .
+ * @param int $id l'id de l'utilisateur.
+ *
+ * @return array $data
+ */
+function recup_update_avatar($id)
+{
+
+    $data="";
+    $data_avatar="";
+
+    $db = database_login();
+
+    $request = $db->prepare('SELECT  avatar FROM utilisateur WHERE id_utilisateur= :id');
+
+    $resultat = $request->execute(array(
+        'id' => $id,
+    ));
+
+    if ($resultat) {
+        $data = $request->fetch(PDO::FETCH_ASSOC);
+        //die(var_dump($data));
+        $data_avatar=implode($data);
+
+    }
+    return $data_avatar;
+}
+
+
 
 
 /**

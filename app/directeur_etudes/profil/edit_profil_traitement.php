@@ -2,7 +2,6 @@
 $errors = [];
 $erreurs = [];
 $data = $_SESSION['users_DE'];
-//die(var_dump($data['id_utilisateur']));
 $new_data = [];
 $message_erreur_global = "";
 $message_success_global = "";

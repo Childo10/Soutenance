@@ -40,6 +40,7 @@ if (empty($errors)) {
     //si oui, je le connecte et j'enregistre ses données dans une session.
     if (is_array(  $data_users)) {
         $_SESSION['users_DE'] = $data_users;
+        //die(var_dump($_SESSION['users_DE']['avatar'] ));
         $_SESSION['data'] = "";
 
         //Si l'utilisateur appuie sur le checkbox "se souvenir de moi"
