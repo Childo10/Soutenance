@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION['users_SDG']) && empty($_SESSION['users_SDG'])){
+    header('location:'.CHEMIN_PROJET.'secretaire_dg/connexion/');
+}
 $title = 'Paramètres du profil(Secretaire des études)';
 include('./app/Commun/dashbord_siedbar_SDG.php');
 if (isset($_SESSION['users_SDG']['id_utilisateur']) and !empty($_SESSION['users_SDG']['id_utilisateur'])) {

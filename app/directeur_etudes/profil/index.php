@@ -1,4 +1,8 @@
 <?php
+if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
+  header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
+}
+
 $title = 'Profil du directeur des études';
 include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
@@ -170,6 +174,39 @@ if (isset($_SESSION['photo-erreurs']) && !empty($_SESSION['photo-erreurs'])) {
 }
 ?>
 
+<?php
+if (isset($_SESSION['photo_success']) && !empty($_SESSION['photo_success'])) {
+?>
+  <div class="alert-message">
+    <?= $_SESSION['photo_success']?>
+  </div>
+  <style>
+    .alert-message {
+      position: fixed;
+      z-index: 10;
+      top: 30px;
+      left: 60%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      opacity: 1;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+
+
+    .hide {
+      opacity: 0;
+    }
+  </style>
+
+<?php
+}
+?>
+
 <div class="container">
   <div class="main-body">
     <!-- Breadcrumb -->
@@ -195,7 +232,8 @@ if (isset($_SESSION['photo-erreurs']) && !empty($_SESSION['photo-erreurs'])) {
               <img src="<?= $_SESSION['users_DE']['avatar']=='null' ? CHEMIN_PROJET . 'public/images/user.png': $_SESSION['users_DE']['avatar'] ?>" alt="Admin" class="rounded-circle" width="150">
               <form class="mt-3" method="post" enctype="multipart/form-data" action="<?= CHEMIN_PROJET ?>directeur_Etudes/profil/mise_a_jour_photo">
                 <input class=" btn-sm bg-gray-100 btn btn-outline-light col-6 input_file" id="input_file" type="file" name="image">
-
+              
+                <!--Ajout et mise à jour de photos-->
                 <div class="modal fade" id="ajout_photo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="ajout_photoLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -227,9 +265,9 @@ if (isset($_SESSION['photo-erreurs']) && !empty($_SESSION['photo-erreurs'])) {
                 </div>
               </form>
 
-              <button class="btn btn-primary btn-sm  mt-md-1 mt-lg-0" data-toggle="modal" data-target="#ajout_photo"><?= $_SESSION['users_DE']['avatar'] != null ? 'Mettre à jour' : 'Ajouter' ?></button>
+              <button class="btn btn-primary btn-sm  mt-md-1 mt-lg-0" data-toggle="modal" data-target="#ajout_photo"><?= $_SESSION['users_DE']['avatar'] != 'null' ? 'Mettre à jour' : 'Ajouter' ?></button>
 
-              <!--Modal d'ajout et de modification de profil-->
+              <button class="btn btn-outline-primary btn-sm mt-1">Envoyer des messages</button>     
 
 
 
@@ -238,7 +276,7 @@ if (isset($_SESSION['photo-erreurs']) && !empty($_SESSION['photo-erreurs'])) {
               <?php
               if ($_SESSION['users_DE']['avatar']!='null') {
               ?>
-
+                <!--Suppression de photo-->
                 <form class="mt-3" method="post" action="<?= CHEMIN_PROJET ?>directeur_Etudes/profil/suppression_photo">
                   <div class="modal fade" id="supression_photo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="supression_photoLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -568,7 +606,7 @@ if (isset($_SESSION['photo-erreurs']) && !empty($_SESSION['photo-erreurs'])) {
     <div class="col-md-4 mb-3">
       <div class="card">
 
-        <div class="bg-light text-danger">
+        <div class="bg-light card-header text-danger">
           <h6 class="card-title  text-center">
             Désactivation de compte
 
@@ -591,7 +629,7 @@ if (isset($_SESSION['photo-erreurs']) && !empty($_SESSION['photo-erreurs'])) {
     <div class="col-md-4 mb-3">
       <div class="card">
 
-        <div class="bg-danger text-white">
+        <div class="bg-danger card-header text-white">
           <h6 class="card-title  text-center">
             Suppression de compte
 
@@ -622,5 +660,6 @@ if (isset($_SESSION['photo-erreurs']) && !empty($_SESSION['photo-erreurs'])) {
   unset($_SESSION['erreur_globale']);
   unset($_SESSION['errors']);
   unset($_SESSION['photo-erreurs']);
+  unset($_SESSION['photo_success']);
   include('./app/Commun/dashbord_footer.php');
   ?>

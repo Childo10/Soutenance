@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION['users_SDG']) && empty($_SESSION['users_SDG'])){
+  header('location:'.CHEMIN_PROJET.'secretaire_dg/connexion/index');
+}
 $title = 'Profil du secretaire du directeur générale';
 include('./app/Commun/dashbord_siedbar_SDG.php');
 
@@ -139,6 +142,72 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
 }
 ?>
 
+<?php
+if (isset($_SESSION['photo-erreurs_SDG']) && !empty($_SESSION['photo-erreurs_SDG'])) {
+?>
+  <div class="alert-message">
+    <?= $_SESSION['photo-erreurs_SDG'] ?>
+  </div>
+  <style>
+    .alert-message {
+      position: fixed;
+      z-index: 10;
+      top: 30px;
+      left: 60%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      opacity: 1;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+
+
+    .hide {
+      opacity: 0;
+    }
+  </style>
+
+<?php
+}
+?>
+
+<?php
+if (isset($_SESSION['photo_success_SDG']) && !empty($_SESSION['photo_success_SDG'])) {
+?>
+  <div class="alert-message">
+    <?= $_SESSION['photo_success_SDG']?>
+  </div>
+  <style>
+    .alert-message {
+      position: fixed;
+      z-index: 10;
+      top: 30px;
+      left: 60%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      opacity: 1;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+
+
+    .hide {
+      opacity: 0;
+    }
+  </style>
+
+<?php
+}
+?>
+
 <div class="container">
   <div class="main-body">
     <!-- Breadcrumb -->
@@ -161,13 +230,87 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
 
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-              <img src="<?= CHEMIN_PROJET ?>public/images/user.png" alt="Admin" class="rounded-circle" width="150">
-              <form class="mt-3" method="post" enctype="multipart/form-data" action="<?= CHEMIN_PROJET ?>secretaire_dg/edit_profil_traitement">
+            <img src="<?= $_SESSION['users_SDG']['avatar'] == 'null' ? CHEMIN_PROJET . 'public/images/user.png' : $_SESSION['users_SDG']['avatar'] ?>" alt="Admin" class="rounded-circle" width="150">
+            <form class="mt-3" method="post" enctype="multipart/form-data" action="<?= CHEMIN_PROJET ?>secretaire_dg/profil/mise_a_jour_photo">
+                <input class=" btn-sm bg-gray-100 btn btn-outline-light col-6 input_file" id="input_file" type="file" name="image">
 
-                <input class="btn btn-outline-danger btn-sm " type="" value="Importer un fichier">
-                <input class="btn btn-outline-primary btn-sm  mt-md-1 mt-lg-0" type="submit" value="Mettre à jour">
+                <!--Ajout et mise à jour de photos-->
+                <div class="modal fade" id="ajout_photo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="ajout_photoLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="#ajout_photoLabel">Photo de profil</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
 
+                        <p class="text-center">
+                          Veuillez entrer votre mot de passe pour confirmer votre identité.
+                        </p>
+
+                        <div>
+                          <input type="password" name="mot_de_passe" class="text-secondary form-control">
+
+                        </div>
+
+
+                      </div>
+                      <div class="modal-footer">
+                        <input type="submit" class="btn  btn-sm btn-primary" name="ajout_photo" value="Valider">
+                        <input type="submit" class="btn  btn-sm btn-danger" value="Annuler">
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </form>
+
+              <button class="btn btn-primary btn-sm  mt-md-1 mt-lg-0" data-toggle="modal" data-target="#ajout_photo"><?= $_SESSION['users_SDG']['avatar'] != 'null' ? 'Mettre à jour' : 'Ajouter' ?></button>
+
+              <button class="btn btn-outline-primary btn-sm mt-1">Envoyer des messages</button>
+
+              <?php
+              if ($_SESSION['users_SDG']['avatar'] != 'null') {
+              ?>
+                <!--Suppression de photo-->
+                <form class="mt-3" method="post" action="<?= CHEMIN_PROJET ?>secretaire_dg/profil/suppression_photo">
+                  <div class="modal fade" id="supression_photo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="supression_photoLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="#supression_photoLabel">Suppression de photo de profil</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+
+                          <p class="text-center">
+                            Veuillez entrer votre mot de passe pour confirmer votre identité.
+                          </p>
+
+                          <div>
+                            <input type="password" name="mot_de_passe" class="text-secondary form-control">
+
+                          </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                          <input type="submit" class="btn  btn-sm btn-primary" name="delete" value="Valider">
+                          <input type="submit" class="btn  btn-sm btn-danger" value="Annuler">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+                <button class="btn btn-danger btn-sm " data-toggle="modal" data-target="#supression_photo"><i class="fas fa-trash"></i></button>
+
+              <?php
+              }
+              ?>
             </div>
 
           </div>
@@ -265,7 +408,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
             <hr>
             <div class="row">
               <div class="col-sm-12">
-                <a class="btn btn-warning btn-sm" href="<?= CHEMIN_PROJET ?>secretaire_dg/profil/edit_profil">Modifier</a>
+                <a class="btn btn-primary btn-sm w-100" href="<?= CHEMIN_PROJET ?>secretaire_dg/profil/edit_profil">Modifier</a>
               </div>
             </div>
           </div>
@@ -463,7 +606,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
     <div class="col-md-4 mb-3">
         <div class="card">
 
-          <div class="bg-light text-danger">
+          <div class="bg-light card-header text-danger">
             <h6 class="card-title  text-center"> 
                   Désactivation de compte
 
@@ -486,7 +629,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
       <div class="col-md-4 mb-3">
         <div class="card">
 
-          <div class="bg-danger text-white">
+          <div class="bg-danger card-header text-white">
             <h6 class="card-title  text-center"> 
                   Suppression de compte
 
@@ -516,5 +659,7 @@ if (isset($_SESSION['errors']['mdp']) && !empty($_SESSION['errors']['mdp'])) {
   unset($_SESSION['message_global']);
   unset($_SESSION['erreur_globale']);
   unset($_SESSION['errors']);
+  unset($_SESSION['photo-erreurs_SDG']);
+  unset($_SESSION['photo_success_SDG']);
   include('./app/Commun/dashbord_footer.php');
   ?>

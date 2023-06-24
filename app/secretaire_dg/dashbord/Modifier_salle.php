@@ -1,4 +1,7 @@
 <?php 
+if(!isset($_SESSION['users_SDG']) && empty($_SESSION['users_SDG'])){
+    header('location:'.CHEMIN_PROJET.'secretaire_dg/connexion/');
+}
     $title='Modifier une salle';
     include('./app/Commun/dashbord_siedbar_SDG.php');
 ?>

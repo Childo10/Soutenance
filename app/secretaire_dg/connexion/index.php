@@ -1,7 +1,7 @@
 <?php
 //Si l'utilisateur est connecté, je le redirige vers le dashbord.
 if (isset($_SESSION['users_SDG']) and !empty($_SESSION['users_SDG'])) {
-    header('location:' . CHEMIN_PROJET . '/secretaire_dg/dashbord/index');
+    header('location:' . CHEMIN_PROJET . 'secretaire_dg/dashbord/index');
 }
 
 

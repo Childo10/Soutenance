@@ -1,9 +1,9 @@
 <?php
-if (isset($_SESSION['users_SE']) and !empty($_SESSION['users_SE'])) {
+if (isset($_SESSION['users_SDG']) and !empty($_SESSION['users_SDG'])) {
     header('location:/soutenance/secretaire_dg/dashbord/index');
 }
 
-$title = "Rénitialisation mot de passe - secretaire des études";
+$title = "Rénitialisation mot de passe - secretaire du directeur générale";
 include('./app/Commun/header.php');
 ?>
 

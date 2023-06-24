@@ -1,4 +1,7 @@
 <?php 
+if(!isset($_SESSION['users_SE']) && empty($_SESSION['users_SE'])){
+    header('location:'.CHEMIN_PROJET.'secretaire_etudes/connexion/index');
+}
     $title='Ajouter un emploi du temps';
     include('./app/Commun/dashbord_siedbar_SE.php');
 ?>

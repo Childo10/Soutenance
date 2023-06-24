@@ -1,7 +1,8 @@
 <?php
 
 if (isset($_SESSION['users_SDG']) and !empty($_SESSION['users_SDG'])) {
-    header('location:/soutenance/secretaire_dg/dashbord/index');
+    header('location:'.CHEMIN_PROJET.'secretaire_dg/dashbord/index');
+    
 }
 $title = "Inscription - Sécrétaire du directeur générale";
 include('./app/Commun/header.php');
@@ -225,5 +226,7 @@ if (isset($_SESSION['data']) && !empty($_SESSION['data'])) {
 
 <?php
 unset($_SESSION['errors']);
+unset($_SESSION['inscription-message-erreur-global']);
+unset($_SESSION['inscription-message-success-global']);
 include('./app/Commun/dashbord_footer.php');
 ?>

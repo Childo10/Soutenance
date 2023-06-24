@@ -1,4 +1,9 @@
 <?php
+
+if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
+	header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
+  }
+  
 $title = 'Paramètres du profil(Directeur des études)';
 include('./app/Commun/dashbord_siedbar_DE.php');
 if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_DE']['id_utilisateur'])) {

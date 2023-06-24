@@ -3,6 +3,8 @@ $_SESSION['photo-erreurs'] = "";
 
 $data=$_SESSION['users_DE'];
 
+$_SESSION['photo_success']="";
+
 
 $donnees = [];
 
@@ -55,6 +57,7 @@ if (isset($_POST["mot_de_passe"]) && !empty($_POST["mot_de_passe"]) && strlen(($
                     if (update_avatar($data['id_utilisateur'], $profiledonnees["image"])) {
                        // die(var_dump($_SESSION['users_DE']));
                         $_SESSION['users_DE']['avatar']=recup_update_avatar($data['id_utilisateur']);
+                        $_SESSION['photo_success']='Mise à jour de photo réussie';
                         //die(var_dump($_SESSION['users_DE']['avatar']));
                         header('location:' . CHEMIN_PROJET . 'directeur_etudes/profil/');
                         

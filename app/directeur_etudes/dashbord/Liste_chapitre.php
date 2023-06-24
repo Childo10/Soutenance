@@ -1,4 +1,7 @@
 <?php 
+if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
+    header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
+  }
 $title='Liste des filières';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
