@@ -66,6 +66,35 @@ function check_username_exist(string $username)
 /**
  * .3++++++
  * 
+ *check_username_exist
+
+
+ *Elle permet de vérifier si un nom d'utilisateur existe dans la base de données
+ * @param string $username nom de l'utilisateur.
+ * @return bool le resultat.
+     
+ */
+function verifier_filiere_existe(string $libfil)
+{
+    $users="";
+    $filiere = false;
+    $bdd = database_login();
+    $req = $bdd->prepare('SELECT Codefil from filiere WHERE Libfil=?');
+    $req_exec=$req->execute([$libfil]);
+    if($req_exec){
+       
+        $users = $req->fetch();
+        if(!empty($users) && is_array($users)){
+            $filiere=true;
+        }
+    }
+    return $filiere;
+    }
+
+
+/**
+ * .3++++++
+ * 
  *check_password_exist
 
 
@@ -412,6 +441,32 @@ function inscrire_utilisateur(string $nom, string $prenom, string $nom_utilisate
     }
 }
 
+
+/**
+ * .3++++++
+ * 
+ *enregistrer_filiere
+
+
+ *Elle permet d'enregistrer une filière la base de données
+ * @param string $data Nom de la filière.
+ * @return bool $enregistrer
+ */
+function enregistrer_filiere(string $data){
+    $enregistrer=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare('INSERT INTO filiere (libfil, creer_le) values(:libfil, :creer_le)');
+    $req_exec=$req_prepare->execute(array(
+        'libfil'=>$data,
+        'creer_le'=>$date
+
+    ));
+
+    if($req_exec){
+        $enregistrer=true;
+    }
+}
 
 
 

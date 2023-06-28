@@ -12,12 +12,12 @@ $title='Liste des inscriptions';
 <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Liste des inscriptions</h1>
+<h1 class="h3 mb-2 text-gray-800">Liste des professeurs</h1>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="Ajout_professeur" type="button" class="btn btn-primary" >Ajouter un professeur</a>
+        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/professeur/Ajout_professeur" type="button" class="btn btn-primary" >Ajouter un professeur</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -42,7 +42,7 @@ $title='Liste des inscriptions';
                             <td>001544</td>
                             <td>Clément Gbodja</td>
                             <td>
-                                <a href="Modifier_professeur" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/professeur/Modifier_professeur" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -52,18 +52,7 @@ $title='Liste des inscriptions';
                             <td>001544</td>
                             <td>Clément Gbodja</td>
                             <td>
-                                <a href="Modifier_professeur" type="button" class="btn-sm btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
-                            </td>
-                           
-                        </tr>
-
-
-                        <tr>
-                            <td>001544</td>
-                            <td>Clément Gbodja</td>
-                            <td>
-                                <a href="Modifier_professeur" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/professeur/Modifier_professeur" type="button" class="btn-sm btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
@@ -74,7 +63,18 @@ $title='Liste des inscriptions';
                             <td>001544</td>
                             <td>Clément Gbodja</td>
                             <td>
-                                <a href="Modifier_professeur" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/professeur/Modifier_professeur" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
+                            </td>
+                           
+                        </tr>
+
+
+                        <tr>
+                            <td>001544</td>
+                            <td>Clément Gbodja</td>
+                            <td>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/professeur/Modifier_professeur" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            

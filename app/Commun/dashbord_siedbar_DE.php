@@ -58,8 +58,8 @@
                 </a>
                 <div id="collapseInscription" class="collapse" aria-labelledby="headingInscription" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_inscription">Ajouter une inscription</a>
-                        <a class="collapse-item" href="Liste_inscription">Liste des inscriptions</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/inscription_etudiant/Ajout_inscription">Ajouter une inscription</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/inscription_etudiant/Liste_inscription">Liste des inscriptions</a>
                     </div>
                 </div>
             </li>
@@ -72,8 +72,8 @@
                 </a>
                 <div id="collapseProfesseur" class="collapse" aria-labelledby="headingProfesseur" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_professeur">Ajouter un professeur</a>
-                        <a class="collapse-item" href="Liste_professeur">Liste des professeurs</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/professeur/Ajout_professeur">Ajouter un professeur</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/professeur/Liste_professeur">Liste des professeurs</a>
                     </div>
                 </div>
             </li>
@@ -85,8 +85,8 @@
                 </a>
                 <div id="collapseEtudiant" class="collapse" aria-labelledby="headingEtudiant" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="Ajout_etudiant">Ajouter un étudiant</a>
-                        <a class="collapse-item" href="Liste_etudiant">Liste des étudiants</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/etudiant/Ajout_etudiant">Ajouter un étudiant</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/etudiant/Liste_etudiant">Liste des étudiants</a>
                     </div>
                 </div>
             </li>
@@ -104,8 +104,8 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_cours">Ajouter un cours</a>
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_cours">Liste des cours</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/cours/Ajout_cours">Ajouter un cours</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/cours/Liste_cours">Liste des cours</a>
                     </div>
                 </div>
             </li>
@@ -117,8 +117,8 @@
                 </a>
                 <div id="collapsefiliere" class="collapse" aria-labelledby="headingfiliere" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_filiere">Ajouter une filière</a>
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_filiere">Liste des filières</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/Ajout_filiere">Ajouter une filière</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/Liste_filiere">Liste des filières</a>
                     </div>
                 </div>
             </li>
@@ -130,8 +130,8 @@
                 </a>
                 <div id="collapsematiere" class="collapse" aria-labelledby="matiere" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_matiere">Ajouter une matière</a>
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_matiere">Liste des matières</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/matiere/Ajout_matiere">Ajouter une matière</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/matiere/Liste_matiere">Liste des matières</a>
                     </div>
                 </div>
             </li>
@@ -144,8 +144,8 @@
                 </a>
                 <div id="collapsecours" class="collapse" aria-labelledby="cours" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_derou_cours">Ajouter un dérouler cours</a>
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_derou_cours">Liste des dérouler cours </a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/derou_cours/Ajout_derou_cours">Ajouter un dérouler cours</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/derou_cours/Liste_derou_cours">Liste des dérouler cours </a>
                     </div>
                 </div>
             </li>
@@ -157,8 +157,8 @@
                 </a>
                 <div id="collapseAbsence" class="collapse" aria-labelledby="cours" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence">Ajouter une absence</a>
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_absence">Liste des absences </a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/absence/Ajout_absence">Ajouter une absence</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/absence/Liste_absence">Liste des absences </a>
                     </div>
                 </div>
             </li>
@@ -170,8 +170,8 @@
                 </a>
                 <div id="collapseChapitre" class="collapse" aria-labelledby="cours" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_chapitre">Ajouter un chapitre</a>
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_chapitre">Liste des chapitres</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/Ajout_chapitre">Ajouter un chapitre</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/Liste_chapitre">Liste des chapitres</a>
                     </div>
                 </div>
             </li>
@@ -186,8 +186,8 @@
                 </a>
                 <div id="collapsesalle" class="collapse" aria-labelledby="salle" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_salle">Ajouter une salle</a>
-                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_salle">Liste salles </a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/Ajout_salle">Ajouter une salle</a>
+                        <a class="collapse-item" href="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/Liste_salle">Liste salles </a>
                     </div>
                 </div>
             </li>

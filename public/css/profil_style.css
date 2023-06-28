@@ -77,11 +77,11 @@ body{
     color: black;
 }
 
-.browse input[type='file']{
-    position: absolute;
-    margin-top: 3px;
-    margin-left: 3px;
-    height: 1px;
-    width: 1px;
-    z-index: -5;
+.input_file{
+    font-size: 16;
+    background: #1a202c;
+    border-radius: 50px;
+    box-shadow: 10px;
+    outline: none;
+    
 }

@@ -3,7 +3,7 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
     header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
   }
   
-$title='Liste du déroulement des cours';
+$title='Liste des matières';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
 
@@ -12,33 +12,33 @@ $title='Liste du déroulement des cours';
 <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Liste du déroulement des cours</h1>
+<h1 class="h3 mb-2 text-gray-800">Liste des matières</h1>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_derou_cours" type="button" class="btn btn-primary" >Ajouter un déroulement de cours</a>
+        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/matiere/Ajout_matiere" type="button" class="btn btn-primary" >Ajouter une matière</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Numéro du cours</th>
-                        <th>Date du cours</th>
-                        <th>Heure réelle de début</th>
-                        <th>Heure réelle de fin </th>
-                        <th>Absences</th>
+                        <th>Code matière</th>
+                        <th>Libellé de la matière</th>
+                        <th>coefficient</th>
+                        <th>Nombre maxi d'étudiants</th>
+                        <th>Chapitre</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Numéro du cours</th>
-                        <th>Date du cours</th>
-                        <th>Heure réelle de début</th>
-                        <th>Heure réelle de fin </th>
-                        <th>Absences</th>
+                        <th>Code matière</th>
+                        <th>Libellé de la matière</th>
+                        <th>coefficient</th>
+                        <th>Nombre maxi d'étudiants</th>
+                        <th>Chapitre</th>
                         <th>Actions</th>
                         
                     </tr>
@@ -46,11 +46,11 @@ $title='Liste du déroulement des cours';
                 <tbody>
                     <tr>
                             <td>001544</td>
-                            <td>05/01/2023</td>
-                            <td>17:00</td>
-                            <td>19:00</td>
+                            <td>Maths</td>
+                            <td>055474</td>
+                            <td>150</td>
                             <td>
-                                    <button type="button" class="btn btn-sm  btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                             Voir
                                     </button>
 
@@ -58,7 +58,7 @@ $title='Liste du déroulement des cours';
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Les absences au cours 001</h5>
+                                                <h5 class="modal-title" id="staticBackdropLabel">Les chapitres</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -67,64 +67,60 @@ $title='Liste du déroulement des cours';
                                                 <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">Numéro d'inscription</th>
-                                                            <th scope="col">Nom</th>
-                                                            <th scope="col">Prénom</th>
-                                                            <th scope="col">Sexe</th>
+                                                            <th scope="col">Numéro du Chapitre</th>
+                                                            <th scope="col">Libellé du chapitre</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <th scope="row">0000151</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>Masculin</td>
+                                                            <td>Les fondamentaux du digital</td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">0000152</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>Masculin</td>
+                                                            <td>Les bases en HTML et CSS</td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">00011503</th>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>Masculin</td>
+                                                            <td>Les fonctions en PHP</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">00011507</th>
+                                                            <td>Les frameworks CSS</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/Ajout_chapitre" type="button" class="btn btn-primary">Ajouter</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/modifier_chapitre" type="button" class="btn btn-warning">Modifier</a>
                                             </div>
                                             </div>
                                         </div>
                                     </div> 
                             </td>
                             <td>
-                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_derou_cours" type="button" class="btn btn-sm btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/matiere/Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
                         </tr>
 
                         <tr>
                             <td>001545</td>
-                            <td>10/03/2023</td>
-                            <td>10:00</td>
-                            <td>13:00</td>
+                            <td>SVT</td>
+                            <td>055476</td>
+                            <td>150</td>
                             <td>
-                            <button type="button" class="btn btn-sm  btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                                        Voir 
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                            Voir
                                     </button>
 
                                     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Les absences au cours 001</h5>
+                                                <h5 class="modal-title" id="staticBackdropLabel">Les chapitres</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -133,45 +129,41 @@ $title='Liste du déroulement des cours';
                                                 <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">Numéro d'inscription</th>
-                                                            <th scope="col">Nom</th>
-                                                            <th scope="col">Prénom</th>
-                                                            <th scope="col">Sexe</th>
+                                                            <th scope="col">Numéro du Chapitre</th>
+                                                            <th scope="col">Libellé du chapitre</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <th scope="row">0000151</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>Masculin</td>
+                                                            <td>Les fondamentaux du digital</td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">0000152</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>Masculin</td>
+                                                            <td>Les bases en HTML et CSS</td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">00011503</th>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>Masculin</td>
+                                                            <td>Les fonctions en PHP</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">00011507</th>
+                                                            <td>Les frameworks CSS</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/modifier_chapitre.php" type="button" class="btn btn-warning" >Modifier</a>
                                             </div>
                                             </div>
                                         </div>
                                     </div> 
                             </td>
                             <td>
-                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/matiere/Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="" type="button" class="btn-sm btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
                         </tr>
@@ -179,78 +171,11 @@ $title='Liste du déroulement des cours';
 
                         <tr>
                             <td>001547</td>
-                            <td>08/01/2023</td>
-                            <td>15:00</td>
-                            <td>18:00</td>
+                            <td>PCT</td>
+                            <td>055444</td>
+                            <td>150</td>
                             <td>
-                            <button type="button" class="btn btn-sm  btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                                        Voir
-                                    </button>
-
-                                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Les absences au cours 001</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Numéro d'inscription</th>
-                                                            <th scope="col">Nom</th>
-                                                            <th scope="col">Prénom</th>
-                                                            <th scope="col">Sexe</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">0000151</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>Masculin</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">0000152</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>Masculin</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">00011503</th>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>Masculin</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>  
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div> 
-                            </td>
-                            <td>
-                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_derou_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
-                            </td>
-                           
-                        </tr>
-
-
-                        <tr>
-                            <td>0015441</td>
-                            <td>14/03/2023</td>
-                            <td>13:00</td>
-                            <td>15:00</td>
-                            <td>
-                            <button type="button" class="btn btn-sm  btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                             Voir
                                     </button>
 
@@ -258,7 +183,7 @@ $title='Liste du déroulement des cours';
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Les absences au cours 001</h5>
+                                                <h5 class="modal-title" id="staticBackdropLabel">Les chapitres</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -267,45 +192,104 @@ $title='Liste du déroulement des cours';
                                                 <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">Numéro d'inscription</th>
-                                                            <th scope="col">Nom</th>
-                                                            <th scope="col">Prénom</th>
-                                                            <th scope="col">Sexe</th>
+                                                            <th scope="col">Numéro du Chapitre</th>
+                                                            <th scope="col">Libellé du chapitre</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <th scope="row">0000151</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>Masculin</td>
+                                                            <td>Les fondamentaux du digital</td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">0000152</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>Masculin</td>
+                                                            <td>Les bases en HTML et CSS</td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">00011503</th>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>Masculin</td>
+                                                            <td>Les fonctions en PHP</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">00011507</th>
+                                                            <td>Les frameworks CSS</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_absence" type="button" class="btn btn-primary"  >Ajouter</a>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/modifier_chapitre.php" type="button" class="btn btn-warning">Modifier</a>
                                             </div>
                                             </div>
                                         </div>
                                     </div> 
                             </td>
                             <td>
-                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Modifier_derou_cours" type="button" class="btn btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/matiere/Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
+                            </td>
+                           
+                        </tr>
+
+
+                        <tr>
+                            <td>0015441</td>
+                            <td>Anglais</td>
+                            <td>055484</td>
+                            <td>150</td>
+                            <td>
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                            Voir
+                                    </button>
+
+                                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Les chapitres</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Numéro du Chapitre</th>
+                                                            <th scope="col">Libellé du chapitre</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">0000151</th>
+                                                            <td>Les fondamentaux du digital</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">0000152</th>
+                                                            <td>Les bases en HTML et CSS</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">00011503</th>
+                                                            <td>Les fonctions en PHP</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">00011507</th>
+                                                            <td>Les frameworks CSS</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>  
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a  href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/Ajout_chapitre.php" type="button" class="btn btn-primary">Ajouter</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/modifier_chapitre.php" type="button" class="btn btn-warning">Modifier</a>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                            </td>
+                            <td>
+                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/matiere/Modifier_matiere" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
                             </td>
                            
                         </tr>

@@ -1,9 +1,9 @@
-<?php 
+<?php
 if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
     header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
   }
   
-    $title="Ajouter le déroulerement d'un cours";
+    $title='Ajouter un professeur';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
 
@@ -17,30 +17,20 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Ajouter le déroulement d'un cours</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Ajouter un professeur</h1>
                     </div>
                     <form class="user">
                         <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control " name="numcours" id="numcours"
-                                    placeholder="Numéro du cours">
+                            <div class="col-md-6 col-12">
+                                <input type="number" class="form-control " name="num_prof" id="matricule"
+                                    placeholder="Numéro professeur">
                             </div>
-                            <div class="col-sm-6">
-                                <input type="date" class="form-control " name="Date_cours" id="Date_cours"
-                                    placeholder="Date du cours">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="time" class="form-control" name="Hrdeb" id="Hrdeb"
-                                    placeholder="Heure réelle de début">
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="time" class="form-control" name="Hrfin" id="Hrfin"
-                                    placeholder="Heure réelle de fin">
-                            </div>
-                        </div>
 
+                            <div class="col-md-6 mt-1">
+                                <input type="text"  name="num_prof" class="form-control "
+                                    id="num_prof" placeholder="Nom du professeur">
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
@@ -53,10 +43,11 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
                             </div>
                         </div>
                         
+                        
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_derou_cours">Liste du déroulement des cours</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/professeur/Liste_professeur">Liste des professeurs</a>
                     </div>
                 </div>
             </div>

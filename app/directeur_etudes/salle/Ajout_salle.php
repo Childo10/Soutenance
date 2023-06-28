@@ -67,7 +67,7 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_salle">Liste des salles</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/Liste_salle">Liste des salles</a>
                     </div>
                 </div>
             </div>

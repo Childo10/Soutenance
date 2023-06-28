@@ -16,7 +16,7 @@ $title='Liste des filières';
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Ajout_chapitre" type="button" class="btn btn-primary">Ajouter un chapitre</a>
+        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/Ajout_chapitre" type="button" class="btn btn-primary">Ajouter un chapitre</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -88,7 +88,7 @@ $title='Liste des filières';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/modifier_chapitre" type="button" class="btn btn-primary">Modifier</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/modifier_chapitre" type="button" class="btn btn-primary">Modifier</a>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
                                             </div>
                                             </div>
@@ -149,70 +149,7 @@ $title='Liste des filières';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/modifier_chapitre" type="button" class="btn btn-primary">Modifier</a>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                            </td>
-                           
-                        </tr>
-
-
-                        <tr>
-                        <td>001544</td>
-                            <td>AG</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                                            Voir
-                                </button>
-
-                                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Les chapitres</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Numéro du Chapitre</th>
-                                                            <th scope="col">Libellé du chapitre</th>
-                                                            <th>Actions</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">0000151</th>
-                                                            <td>Les fondamentaux du digital</td>
-                                                            <td><a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">0000152</th>
-                                                            <td>Les bases en HTML et CSS</td>
-                                                            <td><a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">00011503</th>
-                                                            <td>Les fonctions en PHP</td>
-                                                            <td><a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">00011507</th>
-                                                            <td>Les frameworks CSS</td>
-                                                            <td><a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>  
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/modifier_chapitre" type="button" class="btn btn-primary">Modifier</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/modifier_chapitre" type="button" class="btn btn-primary">Modifier</a>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
                                             </div>
                                             </div>
@@ -275,7 +212,70 @@ $title='Liste des filières';
                                                 </table>  
                                             </div>
                                             <div class="modal-footer">
-                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/modifier_chapitre" type="button" class="btn btn-primary">Modifier</a>
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/modifier_chapitre" type="button" class="btn btn-primary">Modifier</a>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            </td>
+                           
+                        </tr>
+
+
+                        <tr>
+                        <td>001544</td>
+                            <td>AG</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                            Voir
+                                </button>
+
+                                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Les chapitres</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Numéro du Chapitre</th>
+                                                            <th scope="col">Libellé du chapitre</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">0000151</th>
+                                                            <td>Les fondamentaux du digital</td>
+                                                            <td><a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">0000152</th>
+                                                            <td>Les bases en HTML et CSS</td>
+                                                            <td><a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">00011503</th>
+                                                            <td>Les fonctions en PHP</td>
+                                                            <td><a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">00011507</th>
+                                                            <td>Les frameworks CSS</td>
+                                                            <td><a href="" type="button" class="btn btn-circle btn-danger "><i class="fas fa-times-circle"></i></a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>  
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/modifier_chapitre" type="button" class="btn btn-primary">Modifier</a>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
                                             </div>
                                             </div>

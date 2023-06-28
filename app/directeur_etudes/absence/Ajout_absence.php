@@ -2,8 +2,7 @@
 if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
     header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
   }
-  
-    $title='Ajouter une filière';
+    $title='Ajouter une absence';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
 
@@ -17,18 +16,18 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Ajouter une filière</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Ajouter une absence</h1>
                     </div>
                     <form class="user">
                         <div class="form-group row">
                             <div class="col-md-6 col-12">
-                                <input type="number" class="form-control " name="codefil" id="codefil"
-                                    placeholder="Code filière">
+                                <input type="number" class="form-control " name="id_derouler_cours" id="id_derouler_cours"
+                                    placeholder="Identifiant déroulement du cours  ">
                             </div>
 
                             <div class="col-md-6 mt-1">
-                                <input type="text"  name="libfil" class="form-control "
-                                    id="libfil" placeholder="Libellé de la filière">
+                                <input type="number"  name="NumIns" class="form-control "
+                                    id="NumIns" placeholder="Numéro d'inscription">
                             </div>
                         </div>
 
@@ -47,7 +46,7 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_filiere">Liste des filières</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/absence/Liste_absence">Liste des absences</a>
                     </div>
                 </div>
             </div>

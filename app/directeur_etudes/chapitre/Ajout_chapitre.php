@@ -1,9 +1,9 @@
 <?php 
+
 if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
     header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
   }
-  
-    $title='modifier un étudiant';
+    $title='Ajouter un chapitre';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
 
@@ -17,30 +17,20 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Modifier un étudiant</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Ajouter un chapitre</h1>
                     </div>
                     <form class="user">
                         <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control " name="matricule" id="matricule"
-                                    placeholder="001544">
+                            <div class="col-md-6 col-12">
+                                <input type="number" class="form-control " name="Num_chapitre" id="Num_chapitre"
+                                    placeholder="Numéro du chapitre">
                             </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control " name="nom" id="nom"
-                                    placeholder="Clément">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control" name="prenom" id="prenom"
-                                    placeholder="Gbodja">
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control"  name="sexe" class="sexe"
-                                    id="sexe" placeholder="Masculin">
-                            </div>
-                        </div>
 
+                            <div class="col-md-6 mt-1">
+                                <input type="text"  name="Lib_chapitre" class="form-control "
+                                    id="Lib_chapitre" placeholder="Libellé du chapitre">
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
@@ -53,10 +43,11 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
                             </div>
                         </div>
                         
+                        
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_etudiant">Liste des étudiants</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/chapitre/Liste_chapitre">Liste des chapitres</a>
                     </div>
                 </div>
             </div>

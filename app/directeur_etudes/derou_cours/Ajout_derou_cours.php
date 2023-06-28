@@ -3,7 +3,7 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
     header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
   }
   
-    $title='Modifier un emploi du temps';
+    $title="Ajouter le déroulerement d'un cours";
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
 
@@ -17,53 +17,30 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Modifier un cours</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Ajouter le déroulement d'un cours</h1>
                     </div>
                     <form class="user">
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <input type="number" class="form-control " name="numcours" id="numcours"
-                                    placeholder="0005">
+                                    placeholder="Numéro du cours">
                             </div>
                             <div class="col-sm-6">
-                                <input type="number" class="form-control " name="codemat" id="codemat"
-                                    placeholder="00015">
+                                <input type="date" class="form-control " name="Date_cours" id="Date_cours"
+                                    placeholder="Date du cours">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control" name="numprof" id="numprof"
-                                    placeholder="00015">
+                                <input type="time" class="form-control" name="Hrdeb" id="Hrdeb"
+                                    placeholder="Heure réelle de début">
                             </div>
                             <div class="col-sm-6">
-                                <input type="number" class="form-control "
-                                    id="codefil" name="codefil" placeholder="0000154">
-                               
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" name="jour" class="form-control"  id="jour"
-                                    placeholder="Mardi">
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="time" name="Heure_deb" class="form-control"
-                                    id="Heure_deb" placeholder="17:00">
+                                <input type="time" class="form-control" name="Hrfin" id="Hrfin"
+                                    placeholder="Heure réelle de fin">
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-sm-6 ">
-                                <input type="time" name="Heure_fin" class="form-control"
-                                    id="Heure_fin" placeholder="19:00">
-                            </div>
-
-                            <div class="col-sm-6 ">
-                                <input type="number" name="numsal" class="form-control"
-                                    id="numsal" placeholder="005">
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
@@ -79,7 +56,7 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="Liste_cours">Liste des cours</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/derou_cours/Liste_derou_cours">Liste du déroulement des cours</a>
                     </div>
                 </div>
             </div>

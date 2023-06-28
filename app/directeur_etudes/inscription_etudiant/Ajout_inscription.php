@@ -3,7 +3,7 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
     header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
   }
   
-    $title='Ajouter une matière';
+    $title='Ajouter une inscription';
     include('./app/Commun/dashbord_siedbar_DE.php');
 ?>
 
@@ -17,30 +17,36 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Ajouter une matière</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Ajouter une inscription</h1>
                     </div>
                     <form class="user">
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control " name="codemat" id="codemat"
-                                    placeholder="Code matière">
+                                <input type="number" class="form-control " name="NumIns" id="NumIns"
+                                    placeholder="Numéro d'inscription">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control " name="libmat" id="libmat"
-                                    placeholder="Libellé de la matière">
+                                <input type="number" class="form-control " name="matricule" id="matricule"
+                                    placeholder="Numéro matricule">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control" name="coef" id="coef"
-                                    placeholder="coefficient">
+                                <input type="number" class="form-control" name="codefil" id="codefil"
+                                    placeholder="Code filière">
                             </div>
                             <div class="col-sm-6">
-                                <input type="number" class="form-control"  name="nbmax" class="form-control"
-                                    id="nbmax" placeholder="Nombre maximum d'étudiants">
+                                <input type="date"  name="date_ins" class="form-control"
+                                    id="date_Ins" placeholder="Date d'inscription">
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <div class="col-sm-6 text-center offset-md-3">
+                                <input type="text"  name="annee_ins" class="form-control"
+                                    id="annee_Ins" placeholder="Année d'inscription">
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
@@ -56,7 +62,7 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
                         <hr>
                     </form>
                     <div class="text-center">
-                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/dashbord/Liste_matiere">Liste des matières</a>
+                        <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/inscription_etudiant/Liste_inscription">Liste des inscriptions</a>
                     </div>
                 </div>
             </div>
