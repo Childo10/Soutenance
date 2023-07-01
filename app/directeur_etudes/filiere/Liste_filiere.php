@@ -89,18 +89,16 @@ if (!empty($_SESSION['message_success_global']) or !empty($_SESSION['message_suc
 
                             <tbody>
                                 <tr>
-                                    <td><?= $filiere[$key]['Codefil'] ?> <?php $_SESSION['code_filiere'] = $filiere[$key]['Codefil'];
-                                                                        //die(var_dump($_SESSION['code_filiere'])); 
-                                                                        ?> </td>
+                                    <td><?= $filiere[$key]['Codefil'] ?>
                                     <td><?= $filiere[$key]['libfil'] ?></td>
                                     <td> <span class=" <?= $filiere[$key]['est_actif'] == 1 ? 'btn-primary btn-sm' : 'btn-danger btn-sm' ?>"><?= $filiere[$key]['est_actif'] == 1 ? 'Activée' : 'Désactivée' ?></span></td>
                                     <td>
                                         <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/Modifier_filiere/<?= $filiere[$key]['Codefil'] ?>" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                        <button data-toggle="modal" data-target="#suppr_filiere" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></button>
-                                        <button class="btn btn-sm btn-outline-primary">Désactiver</button>
+                                        <button data-toggle="modal" data-target="#suppr_filiere" data-id="<?= $filiere[$key]['Codefil'] ?>" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></button>
+                                        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/Modifier_filiere/<?= $filiere[$key]['Codefil']?>/<?= $filiere[$key]['est_actif']?>"  class="<?= $filiere[$key]['est_actif'] == 1 ? 'btn-outline-danger btn-sm' : 'btn-outline-primary btn-sm' ?> text-decoration-none"><?= $filiere[$key]['est_actif'] == 1 ? 'Désactiver' : 'Activer' ?></a>
 
-                                        <form action="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/suppression_filiere/<?= $filiere[$key]['Codefil'] ?>" method="post">
-                                        <div class="modal fade" id="suppr_filiere" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="suppr_filiereLabel" aria-hidden="true">
+
+                                        <div class="modal fade" id="suppr_filiere" data-backdrop="static" role="dialog" data-keyboard="false" tabindex="-1" aria-labelledby="suppr_filiereLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -113,20 +111,19 @@ if (!empty($_SESSION['message_success_global']) or !empty($_SESSION['message_suc
 
                                                         <p class="text-center">
                                                             Voulez vous vraiment supprimer cette filière?
+                                                            <?= $filiere[$key]['Codefil'] ?>
                                                         </p>
 
-                                                      
+
 
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <input type="submit" class="btn btn-primary btn-sm" value="Oui">
+                                                        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/suppression_filiere/" type="button" class="btn btn-primary btn-sm">Oui</a>
                                                         <button class="btn btn-danger btn-sm" data-dismiss="modal">Non</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
-                                    </form>
                                     </td>
 
 
@@ -149,6 +146,11 @@ if (!empty($_SESSION['message_success_global']) or !empty($_SESSION['message_suc
 
 </div>
 <!-- /.container-fluid -->
+<script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
 
 <?php
 unset($_SESSION['message_success_global']);

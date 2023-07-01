@@ -105,7 +105,7 @@ function verifier_filiere_existe(string $libfil)
     function listerfiliere(){
         $filiere=[];
         $bdd=database_login();
-        $requselect= $bdd->query('SELECT Codefil,libfil,est_actif,est_supprimer FROM filiere where est_actif=1 and est_supprimer=0 ORDER BY Codefil DESC');
+        $requselect= $bdd->query('SELECT Codefil,libfil,est_actif,est_supprimer FROM filiere where est_supprimer=0 ORDER BY Codefil DESC');
         $filiere= $requselect->fetchAll(PDO::FETCH_ASSOC);
        
         return $filiere;
