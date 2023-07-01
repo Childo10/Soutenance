@@ -258,7 +258,7 @@ if (isset($_SESSION['photo_success']) && !empty($_SESSION['photo_success'])) {
                       </div>
                       <div class="modal-footer">
                         <input type="submit" class="btn  btn-sm btn-primary" name="ajout_photo" value="Valider">
-                        <input type="submit" class="btn  btn-sm btn-danger" value="Annuler">
+                        <input type="reset" class="btn  btn-sm btn-danger" value="Annuler">
                       </div>
                     </div>
                   </div>

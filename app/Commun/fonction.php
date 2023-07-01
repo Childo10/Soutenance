@@ -66,12 +66,12 @@ function check_username_exist(string $username)
 /**
  * .3++++++
  * 
- *check_username_exist
+ *verifier_filiere_existe
 
 
- *Elle permet de vérifier si un nom d'utilisateur existe dans la base de données
- * @param string $username nom de l'utilisateur.
- * @return bool le resultat.
+ *Elle permet de vérifier si une filière existe dans la base de données
+ * @param string $libfil libellé de la filière.
+ * @return bool filière.
      
  */
 function verifier_filiere_existe(string $libfil)
@@ -90,6 +90,56 @@ function verifier_filiere_existe(string $libfil)
     }
     return $filiere;
     }
+
+
+    /**
+ * .3++++++
+ * 
+ *listerfiliere
+
+
+ *Elle permet de récupérer les données relative à une  filière  dans la base de données
+ * @return array filière.
+  */
+     
+    function listerfiliere(){
+        $filiere=[];
+        $bdd=database_login();
+        $requselect= $bdd->query('SELECT Codefil,libfil,est_actif,est_supprimer FROM filiere where est_actif=1 and est_supprimer=0 ORDER BY Codefil DESC');
+        $filiere= $requselect->fetchAll(PDO::FETCH_ASSOC);
+       
+        return $filiere;
+    }
+
+       /**
+ * .3++++++
+ * 
+ *recup_filiere_par_codefil
+
+
+ *Elle permet de récupérer le libellé d'une  filière par son code  dans la base de données
+ * @return array filière.
+  */
+     
+  function recup_filiere_par_codefil(int $codefil){
+    $filiere="";
+    $libfil="";
+    $bdd=database_login();
+    $req_prepare= $bdd->prepare('SELECT libfil FROM filiere where Codefil=?');
+    $req_exec=$req_prepare->execute([$codefil]);
+    if($req_exec){
+        $filiere=$req_prepare->fetch();
+        //if(!empty($filiere) && is_array($filiere)){
+            //$libfil=implode($filiere);
+        //}
+    }
+
+    
+   
+    return $filiere;
+}
+
+
 
 
 /**
@@ -466,8 +516,66 @@ function enregistrer_filiere(string $data){
     if($req_exec){
         $enregistrer=true;
     }
+
+    return $enregistrer;
 }
 
+/**
+ * .3++++++
+ * 
+ *modifier_filiere
+
+
+ *Elle permet de modifier une filière la base de données.
+ * @param int $codefil code de la filière.
+ * @param string $libfil nom de la filière.
+ * @return bool $modifier
+ */
+function modifier_filiere(int $codefil, string $libfil){
+    $modifier=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare('UPDATE filiere set libfil=:libfil, mise_a_jour_le=:mise_a_jour_le Where Codefil=:codefil');
+    $req_exec=$req_prepare->execute(array(
+        'libfil'=>$libfil,
+        'mise_a_jour_le'=>$date,
+        'codefil'=>$codefil
+
+    ));
+
+    if($req_exec){
+        $modifier=true;
+    }
+    return $modifier;
+}
+
+
+/**
+ * .3++++++
+ * 
+ *supprimer_filiere
+
+
+ *Elle permet de faire une suppression logique de la filière dans la base de données selon le code de la filière.
+ * @param int $codefil code de la filière.
+ * @return bool $supprimer
+ */
+function suppression_logique_filiere(int $codefil){
+    $suppression=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE filiere SET est_supprimer = 1, est_actif = 0 mise_a_jour_le=:mise_a_jour_le WHERE  Codefil = :codefil");
+    $req_exec=$req_prepare->execute(array(
+        'codefil'=>$codefil,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $supprimer=true;
+    }
+    return $suppression;
+}
 
 
 

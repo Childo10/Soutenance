@@ -17,7 +17,7 @@ if (!empty($_SESSION['message_success_global']) or !empty($_SESSION['message_suc
         .alert-message {
             position: fixed;
             top: 30px;
-            left: 50%;
+            left: 60%;
             transform: translateX(-50%);
             padding: 10px 20px;
             background-color: #007bff;
@@ -49,7 +49,7 @@ if (!empty($_SESSION['message_erreur_global']) or !empty($_SESSION['message_erre
         .alert-message {
             position: fixed;
             top: 30px;
-            left: 50%;
+            left: 60%;
             transform: translateX(-50%);
             padding: 10px 20px;
             background-color: red;
