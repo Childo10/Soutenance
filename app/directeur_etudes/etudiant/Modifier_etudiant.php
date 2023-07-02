@@ -5,6 +5,18 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
   
     $title='modifier un étudiant';
     include('./app/Commun/dashbord_siedbar_DE.php');
+
+    $data="";
+    $matricule="";
+    
+    if(isset($params['3']) && !empty($params['3']) && is_numeric($params['3'])){
+        $matricule=$params['3'];
+        $_SESSION['matricule']=$matricule;
+        //die(var_dump($_SESSION['matricule']));
+       $etudiant=recup_etudiant_par_matricule($matricule);
+        //die(var_dump($etudiant['Sexe']));
+    }
+
 ?>
 
 
@@ -19,25 +31,24 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Modifier un étudiant</h1>
                     </div>
-                    <form class="user">
+                    <form action="<?= CHEMIN_PROJET ?>directeur_Etudes/etudiant/Modifier_etudiant/" method="post">
                         <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control " name="matricule" id="matricule"
-                                    placeholder="001544">
-                            </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 offset-md-3">
                                 <input type="text" class="form-control " name="nom" id="nom"
-                                    placeholder="Clément">
+                                    value="<?= isset($etudiant['Nom']) ? $etudiant['Nom'] : $data ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <input type="text" class="form-control" name="prenom" id="prenom"
-                                    placeholder="Gbodja">
+                                    value="<?= isset($etudiant['Prenom']) ? $etudiant['Prenom'] : $data ?>">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control"  name="sexe" class="sexe"
-                                    id="sexe" placeholder="Masculin">
+                            <select name="sexe" id="sexe" class="form-control">
+                                        <option value="Masculin ">Masculin</option>
+                                        <option value="Féminin ">Féminin</option>
+                                        <option value="Autre">Autre</option>
+                                    </select>
                             </div>
                         </div>
 

@@ -1,4 +1,5 @@
 <?php 
+$codefil="";
 $data="";
 if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
     header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');

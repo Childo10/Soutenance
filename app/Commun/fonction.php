@@ -79,7 +79,7 @@ function verifier_filiere_existe(string $libfil)
     $users="";
     $filiere = false;
     $bdd = database_login();
-    $req = $bdd->prepare('SELECT Codefil from filiere WHERE Libfil=?');
+    $req = $bdd->prepare('SELECT Codefil from filiere WHERE Libfil=? and est_supprimer=0');
     $req_exec=$req->execute([$libfil]);
     if($req_exec){
        
@@ -111,7 +111,29 @@ function verifier_filiere_existe(string $libfil)
         return $filiere;
     }
 
-       /**
+
+   /**
+ * .3++++++
+ * 
+ *listerfiliere
+
+
+ *Elle permet de récupérer les données relative à un étudiant  dans la base de données
+ * @return array étudiant.
+  */
+     
+  function listerEtudiant(){
+    $etudiant=[];
+    $bdd=database_login();
+    $requselect= $bdd->query('SELECT Matricule, Nom, Prenom, Sexe, est_actif ,est_supprimer FROM etudiant where est_supprimer=0 ORDER BY Matricule DESC');
+    $etudiant= $requselect->fetchAll(PDO::FETCH_ASSOC);
+   
+    return $etudiant;
+}
+
+
+
+/**
  * .3++++++
  * 
  *recup_filiere_par_codefil
@@ -138,6 +160,35 @@ function verifier_filiere_existe(string $libfil)
    
     return $filiere;
 }
+
+
+       /**
+ * .3++++++
+ * 
+ *recup_filiere_par_codefil
+
+
+ *Elle permet de récupérer le libellé d'une  filière par son code  dans la base de données
+ * @return array filière.
+  */
+     
+  function recup_etudiant_par_matricule(int $matricule){
+    $etudiant="";
+    $data="";
+    $bdd=database_login();
+    $req_prepare= $bdd->prepare('SELECT Nom, Prenom,Sexe FROM etudiant where Matricule=?');
+    $req_exec=$req_prepare->execute([$matricule]);
+    if($req_exec){
+        $etudiant=$req_prepare->fetch();
+        
+    }
+
+    
+   
+    return $etudiant;
+}
+
+
 
 
 
@@ -523,6 +574,36 @@ function enregistrer_filiere(string $data){
 /**
  * .3++++++
  * 
+ *enregistrer_filiere
+
+
+ *Elle permet d'enregistrer une filière la base de données
+ * @param string $data Nom de la filière.
+ * @return bool $enregistrer
+ */
+function enregistrer_etudiant(string $nom, string $prenom , string $sexe){
+    $enregistrer=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare('INSERT INTO etudiant (Nom, Prenom, Sexe ,creer_le) values(:Nom, :Prenom, :Sexe, :creer_le)');
+    $req_exec=$req_prepare->execute(array(
+        'Nom'=>$nom,
+        'Prenom'=>$prenom,
+        'Sexe'=>$sexe,
+        'creer_le'=>$date
+
+    ));
+
+    if($req_exec){
+        $enregistrer=true;
+    }
+
+    return $enregistrer;
+}
+
+/**
+ * .3++++++
+ * 
  *modifier_filiere
 
 
@@ -564,7 +645,7 @@ function suppression_logique_filiere(int $codefil){
     $suppression=false;
     $date=date("Y-m-d H:i:s");
     $bdd=database_login();
-    $req_prepare=$bdd->prepare("UPDATE filiere SET est_supprimer = 1, est_actif = 0 mise_a_jour_le=:mise_a_jour_le WHERE  Codefil = :codefil");
+    $req_prepare=$bdd->prepare("UPDATE filiere SET est_supprimer = 1, est_actif = 0, mise_a_jour_le=:mise_a_jour_le WHERE  Codefil = :codefil");
     $req_exec=$req_prepare->execute(array(
         'codefil'=>$codefil,
         'mise_a_jour_le'=>$date
@@ -572,10 +653,65 @@ function suppression_logique_filiere(int $codefil){
     ));
 
     if( $req_exec){
-        $supprimer=true;
+        $suppression=true;
     }
     return $suppression;
 }
+
+/**
+ * .3++++++
+ * 
+ *activation_filiere
+
+
+ *Elle permet d'activer une filière dans la base de données selon le code de la filière.
+ * @param int $codefil code de la filière.
+ * @return bool $activation
+ */
+function activation_filiere(int $codefil){
+    $activation=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE filiere SET  est_actif = 1 , mise_a_jour_le=:mise_a_jour_le WHERE  Codefil = :codefil");
+    $req_exec=$req_prepare->execute(array(
+        'codefil'=>$codefil,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $activation=true;
+    }
+    return $activation;
+}
+
+/**
+ * .3++++++
+ * 
+ *activation_filiere
+
+
+ *Elle permet de désactiver une filière dans la base de données selon le code de la filière.
+ * @param int $codefil code de la filière.
+ * @return bool $activation
+ */
+function desactivation_filiere(int $codefil){
+    $desactivation=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE filiere SET  est_actif = 0 , mise_a_jour_le=:mise_a_jour_le WHERE  Codefil = :codefil");
+    $req_exec=$req_prepare->execute(array(
+        'codefil'=>$codefil,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $desactivation=true;
+    }
+    return $desactivation;
+}
+
 
 
 

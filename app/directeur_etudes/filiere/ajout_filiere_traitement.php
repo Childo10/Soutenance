@@ -18,7 +18,7 @@ if(isset($_POST['libfil']) && !empty($_POST['libfil']) && !verifier_filiere_exis
 
 if(empty($errors)){
     enregistrer_filiere($data);
-    $_SESSION['message_success_global']='Filière ajoutée avec succès';
+    $_SESSION['message_success_global']='Filière ajouté avec succès';
     header('location:' . CHEMIN_PROJET . 'directeur_etudes/filiere/ajout_filiere');
 }
 else{
