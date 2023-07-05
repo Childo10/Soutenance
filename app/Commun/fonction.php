@@ -91,6 +91,39 @@ function verifier_filiere_existe(string $libfil)
     return $filiere;
     }
 
+/**
+ * .3++++++
+ * 
+ *verifier_filiere_existe
+
+
+ *Elle permet de vérifier si une filière existe dans la base de données
+ * @param string $libfil libellé de la filière.
+ * @return bool filière.
+     
+ */
+function verifier_inscription_existe(int $codefil ,int $matricule)
+{
+    $users="";
+    $data = false;
+    $bdd = database_login();
+    $req = $bdd->prepare('SELECT NumIns from inscription WHERE Matricule=:matricule and Codefil=:codefil and est_supprimer=0 ');
+    $req_exec=$req->execute([
+        'matricule' => $matricule,
+        'codefil' => $codefil
+    
+    ]);
+    if($req_exec){
+       
+        $users = $req->fetch();
+        if(!empty($users) && is_array($users)){
+            $data=true;
+        }
+    }
+    return $data;
+    }
+
+
 
     /**
  * .3++++++
@@ -115,7 +148,7 @@ function verifier_filiere_existe(string $libfil)
    /**
  * .3++++++
  * 
- *listerfiliere
+ *listerEtudiant
 
 
  *Elle permet de récupérer les données relative à un étudiant  dans la base de données
@@ -129,6 +162,51 @@ function verifier_filiere_existe(string $libfil)
     $etudiant= $requselect->fetchAll(PDO::FETCH_ASSOC);
    
     return $etudiant;
+}
+
+  /**
+ * .3++++++
+ * 
+ *listerEtudiant_par_matricule
+
+
+ *Elle permet de récupérer les données relative à un étudiant par son matricule
+ * @return array étudiant.
+  */
+     
+  function listerEtudiant_par_matricule(int $matricule){
+    $etudiant=[];
+    $bdd=database_login();
+    $requ_prepare= $bdd->prepare('SELECT Matricule, Nom, Prenom, Sexe FROM etudiant where est_supprimer=0 and Matricule=? ORDER BY Matricule DESC');
+    $requ_execution= $requ_prepare->execute([$matricule]);
+    if($requ_execution){
+        $etudiant=$requ_prepare->fetchAll(PDO::FETCH_ASSOC);
+    }
+   
+    return $etudiant;
+}
+
+
+
+
+
+  /**
+ * .3++++++
+ * 
+ *listerfiliere
+
+
+ *Elle permet de récupérer les données relative à un étudiant  dans la base de données
+ * @return array étudiant.
+  */
+     
+  function listerInscription(){
+    $inscription=[];
+    $bdd=database_login();
+    $requselect= $bdd->query('SELECT NumIns, Matricule, Codefil, DateIns, Annee_Ins, est_actif ,est_supprimer FROM inscription where est_supprimer=0 ORDER BY NumIns DESC');
+    $inscription= $requselect->fetchAll(PDO::FETCH_ASSOC);
+   
+    return $inscription;
 }
 
 
@@ -168,7 +246,7 @@ function verifier_filiere_existe(string $libfil)
  *recup_filiere_par_codefil
 
 
- *Elle permet de récupérer le libellé d'une  filière par son code  dans la base de données
+ *Elle permet de récupérer les données d'un étudiant par son matricule dans la base de données
  * @return array filière.
   */
      
@@ -319,8 +397,7 @@ function update_avatar(int $id, string $avatar ){
  * @param int $telephone telephone
  * @return bool $update_profil.
  */
-function mettre_a_jour_donnees_utilisateur(int $id,  string $nom,  string $prenom, string $username, string $adresse, $date_naissance, $sexe, int $telephone)
-{
+function mettre_a_jour_donnees_utilisateur(int $id,  string $nom,  string $prenom, string $username, string $adresse, $date_naissance, $sexe, int $telephone){
     $update_profil = "false";
 
     $date = date("Y-m-d H:i:s");
@@ -348,7 +425,11 @@ function mettre_a_jour_donnees_utilisateur(int $id,  string $nom,  string $preno
     }
 
     return $update_profil;
+
+
 }
+
+   
 
 
 /**
@@ -604,6 +685,38 @@ function enregistrer_etudiant(string $nom, string $prenom , string $sexe){
 /**
  * .3++++++
  * 
+ *enregistrer_filiere
+
+
+ *Elle permet d'enregistrer une filière la base de données
+ * @param string $data Nom de la filière.
+ * @return bool $enregistrer
+ */
+function enregistrer_inscription(int $matricule, int $codefil , string $date, string $annee){
+    $enregistrer=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare('INSERT INTO inscription (Matricule, Codefil, DateIns, Annee_Ins, creer_le) values(:Matricule, :Codefil, :DateIns, :Annee_Ins, :creer_le)');
+    $req_exec=$req_prepare->execute(array(
+        'Matricule'=>$matricule,
+        'Codefil'=>$codefil,
+        'DateIns'=>$date,
+        'Annee_Ins'=>$annee,
+        'creer_le'=>$date
+
+    ));
+
+    if($req_exec){
+        $enregistrer=true;
+    }
+
+    return $enregistrer;
+}
+
+
+/**
+ * .3++++++
+ * 
  *modifier_filiere
 
 
@@ -621,6 +734,39 @@ function modifier_filiere(int $codefil, string $libfil){
         'libfil'=>$libfil,
         'mise_a_jour_le'=>$date,
         'codefil'=>$codefil
+
+    ));
+
+    if($req_exec){
+        $modifier=true;
+    }
+    return $modifier;
+}
+
+/**
+ * .3++++++
+ * 
+ *modifier_etudiant
+
+
+ *Elle permet de modifier un étudiant la base de données.
+ * @param int $matricule code de l'etudiant.
+ * @param string $nom nom de l'étudiant.
+ * @param string $prenom prenom de l'étudiant.
+ * @param string $sexe sexe de l'étudiant.
+ * @return bool $modifier
+ */
+function modifier_etudiant(int $matricule, string $nom, string $prenom,string $sexe ){
+    $modifier=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare('UPDATE etudiant set Nom=:nom, Prenom=:prenom, Sexe=:sexe, mise_a_jour_le=:mise_a_jour_le Where Matricule=:matricule');
+    $req_exec=$req_prepare->execute(array(
+        'nom'=>$nom,
+        'prenom'=>$prenom,
+        'sexe'=>$sexe,
+        'mise_a_jour_le'=>$date,
+        'matricule'=>$matricule
 
     ));
 
@@ -661,6 +807,88 @@ function suppression_logique_filiere(int $codefil){
 /**
  * .3++++++
  * 
+ *supprimer_étudiant
+
+
+ *Elle permet de faire une suppression logique d'un étudiant dans la base de données selon le matricule.
+ * @param int $matricule matricule de l'étudiant.
+ * @return bool $supprimer
+ */
+function suppression_logique_etudiant(int $matricule){
+    $suppression=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE etudiant SET est_supprimer = 1, est_actif = 0, mise_a_jour_le=:mise_a_jour_le WHERE  Matricule = :matricule");
+    $req_exec=$req_prepare->execute(array(
+        'matricule'=>$matricule,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $suppression=true;
+    }
+    return $suppression;
+}
+
+/**
+ * .3++++++
+ * 
+ *supprimer_étudiant
+
+
+ *Elle permet de faire une suppression logique d'une inscription dans la base de données selon le numéro d'inscription.
+ * @param int $numins numéro d'inscription.
+ * @return bool $supprimer
+ */
+function suppression_logique_inscription(int $numins){
+    $suppression=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE inscription SET est_supprimer = 1, est_actif = 0, mise_a_jour_le=:mise_a_jour_le WHERE  NumIns = :numins");
+    $req_exec=$req_prepare->execute(array(
+        'numins'=>$numins,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $suppression=true;
+    }
+    return $suppression;
+}
+
+
+/**
+ * .3++++++
+ * 
+ *activation_etudiant
+
+
+ *Elle permet d'activer un étudiant dans la base de données selon le matricule.
+ * @param int $matricule matricule de l'étudiant.
+ * @return bool $activation
+ */
+function activation_etudiant(int $matricule){
+    $activation=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE etudiant SET  est_actif = 1 , mise_a_jour_le=:mise_a_jour_le WHERE  Matricule = :matricule");
+    $req_exec=$req_prepare->execute(array(
+        'matricule'=>$matricule,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $activation=true;
+    }
+    return $activation;
+}
+
+/**
+ * .3++++++
+ * 
  *activation_filiere
 
 
@@ -689,6 +917,90 @@ function activation_filiere(int $codefil){
  * .3++++++
  * 
  *activation_filiere
+
+
+ *Elle permet d'activer une inscription dans la base de données selon le numéro d'inscription
+ * @param int $num_inscription numéro d'inscription 
+ * @return bool $activation
+ */
+function activation_inscription(int $num_inscription){
+    $activation=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE inscription SET  est_actif = 1 , mise_a_jour_le=:mise_a_jour_le WHERE  NumIns = :numins");
+    $req_exec=$req_prepare->execute(array(
+        'numins'=>$num_inscription,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $activation=true;
+    }
+    return $activation;
+}
+
+
+
+/**
+ * .3++++++
+ * 
+ *desactivation_etudiant
+
+
+ *Elle permet de désactiver un étudiant dans la base de données selon le matricule.
+ * @param int $matricule matricule de l'étudiant.
+ * @return bool $activation
+ */
+function desactivation_etudiant(int $matricule){
+    $desactivation=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE etudiant SET  est_actif = 0 , mise_a_jour_le=:mise_a_jour_le WHERE  Matricule = :matricule");
+    $req_exec=$req_prepare->execute(array(
+        'matricule'=>$matricule,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $desactivation=true;
+    }
+    return $desactivation;
+}
+
+/**
+ * .3++++++
+ * 
+ *desactivation_inscription
+
+
+ *Elle permet de désactiver une inscription dans la base de données selon le numéro d'inscription.
+ * @param int $num_inscription numéro d'inscription
+ * @return bool $activation
+ */
+function desactivation_inscription(int $num_inscription){
+    $desactivation=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE inscription SET  est_actif = 0 , mise_a_jour_le=:mise_a_jour_le WHERE  NumIns = :numins");
+    $req_exec=$req_prepare->execute(array(
+        'numins'=>$num_inscription,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $desactivation=true;
+    }
+    return $desactivation;
+}
+
+
+/**
+ * .3++++++
+ * 
+ *desactivation_filiere
 
 
  *Elle permet de désactiver une filière dans la base de données selon le code de la filière.

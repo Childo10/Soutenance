@@ -81,10 +81,75 @@ if (!empty($_SESSION['message_erreur_desactivation']) or !empty($_SESSION['messa
 ?>
 
 <?php
+if (!empty($_SESSION['message_suppression_erreur']) or !empty($_SESSION['message_suppression_erreur'])) {
+?>
+    <div class="alert-message">
+        <?=$_SESSION['message_suppression_erreur']?>
+    </div>
+    <style>
+        .alert-message {
+            position: fixed;
+            top: 30px;
+            left: 60%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            opacity: 1;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+
+<?php
+}
+?>
+
+<?php
 if (!empty($_SESSION['message_success_activation_global']) or !empty($_SESSION['message_success_activation_global'])) {
 ?>
     <div class="alert-message">
         <?= $_SESSION['message_success_activation_global']?>
+    </div>
+    <style>
+        .alert-message {
+            position: fixed;
+            top: 30px;
+            left: 60%;
+            z-index: 5;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            opacity: 1;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+
+<?php
+}
+?>
+
+<?php
+if (!empty($_SESSION['message_suppression_success']) or !empty($_SESSION['message_suppression_success'])) {
+?>
+    <div class="alert-message">
+        <?= $_SESSION['message_suppression_success']?>
     </div>
     <style>
         .alert-message {
@@ -187,6 +252,6 @@ if (!empty($_SESSION['message_success_activation_global']) or !empty($_SESSION['
 <?php
 unset($_SESSION['message_success_global']);
 unset($_SESSION['message_success_activation_global']);
-unset($_SESSION['message_erreur_desactivation']);
+unset($_SESSION['message_erreur_desactivation'],$_SESSION['message_suppression_success'],$_SESSION['message_suppression_erreur']);
 include('./app/Commun/dashbord_footer.php');
 ?>

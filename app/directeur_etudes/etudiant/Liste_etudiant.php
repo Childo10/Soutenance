@@ -11,6 +11,169 @@ $etudiant = listerEtudiant();
 ?>
 
 
+<?php
+if (isset( $_SESSION['message_success_etudiant']) && !empty( $_SESSION['message_success_etudiant'])) {
+?>
+    <div class="alert-message">
+        <?=  $_SESSION['message_success_etudiant']?>
+    </div>
+    <style>
+        .alert-message {
+            position: fixed;
+            top: 30px;
+            left: 60%;
+            z-index: 5;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            opacity: 1;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+
+<?php
+}
+?>
+
+<?php
+if (!empty($_SESSION['message_success_activation_global']) or !empty($_SESSION['message_success_activation_global'])) {
+?>
+    <div class="alert-message">
+        <?= $_SESSION['message_success_activation_global']?>
+    </div>
+    <style>
+        .alert-message {
+            position: fixed;
+            top: 30px;
+            left: 60%;
+            z-index: 5;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            opacity: 1;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+
+<?php
+}
+?>
+
+<?php
+if (isset( $_SESSION['message_erreur_activation']) or !empty( $_SESSION['message_erreur_activation'])) {
+?>
+    <div class="alert-message">
+        <?= $_SESSION['message_erreur_activation']?>
+    </div>
+    <style>
+        .alert-message {
+            position: fixed;
+            top: 30px;
+            left: 60%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            opacity: 1;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+
+<?php
+}
+?>
+
+<?php
+if (!empty($_SESSION['message_suppression_success']) or !empty($_SESSION['message_suppression_success'])) {
+?>
+    <div class="alert-message">
+        <?= $_SESSION['message_suppression_success']?>
+    </div>
+    <style>
+        .alert-message {
+            position: fixed;
+            top: 30px;
+            left: 60%;
+            z-index: 5;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            opacity: 1;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+
+<?php
+}
+?>
+
+
+<?php
+if (!empty($_SESSION['message_suppression_erreur']) or !empty($_SESSION['message_suppression_erreur'])) {
+?>
+    <div class="alert-message">
+        <?=$_SESSION['message_suppression_erreur']?>
+    </div>
+    <style>
+        .alert-message {
+            position: fixed;
+            top: 30px;
+            left: 60%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            opacity: 1;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+
+<?php
+}
+?>
 
 <div class="container-fluid">
 
@@ -58,7 +221,7 @@ $etudiant = listerEtudiant();
                                 <td><?= $etudiant[$key]['Nom'] ?></td>
                                 <td><?= $etudiant[$key]['Prenom'] ?></td>
                                 <td><?= $etudiant[$key]['Sexe'] ?></td>
-                                <td><span class=" <?= $etudiant[$key]['est_actif'] == 1 ? 'btn-primary btn-sm' : 'btn-danger btn-sm' ?>"><?= $etudiant[$key]['est_actif'] == 1 ? 'Activée' : 'Désactivée' ?></span></td>
+                                <td><span class=" <?= $etudiant[$key]['est_actif'] == 1 ? 'btn-primary btn-sm' : 'btn-danger btn-sm' ?>"><?= $etudiant[$key]['est_actif'] == 1 ? 'Activé' : 'Désactivé' ?></span></td>
                                 <td>
                                     <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/etudiant/Modifier_etudiant/<?= $etudiant[$key]['Matricule'] ?>" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
                                     <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/etudiant/suppression_etudiant/<?= $etudiant[$key]['Matricule']?> " class="btn-sm  btn-circle btn-danger text-decoration-none "><i class="fas fa-times-circle"></i></a>
@@ -87,5 +250,7 @@ $etudiant = listerEtudiant();
 <!-- /.container-fluid -->
 
 <?php
+unset($_SESSION['message_success_etudiant'],$_SESSION['message_erreur_activation'],
+$_SESSION['message_success_activation_global'],$_SESSION['message_suppression_success'],  $_SESSION['message_suppression_erreur']);
 include('./app/Commun/dashbord_footer.php');
 ?>

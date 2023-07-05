@@ -1,5 +1,10 @@
 <?php
+$data=[];
+$errors=[];
 
+if(isset($_SESSION['matricule'])){
+    $matricule=$_SESSION['matricule'];
+}
 
 
 if (verifier_info($_POST['nom'])){
@@ -27,18 +32,18 @@ else{
 }
 
 if(empty($errors)){
-    $enregistrer=enregistrer_etudiant( $data['nom'], $data['prenom'],$data['sexe']);
-    if($enregistrer){
-        $_SESSION['message_success_etudiant']='Etudiant ajoutée avec succès';
-        header('location:' . CHEMIN_PROJET . 'directeur_etudes/etudiant/ajout_etudiant');
+    $modifier=modifier_etudiant($matricule, $data['nom'], $data['prenom'],$data['sexe']);
+    if($modifier){
+        $_SESSION['message_success_etudiant']='Modification effectuée avec succès';
+        header('location:' . CHEMIN_PROJET . 'directeur_etudes/etudiant/liste_etudiant');
     }
     else{
         $_SESSION['message_erreur_etudiant']="Une erreur est survenue lors de l'enregistrement";
-        header('location:' . CHEMIN_PROJET . 'directeur_etudes/etudiant/ajout_etudiant');
+        header('location:' . CHEMIN_PROJET . 'directeur_etudes/etudiant/modifier_etudiant');
     }
    
 }
 else{
     $_SESSION['errors_etudiant']=$errors;
-    header('location:' . CHEMIN_PROJET . 'directeur_etudes/etudiant/ajout_etudiant');
+    header('location:' . CHEMIN_PROJET . 'directeur_etudes/etudiant/modifier_etudiant');
 }
