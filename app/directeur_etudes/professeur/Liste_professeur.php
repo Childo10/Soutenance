@@ -38,38 +38,7 @@ $title='Liste des inscriptions';
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                            <td>001544</td>
-                            <td>Clément Gbodja</td>
-                            <td>
-                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/professeur/Modifier_professeur" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
-                            </td>
-                           
-                        </tr>
-
-                        <tr>
-                            <td>001544</td>
-                            <td>Clément Gbodja</td>
-                            <td>
-                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/professeur/Modifier_professeur" type="button" class="btn-sm btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
-                            </td>
-                           
-                        </tr>
-
-
-                        <tr>
-                            <td>001544</td>
-                            <td>Clément Gbodja</td>
-                            <td>
-                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/professeur/Modifier_professeur" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
-                            </td>
-                           
-                        </tr>
-
-
+                    
                         <tr>
                             <td>001544</td>
                             <td>Clément Gbodja</td>

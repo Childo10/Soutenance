@@ -188,6 +188,8 @@ if (!empty($_SESSION['message_suppression_erreur']) or !empty($_SESSION['message
 <!-- /.container-fluid -->
 
 <?php
-
+unset($_SESSION['message_success_global']);
+unset($_SESSION['message_success_activation_global']);
+unset($_SESSION['message_erreur_desactivation'],$_SESSION['message_suppression_success'],$_SESSION['message_suppression_erreur']);
 include('./app/Commun/dashbord_footer.php');
 ?>
