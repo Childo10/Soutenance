@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 06 juin 2023 à 13:11
+-- Généré le : lun. 10 juil. 2023 à 14:23
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -133,15 +133,15 @@ CREATE TABLE IF NOT EXISTS `derouler_cours` (
 DROP TABLE IF EXISTS `etudiant`;
 CREATE TABLE IF NOT EXISTS `etudiant` (
   `Matricule` int(11) NOT NULL AUTO_INCREMENT,
-  `Nom` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `Prenom` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `Sexe` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `est_actif` int(11) NOT NULL,
-  `est_supprimer` int(11) NOT NULL,
-  `creer_le` int(11) NOT NULL,
-  `mise_a_jour_le` timestamp NOT NULL,
+  `Nom` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `Prenom` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `Sexe` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `est_actif` int(11) NOT NULL DEFAULT '1',
+  `est_supprimer` int(11) NOT NULL DEFAULT '0',
+  `creer_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `mise_a_jour_le` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`Matricule`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -153,12 +153,12 @@ DROP TABLE IF EXISTS `filiere`;
 CREATE TABLE IF NOT EXISTS `filiere` (
   `Codefil` int(11) NOT NULL AUTO_INCREMENT,
   `Libfil` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `est_actif` int(11) NOT NULL,
-  `est_supprimer` int(11) NOT NULL,
-  `mise_a_jour_le` timestamp NOT NULL,
-  `creer_le` int(11) NOT NULL,
+  `est_actif` int(11) NOT NULL DEFAULT '1',
+  `est_supprimer` int(11) NOT NULL DEFAULT '0',
+  `mise_a_jour_le` timestamp NULL DEFAULT NULL,
+  `creer_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Codefil`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -170,17 +170,17 @@ DROP TABLE IF EXISTS `inscription`;
 CREATE TABLE IF NOT EXISTS `inscription` (
   `NumIns` int(11) NOT NULL AUTO_INCREMENT,
   `Matricule` int(11) NOT NULL,
-  `Codfil` int(11) NOT NULL,
-  `DateIns` date NOT NULL,
-  `Annee_Ins` year(4) NOT NULL,
-  `est_actif` int(11) NOT NULL,
-  `est_supprimer` int(11) NOT NULL,
-  `creer_le` int(11) NOT NULL,
-  `mise_a_jour_le` timestamp NOT NULL,
+  `Codefil` int(11) NOT NULL,
+  `DateIns` date DEFAULT NULL,
+  `Annee_Ins` varchar(255) DEFAULT NULL,
+  `est_actif` int(11) NOT NULL DEFAULT '1',
+  `est_supprimer` int(11) NOT NULL DEFAULT '0',
+  `mise_a_jour_le` timestamp NULL DEFAULT NULL,
+  `creer_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`NumIns`),
   KEY `inscription_etudiant_Matricule` (`Matricule`),
-  KEY `inscription_filiere_Codefil` (`Codfil`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `inscription_filiere_Codefil` (`Codefil`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -276,7 +276,7 @@ CREATE TABLE IF NOT EXISTS `token` (
   `creer_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `maj_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=157 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -294,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mot_de_passe` varchar(255) NOT NULL,
   `est_actif` int(11) NOT NULL DEFAULT '0',
   `profil` varchar(255) DEFAULT NULL,
-  `avatar` varchar(255) DEFAULT NULL,
+  `avatar` varchar(255) NOT NULL DEFAULT 'null',
   `creer_le` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `est_supprimer` int(11) DEFAULT '0',
   `mis_a_jour_le` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -304,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `telephone` int(11) DEFAULT NULL,
   `date_naissance` date DEFAULT NULL,
   PRIMARY KEY (`id_utilisateur`)
-) ENGINE=MyISAM AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=130 DEFAULT CHARSET=utf8;
 
 --
 -- Contraintes pour les tables déchargées
@@ -337,7 +337,7 @@ ALTER TABLE `derouler_cours`
 --
 ALTER TABLE `inscription`
   ADD CONSTRAINT `inscription_etudiant_Matricule` FOREIGN KEY (`Matricule`) REFERENCES `etudiant` (`Matricule`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `inscription_filiere_Codefil` FOREIGN KEY (`Codfil`) REFERENCES `filiere` (`Codefil`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `inscription_filiere_Codefil` FOREIGN KEY (`Codefil`) REFERENCES `filiere` (`Codefil`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `responsable`
