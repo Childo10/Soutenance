@@ -224,11 +224,37 @@ if (!empty($_SESSION['message_suppression_erreur']) or !empty($_SESSION['message
                                 <td><span class=" <?= $etudiant[$key]['est_actif'] == 1 ? 'btn-primary btn-sm' : 'btn-danger btn-sm' ?>"><?= $etudiant[$key]['est_actif'] == 1 ? 'Activé' : 'Désactivé' ?></span></td>
                                 <td>
                                     <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/etudiant/Modifier_etudiant/<?= $etudiant[$key]['Matricule'] ?>" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                    <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/etudiant/suppression_etudiant/<?= $etudiant[$key]['Matricule']?> " class="btn-sm  btn-circle btn-danger text-decoration-none "><i class="fas fa-times-circle"></i></a>
+                                    <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/etudiant/suppression_etudiant/" data-toggle="modal" data-target="#suppression-<?= $etudiant[$key]['Matricule'] ?>" class="btn-sm  btn-circle btn-danger text-decoration-none "><i class="fas fa-times-circle"></i></a>
                                     <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/etudiant/activation_etudiant/<?= $etudiant[$key]['Matricule'] ?>/<?= $etudiant[$key]['est_actif'] ?>" class="<?= $etudiant[$key]['est_actif'] == 1 ? 'btn-outline-danger btn-sm' : 'btn-outline-primary btn-sm' ?> text-decoration-none">
                                         <?= $etudiant[$key]['est_actif'] == 1 ? 'Désactiver' : 'Activer' ?>
                                     </a>
                                 </td>
+
+                                <div class="modal fade" id="suppression-<?= $etudiant[$key]['Matricule']?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="desactivationLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="desactivationLabel">Suppression d'étudiant</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-center">Etes vous sur de supprimer cet étudiant?
+                                                    </p>
+
+
+
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a type="button" href="<?= CHEMIN_PROJET ?>directeur_Etudes/etudiant/suppression_etudiant/<?= $etudiant[$key]['Matricule']?>"  class="btn  btn-sm btn-primary" name="desactiver_compte" value="Valider">Oui</a>
+                                                    <a type="button" data-dismiss="modal" class="btn  btn-sm btn-danger" value="Annuler">Non</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                             </tr>
 

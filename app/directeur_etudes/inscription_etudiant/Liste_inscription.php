@@ -10,6 +10,7 @@ $inscription = listerInscription();
 $etudiants_inscrits = [];
 foreach ($inscription as $key => $value) {
     $etudiants_inscrits[] = listerEtudiant_par_matricule($inscription[$key]['Matricule']);
+    //die(var_dump( $etudiants_inscrits[0][0]['Nom']));
 }
 ?>
 
@@ -132,8 +133,8 @@ if (!empty($_SESSION['message_suppression_erreur']) or !empty($_SESSION['message
                             <th>Prénom</th>
                             <th>Sexe</th>
                             <th>Code filière</th>
-                            <th>Date d'inscription</th>
-                            <th>Année d'inscription</th>
+                            <th>Date</th>
+                            <th>Année</th>
                             <th>Statuts</th>
                             <th>Actions</th>
                         </tr>
@@ -145,8 +146,8 @@ if (!empty($_SESSION['message_suppression_erreur']) or !empty($_SESSION['message
                             <th>Prénom</th>
                             <th>Sexe</th>
                             <th>Code filière</th>
-                            <th>Date d'inscription</th>
-                            <th>Année d'inscription</th>
+                            <th>Date</th>
+                            <th>Année</th>
                             <th>Statuts</th>
                             <th>Actions</th>
 

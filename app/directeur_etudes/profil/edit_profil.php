@@ -63,7 +63,7 @@ if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_D
 				<div class="card-body">
 					<div class="row mb-3">
 						<div class="col-sm-3">
-							<h6 class="mb-0 font-weight-bold">Nom</h6>
+							<h6 class="mb-0 font-weight-bold">Nom<span class="text-danger">(*)</span></h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
 							<input type="text" name="nom" class="form-control <?= isset($_SESSION['errors']['nom']) ? 'is-invalid' : '' ?>" value="<?= $_SESSION['users_DE']['nom'] ?>">
@@ -80,7 +80,7 @@ if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_D
 					</div>
 					<div class="row mb-3">
 						<div class="col-sm-3">
-							<h6 class="mb-0 font-weight-bold">Prenom</h6>
+							<h6 class="mb-0 font-weight-bold">Prenom<span class="text-danger">(*)</span></h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
 							<input type="text" name="prenom" class="form-control <?= isset($_SESSION['errors']['prenom']) ? 'is-invalid' : '' ?>" value="<?= $_SESSION['users_DE']['prenom'] ?>">
@@ -97,7 +97,7 @@ if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_D
 					</div>
 					<div class="row mb-3">
 						<div class="col-sm-3">
-							<h6 class="mb-0 font-weight-bold">Nom utilisateur</h6>
+							<h6 class="mb-0 font-weight-bold">Nom utilisateur<span class="text-danger">(*)</span></h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
 							<input type="text" name="nom_utilisateur" class="form-control <?= isset($_SESSION['errors']['nom_utilisateur']) ? 'is-invalid' : '' ?>" value="<?= $_SESSION['users_DE']['nom_utilisateur'] ?>">
@@ -114,7 +114,7 @@ if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_D
 					</div>
 					<div class="row mb-3">
 						<div class="col-sm-3">
-							<label for="sexe" class="form-label mb-0 font-weight-bold">Sexe</label>
+							<label for="sexe" class="form-label mb-0 font-weight-bold">Sexe<span class="text-danger">(*)</span></label>
 						</div>
 						<div class="col-sm-9 text-secondary">
 
@@ -138,7 +138,7 @@ if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_D
 
 					<div class="row mb-3">
 						<div class="col-sm-3">
-							<h6 class="mb-0 font-weight-bold">Date de naissance</h6>
+							<h6 class="mb-0 font-weight-bold">Date de naissance <span class="text-danger">(*)</span></h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
 							<input type="date" name="date_naissance" class="form-control <?= isset($_SESSION['errors']['date_naissance']) ? 'is-invalid' : '' ?>"  value="<?= !empty($_SESSION['users_DE']['date_naissance']) ? $_SESSION['users_DE']['date_naissance'] : ''?>">
@@ -156,7 +156,7 @@ if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_D
 
 					<div class="row mb-3">
 						<div class="col-sm-3">
-							<h6 class="mb-0 font-weight-bold">Adresse</h6>
+							<h6 class="mb-0 font-weight-bold">Adresse <span class="text-danger">(*)</span></h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
 							<input type="text" name="adresse" class="form-control <?= isset($_SESSION['errors']['adresse']) ? 'is-invalid' : '' ?>" value="<?= !empty($_SESSION['users_DE']['adresse']) ? $_SESSION['users_DE']['adresse'] : ''?>">
@@ -174,7 +174,7 @@ if (isset($_SESSION['users_DE']['id_utilisateur']) and !empty($_SESSION['users_D
 
 					<div class="row mb-3">
 						<div class="col-sm-3">
-							<h6 class="mb-0 font-weight-bold">Téléphone</h6>
+							<h6 class="mb-0 font-weight-bold">Téléphone<span class="text-danger">(*)</span></h6>
 						</div>
 						<div class="col-sm-9 text-secondary">
 							<input type="number" name="telephone" class="form-control <?= isset($_SESSION['errors']['telephone']) ? 'is-invalid' : '' ?>" value="<?= !empty($_SESSION['users_DE']['telephone']) ? $_SESSION['users_DE']['telephone'] : ''?>">

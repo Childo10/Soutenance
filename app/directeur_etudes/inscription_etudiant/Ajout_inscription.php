@@ -131,7 +131,7 @@ if (isset($_SESSION['message_success_inscription']) && !empty($_SESSION['message
                                         <?php
                                          foreach ($etudiant as $key => $value) {
                                             ?>
-                                        <option value="<?= $etudiant[$key]['Matricule'] ?>"><?= $etudiant[$key]['Matricule'] ?></option>
+                                        <option value="<?= $etudiant[$key]['Matricule'] ?>"><?= $etudiant[$key]['Matricule'] ?> <?= $etudiant[$key]['Nom'] ?> <?= $etudiant[$key]['Prenom'] ?> </option>
                                         
                                         <?php
                                          }
@@ -143,9 +143,9 @@ if (isset($_SESSION['message_success_inscription']) && !empty($_SESSION['message
                                     <label for="codefil" class="font-weight-bold">Code de filière</label>
                                     <select name="codefil" id="codefil" class="form-control <?= isset($_SESSION['errors_inscription']['inscription']) ? 'is-invalid' : '' ?> ">
                                     <?php
-                                         foreach ($etudiant as $key => $value) {
+                                         foreach ($filiere as $key => $value) {
                                             ?>
-                                        <option value="<?= $filiere[$key]['Codefil'] ?>"><?= $filiere[$key]['Codefil'] ?></option>
+                                        <option value="<?= $filiere[$key]['Codefil'] ?>"><?= $filiere[$key]['libfil'] ?></option>
                                         
                                         <?php
                                          }

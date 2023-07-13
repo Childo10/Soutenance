@@ -60,10 +60,9 @@ $url = str_replace('{token}', $token, $url);
     <div class="container">
         <h1>BIENVENUE,</h1>
         <p>Merci de vous êtes inscrit dans notre application.</p>
-        <p>Merci de cliquer sur le bouton afin de valider votre inscription.</p>
+        <p>Veuillez patienter pendant qu'un administrateur valide votre compte pour que vous puissez vous connecter.</p>
         <p>Cordialement,</p>
         <p>L'équipe d'Educ-Action</p>
-        <a href="<?=$url?>" class="button">Valider</a>
     </div>
 </body>
 </html>

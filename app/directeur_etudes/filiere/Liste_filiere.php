@@ -52,7 +52,7 @@ if (!empty($_SESSION['message_success_global']) or !empty($_SESSION['message_suc
 if (!empty($_SESSION['message_erreur_desactivation']) or !empty($_SESSION['message_erreur_desactivation'])) {
 ?>
     <div class="alert-message">
-        <?=$_SESSION['message_erreur_desactivation']?>
+        <?= $_SESSION['message_erreur_desactivation'] ?>
     </div>
     <style>
         .alert-message {
@@ -84,7 +84,7 @@ if (!empty($_SESSION['message_erreur_desactivation']) or !empty($_SESSION['messa
 if (!empty($_SESSION['message_suppression_erreur']) or !empty($_SESSION['message_suppression_erreur'])) {
 ?>
     <div class="alert-message">
-        <?=$_SESSION['message_suppression_erreur']?>
+        <?= $_SESSION['message_suppression_erreur'] ?>
     </div>
     <style>
         .alert-message {
@@ -116,7 +116,7 @@ if (!empty($_SESSION['message_suppression_erreur']) or !empty($_SESSION['message
 if (!empty($_SESSION['message_success_activation_global']) or !empty($_SESSION['message_success_activation_global'])) {
 ?>
     <div class="alert-message">
-        <?= $_SESSION['message_success_activation_global']?>
+        <?= $_SESSION['message_success_activation_global'] ?>
     </div>
     <style>
         .alert-message {
@@ -149,7 +149,7 @@ if (!empty($_SESSION['message_success_activation_global']) or !empty($_SESSION['
 if (!empty($_SESSION['message_suppression_success']) or !empty($_SESSION['message_suppression_success'])) {
 ?>
     <div class="alert-message">
-        <?= $_SESSION['message_suppression_success']?>
+        <?= $_SESSION['message_suppression_success'] ?>
     </div>
     <style>
         .alert-message {
@@ -225,9 +225,35 @@ if (!empty($_SESSION['message_suppression_success']) or !empty($_SESSION['messag
                                     <td><span class=" <?= $filiere[$key]['est_actif'] == 1 ? 'btn-primary btn-sm' : 'btn-danger btn-sm' ?>"><?= $filiere[$key]['est_actif'] == 1 ? 'Activée' : 'Désactivée' ?></span></td>
                                     <td>
                                         <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/Modifier_filiere/<?= $filiere[$key]['Codefil'] ?>" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/suppression_filiere/<?= $filiere[$key]['Codefil'] ?> " class="btn-sm  btn-circle btn-danger text-decoration-none "><i class="fas fa-times-circle"></i></a>
-                                        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/activation_filiere/<?= $filiere[$key]['Codefil']?>/<?= $filiere[$key]['est_actif']?>"  class="<?= $filiere[$key]['est_actif'] == 1 ? 'btn-outline-danger btn-sm' : 'btn-outline-primary btn-sm' ?> text-decoration-none"><?= $filiere[$key]['est_actif'] == 1 ? 'Désactiver' : 'Activer' ?></a>
+                                        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/suppression_filiere/ " data-toggle="modal" data-target="#suppression-<?= $filiere[$key]['Codefil'] ?>" class="btn-sm  btn-circle btn-danger text-decoration-none "><i class="fas fa-times-circle"></i></a>
+                                        <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/activation_filiere/<?= $filiere[$key]['Codefil'] ?>/<?= $filiere[$key]['est_actif'] ?>" class="<?= $filiere[$key]['est_actif'] == 1 ? 'btn-outline-danger btn-sm' : 'btn-outline-primary btn-sm' ?> text-decoration-none"><?= $filiere[$key]['est_actif'] == 1 ? 'Désactiver' : 'Activer' ?></a>
+
+
                                     </td>
+                                    <div class="modal fade" id="suppression-<?= $filiere[$key]['Codefil'] ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="desactivationLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="desactivationLabel">Suppression de filière</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-center">Etes vous sur de supprimer cette filière?
+                                                    </p>
+
+
+
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a type="button" href="<?= CHEMIN_PROJET ?>directeur_Etudes/filiere/suppression_filiere/<?= $filiere[$key]['Codefil'] ?>"  class="btn  btn-sm btn-primary" name="desactiver_compte" value="Valider">Oui</a>
+                                                    <a type="button" data-dismiss="modal" class="btn  btn-sm btn-danger" value="Annuler">Non</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
                                 </tr>
@@ -252,6 +278,6 @@ if (!empty($_SESSION['message_suppression_success']) or !empty($_SESSION['messag
 <?php
 unset($_SESSION['message_success_global']);
 unset($_SESSION['message_success_activation_global']);
-unset($_SESSION['message_erreur_desactivation'],$_SESSION['message_suppression_success'],$_SESSION['message_suppression_erreur']);
+unset($_SESSION['message_erreur_desactivation'], $_SESSION['message_suppression_success'], $_SESSION['message_suppression_erreur']);
 include('./app/Commun/dashbord_footer.php');
 ?>

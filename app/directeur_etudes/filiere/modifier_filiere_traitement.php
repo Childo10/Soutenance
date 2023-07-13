@@ -8,11 +8,8 @@ if(isset($_POST['libfil']) && empty($_POST['libfil'])){
     $errors='Le champs est vide, veuillez le remplir';
 }
 
-if(isset($_POST['libfil']) && !empty($_POST['libfil']) && verifier_filiere_existe($_POST['libfil'])){
-    $errors='Modification impossible! Cette filière existe déjà!';
-}
 
-if(isset($_POST['libfil']) && !empty($_POST['libfil']) && !verifier_filiere_existe($_POST['libfil']) ){
+if(isset($_POST['libfil']) && !empty($_POST['libfil'])){
     $data= trim(htmlentities($_POST['libfil']));
 }
 $_SESSION['data']=$_POST['libfil'];

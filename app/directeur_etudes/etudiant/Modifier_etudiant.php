@@ -110,7 +110,7 @@ if (!empty($_SESSION['message_erreur_etudiant']) or !empty($_SESSION['message_er
                             <input type="submit" value="Modifier" class="mb-1 mb-md-0  btn btn-primary">
                             </input>
 
-                                <input type="reset"  class=" btn btn-danger ">
+                                <input type="reset" value="Annuler"  class=" btn btn-danger ">
                                     
                                 </input>
                             </div>

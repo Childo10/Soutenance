@@ -164,7 +164,30 @@ function verifier_inscription_existe(int $codefil ,int $matricule)
     return $etudiant;
 }
 
+
+   /**
+ * .3++++++
+ * 
+ *listerprofesseur
+
+
+ *Elle permet de récupérer les données relative à un professeur  dans la base de données
+ * @return array professeur.
+  */
+     
+  function listerProfesseur(){
+    $professeur=[];
+    $bdd=database_login();
+    $requselect= $bdd->query('SELECT numprof, Nom, Prenom, Sexe, est_actif ,est_supprimer FROM professeur where est_supprimer=0 ORDER BY numprof DESC');
+    $professeur= $requselect->fetchAll(PDO::FETCH_ASSOC);
+   
+    return $professeur;
+}
+
+
+
   /**
+   * 
  * .3++++++
  * 
  *listerEtudiant_par_matricule
@@ -243,16 +266,15 @@ function verifier_inscription_existe(int $codefil ,int $matricule)
        /**
  * .3++++++
  * 
- *recup_filiere_par_codefil
+ *recup_etudiant_par_son_matricule
 
 
  *Elle permet de récupérer les données d'un étudiant par son matricule dans la base de données
- * @return array filière.
+ * @return array $etudiant.
   */
      
   function recup_etudiant_par_matricule(int $matricule){
     $etudiant="";
-    $data="";
     $bdd=database_login();
     $req_prepare= $bdd->prepare('SELECT Nom, Prenom,Sexe FROM etudiant where Matricule=?');
     $req_exec=$req_prepare->execute([$matricule]);
@@ -265,6 +287,33 @@ function verifier_inscription_existe(int $codefil ,int $matricule)
    
     return $etudiant;
 }
+
+      /**
+ * .3++++++
+ * 
+ *recup_professeur_par_numprof
+
+
+ *Elle permet de récupérer les données d'un professeur par son numéro dans la base de données
+ * @return array professeur.
+  */
+     
+  function recup_professeur_par_numprof(int $numprof){
+    $professeur="";
+    $bdd=database_login();
+    $req_prepare= $bdd->prepare('SELECT Nom, Prenom,Sexe FROM professeur where numprof=?');
+    $req_exec=$req_prepare->execute([$numprof]);
+    if($req_exec){
+        $professeur=$req_prepare->fetch();
+        
+    }
+
+    
+   
+    return $professeur;
+}
+
+
 
 
 
@@ -655,11 +704,13 @@ function enregistrer_filiere(string $data){
 /**
  * .3++++++
  * 
- *enregistrer_filiere
+ *enregistrer_etudiant
 
 
- *Elle permet d'enregistrer une filière la base de données
- * @param string $data Nom de la filière.
+ *Elle permet d'enregistrer un étudiant la base de données
+ * @param string $Nom Nom de l'étudiant.
+ * @param string $Prénom Prénom de l'étudiant
+ * @param string $sexe Nom du sexe.
  * @return bool $enregistrer
  */
 function enregistrer_etudiant(string $nom, string $prenom , string $sexe){
@@ -682,14 +733,51 @@ function enregistrer_etudiant(string $nom, string $prenom , string $sexe){
     return $enregistrer;
 }
 
+
 /**
  * .3++++++
  * 
- *enregistrer_filiere
+ *enregistrer_professeur
 
 
- *Elle permet d'enregistrer une filière la base de données
- * @param string $data Nom de la filière.
+ *Elle permet d'enregistrer un professeur la base de données
+ * @param string $Nom Nom du professeur.
+ * @param string $Prénom Prénom du professeur
+ * @param string $sexe Nom du sexe.
+ * @return bool $enregistrer
+ */
+function enregistrer_professeur(string $nom, string $prenom , string $sexe){
+    $enregistrer=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare('INSERT INTO professeur (Nom, Prenom, Sexe ,creer_le) values(:Nom, :Prenom, :Sexe, :creer_le)');
+    $req_exec=$req_prepare->execute(array(
+        'Nom'=>$nom,
+        'Prenom'=>$prenom,
+        'Sexe'=>$sexe,
+        'creer_le'=>$date
+
+    ));
+
+    if($req_exec){
+        $enregistrer=true;
+    }
+
+    return $enregistrer;
+}
+
+
+/**
+ * .3++++++
+ * 
+ *enregistrer_inscription
+
+
+ *Elle permet d'enregistrer une inscription la base de données
+ * @param string $matricule matricule de l'étudiant.
+ * @param string $codefil code de la filière.
+ * @param string $date date de l'inscription.
+ *  @param string $année année de l'inscription.
  * @return bool $enregistrer
  */
 function enregistrer_inscription(int $matricule, int $codefil , string $date, string $annee){
@@ -780,6 +868,41 @@ function modifier_etudiant(int $matricule, string $nom, string $prenom,string $s
 /**
  * .3++++++
  * 
+ *modifier_etudiant
+
+
+ *Elle permet de modifier un professeur la base de données.
+ * @param int $numprof numéro du prof.
+ * @param string $nom nom du prof.
+ * @param string $prenom prenom du prof.
+ * @param string $sexe sexe du prof.
+ * @return bool $modifier
+ */
+function modifier_professeur(int $numprof, string $nom, string $prenom,string $sexe ){
+    $modifier=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare('UPDATE professeur set Nom=:nom, Prenom=:prenom, Sexe=:sexe, mise_a_jour_le=:mise_a_jour_le Where numprof=:numprof');
+    $req_exec=$req_prepare->execute(array(
+        'nom'=>$nom,
+        'prenom'=>$prenom,
+        'sexe'=>$sexe,
+        'mise_a_jour_le'=>$date,
+        'numprof'=>$numprof
+
+    ));
+
+    if($req_exec){
+        $modifier=true;
+    }
+    return $modifier;
+}
+
+
+
+/**
+ * .3++++++
+ * 
  *supprimer_filiere
 
 
@@ -807,7 +930,7 @@ function suppression_logique_filiere(int $codefil){
 /**
  * .3++++++
  * 
- *supprimer_étudiant
+ *suppression_logique_étudiant
 
 
  *Elle permet de faire une suppression logique d'un étudiant dans la base de données selon le matricule.
@@ -821,6 +944,33 @@ function suppression_logique_etudiant(int $matricule){
     $req_prepare=$bdd->prepare("UPDATE etudiant SET est_supprimer = 1, est_actif = 0, mise_a_jour_le=:mise_a_jour_le WHERE  Matricule = :matricule");
     $req_exec=$req_prepare->execute(array(
         'matricule'=>$matricule,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $suppression=true;
+    }
+    return $suppression;
+}
+
+/**
+ * .3++++++
+ * 
+ *suppression_logique_professeur
+
+
+ *Elle permet de faire une suppression logique d'un professeur dans la base de données selon le numéro.
+ * @param int $numprof numéro du professeur.
+ * @return bool $supprimer
+ */
+function suppression_logique_professeur(int $numprof){
+    $suppression=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE professeur SET est_supprimer = 1, est_actif = 0, mise_a_jour_le=:mise_a_jour_le WHERE  numprof = :numprof");
+    $req_exec=$req_prepare->execute(array(
+        'numprof'=>$numprof,
         'mise_a_jour_le'=>$date
 
     ));
@@ -876,6 +1026,33 @@ function activation_etudiant(int $matricule){
     $req_prepare=$bdd->prepare("UPDATE etudiant SET  est_actif = 1 , mise_a_jour_le=:mise_a_jour_le WHERE  Matricule = :matricule");
     $req_exec=$req_prepare->execute(array(
         'matricule'=>$matricule,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $activation=true;
+    }
+    return $activation;
+}
+
+/**
+ * .3++++++
+ * 
+ *activation_professeur
+
+
+ *Elle permet d'activer un professeur dans la base de données selon le numéro.
+ * @param int $numprof numéro du professeur.
+ * @return bool $activation
+ */
+function activation_professeur(int $numprof){
+    $activation=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE professeur SET  est_actif = 1 , mise_a_jour_le=:mise_a_jour_le WHERE  numprof = :numprof");
+    $req_exec=$req_prepare->execute(array(
+        'numprof'=>$numprof,
         'mise_a_jour_le'=>$date
 
     ));
@@ -950,7 +1127,7 @@ function activation_inscription(int $num_inscription){
 
  *Elle permet de désactiver un étudiant dans la base de données selon le matricule.
  * @param int $matricule matricule de l'étudiant.
- * @return bool $activation
+ * @return bool $désactivation
  */
 function desactivation_etudiant(int $matricule){
     $desactivation=false;
@@ -959,6 +1136,34 @@ function desactivation_etudiant(int $matricule){
     $req_prepare=$bdd->prepare("UPDATE etudiant SET  est_actif = 0 , mise_a_jour_le=:mise_a_jour_le WHERE  Matricule = :matricule");
     $req_exec=$req_prepare->execute(array(
         'matricule'=>$matricule,
+        'mise_a_jour_le'=>$date
+
+    ));
+
+    if( $req_exec){
+        $desactivation=true;
+    }
+    return $desactivation;
+}
+
+
+/**
+ * .3++++++
+ * 
+ *desactivation_professeur
+
+
+ *Elle permet de désactiver un professeur dans la base de données selon le numéro.
+ * @param int $numprof numéro du professeur.
+ * @return bool $désactivation
+ */
+function desactivation_professeur(int $numprof){
+    $desactivation=false;
+    $date=date("Y-m-d H:i:s");
+    $bdd=database_login();
+    $req_prepare=$bdd->prepare("UPDATE professeur SET  est_actif = 0 , mise_a_jour_le=:mise_a_jour_le WHERE  numprof = :numprof");
+    $req_exec=$req_prepare->execute(array(
+        'numprof'=>$numprof,
         'mise_a_jour_le'=>$date
 
     ));
