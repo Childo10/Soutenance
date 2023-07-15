@@ -1,205 +1,131 @@
-<?php 
-if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
-    header('location:'.CHEMIN_PROJET.'directeur_etudes/connexion/index');
-  }
-  
-$title='Liste des salles';
-    include('./app/Commun/dashbord_siedbar_DE.php');
+<?php
+if (!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])) {
+    header('location:' . CHEMIN_PROJET . 'directeur_etudes/connexion/index');
+}
+
+$title = 'Liste des salles';
+include('./app/Commun/dashbord_siedbar_DE.php');
+$salle = "";
+$salle = listerSalle();
+
 ?>
 
 
+<?php
+if (!empty($_SESSION['message_success_global']) or !empty($_SESSION['message_success_global'])) {
+?>
+    <div class="alert-message">
+        <?= $_SESSION['message_success_global'] ?>
+    </div>
+    <style>
+        .alert-message {
+            position: fixed;
+            top: 30px;
+            left: 60%;
+            z-index: 5;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            opacity: 1;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+
+<?php
+}
+?>
 
 <div class="container-fluid">
 
-<!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Liste des salles</h1>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Liste des salles</h1>
 
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <a href="Ajout_salle" type="button" class="btn btn-primary" >Ajouter une salle</a>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Numéro de la salle</th>
-                        <th>Capacité de la salle</th>
-                        <th>Type de salle </th>
-                        <th>Détails</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>Numéro de la salle</th>
-                        <th>Capacité de la salle</th>
-                        <th>Type de salle </th>
-                        <th>Détails</th>
-                        <th>Actions</th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                            <td>0015487</td>
-                            <td>150 places</td>
-                            <td>Informatique</td>
-                            <td>
-                            <button type="button" class="btn btn-sm  btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                                     En savoir plus
-                            </button>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/Ajout_salle" type="button" class="btn btn-primary">Ajouter une salle</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <?php
+                        if (!empty($salle)) {
 
-                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Informations complémentaire de la salle n001</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                               <div class="text-dark">
-                                                   <span class="font-weight-bold ">Nombre maximum d'élèves</span> 
-                                                    <span class="font-font-weight-light ">150</span>
-                                               </div>
-
-                                               <div class="text-dark">
-                                                   <span class="font-weight-bold ">Nombre de matériels défectueux</span> 
-                                                    <span class="font-font-weight-light ">10</span>
-                                               </div>
-
-                                               <div class="text-dark">
-                                                   <span class="font-weight-bold ">Nombre de matériels disponibles</span> 
-                                                    <span class="font-font-weight-light ">001545</span>
-                                               </div>
-                                              
-
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </td>
-                            <td>
-                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/Modifier_salle" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
-                            </td>
-                           
+                        ?>
+                            <tr>
+                                <th>Numéro</th>
+                                <th>Capacité</th>
+                                <th>Type</th>
+                                <th>Max étudiant</th>
+                                <th>Matériels défecteux</th>
+                                <th>Matériels disponibles</th>
+                                <th>Statuts</th>
+                                <th>Actions</th>
+                            </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Numéro</th>
+                            <th>Capacité</th>
+                            <th>Type</th>
+                            <th>Max étudiant</th>
+                            <th>Matériels défecteux</th>
+                            <th>Matériels disponibles</th>
+                            <th>Statuts</th>
+                            <th>Actions</th>
                         </tr>
-                        
-                        <tr>
-                            <td>Sowadan</td>
-                            <td>Modeste</td>
-                            <td>001146</td>
-                            <td>
-                            <button type="button" class="btn btn-sm  btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                                     En savoir plus
-                            </button>
+                    </tfoot>
 
-                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Informations complémentaire de la salle n001</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                               <div class="text-dark">
-                                                   <span class="font-weight-bold ">Nombre maximum d'élèves</span> 
-                                                    <span class="font-font-weight-light ">150</span>
-                                               </div>
+                    <?php
+                            foreach ($salle as $key => $value) {
+                    ?>
+                        <tbody>
 
-                                               <div class="text-dark">
-                                                   <span class="font-weight-bold ">Nombre de matériels défectueux</span> 
-                                                    <span class="font-font-weight-light ">10</span>
-                                               </div>
+                            <tr>
+                                <td><?= $salle[$key]['Numsal'] ?></td>
+                                <td><?= $salle[$key]['Capacite'] ?></td>
+                                <td><?= $salle[$key]['Typesal'] ?></td>
+                                <td><?= $salle[$key]['Nbmax'] ?></td>
+                                <td><?= $salle[$key]['Nb_defectueux'] ?></td>
+                                <td><?= $salle[$key]['Nb_dispo'] ?></td>
+                                <td>
+                                    <span class=" <?= $salle[$key]['est_actif'] == 1 ? 'btn-primary btn-sm' : 'btn-danger btn-sm' ?>"><?= $salle[$key]['est_actif'] == 1 ? 'Activée' : 'Désactivée' ?></span>
+                                </td>
+                                <td>
+                                    <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/Modifier_salle/<?= $salle[$key]['Numsal'] ?>" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
+                                    <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/suppression_salle/ " data-toggle="modal" data-target="#suppression-<?= $salle[$key]['Numsal'] ?>" class="btn-sm  btn-circle btn-danger text-decoration-none "><i class="fas fa-times-circle"></i></a>
+                                    <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/activation_salle/<?= $salle[$key]['Numsal'] ?>/<?= $salle[$key]['est_actif'] ?>" class="<?= $salle[$key]['est_actif'] == 1 ? 'btn-outline-danger btn-sm' : 'btn-outline-primary btn-sm' ?> text-decoration-none mt-1">
+                                        <?= $salle[$key]['est_actif'] == 1 ? 'Désactiver' : 'Activer' ?></a>
+                                </td>
 
-                                               <div class="text-dark">
-                                                   <span class="font-weight-bold ">Nombre de matériels disponibles</span> 
-                                                    <span class="font-font-weight-light ">001545</span>
-                                               </div>
-                                              
-                                                
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </td>
-                            <td>
-                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/Modifier_salle" type="button" class="btn-sm  btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
-                            </td>
-                           
-                        </tr> 
+                            </tr>
+                    <?php
+                            }
+                        } else {
+                            echo 'Données indisponibles';
+                        }
+                    ?>
 
-                        <tr>
-                            <td>Jackson</td>
-                            <td>Bradshaw</td>
-                            <td>001145</td>
-                            <td>
-                            <button type="button" class="btn btn-sm  btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                                     En savoir plus
-                            </button>
-
-                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Informations complémentaire de la salle n001</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                               <div class="text-dark">
-                                                   <span class="font-weight-bold ">Nombre maximum d'élèves</span> 
-                                                    <span class="font-font-weight-light ">150</span>
-                                               </div>
-
-                                               <div class="text-dark">
-                                                   <span class="font-weight-bold ">Nombre de matériels défectueux</span> 
-                                                    <span class="font-font-weight-light ">10</span>
-                                               </div>
-
-                                               <div class="text-dark">
-                                                   <span class="font-weight-bold ">Nombre de matériels disponibles</span> 
-                                                    <span class="font-font-weight-light ">001545</span>
-                                               </div>
-                                              
-                                                
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </td>
-                            <td>
-                                <a href="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/Modifier_salle" type="button" class="btn-sm btn-circle  btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="" type="button" class="btn-sm  btn-circle btn-danger "><i class="fas fa-times-circle"></i></a>
-                            </td>
-                           
-                        </tr> 
-                </tbody>
-            </table>
+                        </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
 </div>
 <!-- /.container-fluid -->
 
-<?php 
-    include('./app/Commun/dashbord_footer.php');
+<?php
+unset($_SESSION['message_success_global']);
+include('./app/Commun/dashbord_footer.php');
 ?>

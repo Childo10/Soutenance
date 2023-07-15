@@ -267,7 +267,7 @@ if (isset($_SESSION['photo_success']) && !empty($_SESSION['photo_success'])) {
 
               <button class="btn btn-primary btn-sm  mt-md-1 mt-lg-0" data-toggle="modal" data-target="#ajout_photo"><?= $_SESSION['users_DE']['avatar'] != 'null' ? 'Mettre à jour' : 'Ajouter' ?></button>
 
-              <button class="btn btn-outline-primary btn-sm mt-1">Envoyer des messages</button>     
+                
 
 
 

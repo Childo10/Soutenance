@@ -5,79 +5,134 @@ if(!isset($_SESSION['users_DE']) && empty($_SESSION['users_DE'])){
   
     $title='Modifier une salle';
     include('./app/Commun/dashbord_siedbar_DE.php');
+    $numsal="";
+    $salle="";
+    $separateur_capacite="";
+    $capacite="";
+
+    if(isset($params['3']) && !empty($params['3']) && is_numeric($params['3'])){
+        $numsal=$params['3'];
+        $_SESSION['numsal']= $numsal;
+        $salle=recup_salle_par_numsal($numsal);
+        $separateur_capacite=explode(' ',$salle['Capacite']);
+        $capacite=$separateur_capacite[0];
+        //die(var_dump($salle['Capacite']));
+    }
+
 ?>
 
 
 <div class="container">
-
 <div class="card o-hidden col-lg-8 offset-lg-2 offset-md-0 border-0 shadow-lg my-5">
-    <div class="card-body p-0 ">
-        <!-- Nested Row within Card Body -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="p-5">
-                    <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Modifier une salle</h1>
-                    </div>
-                    <form class="user">
-                        <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control " name="numsal" id="numsal"
-                                    placeholder="005">
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="number" class="form-control " name="capacite" id="capacite"
-                                    placeholder="150">
-                            </div>
+        <div class="card-body p-0 ">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Modifier une salle</h1>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control" name="Typesal" id="Typesal"
-                                    placeholder="Informatique">
+                        <form action="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/modifier_salle_traitement" method="post">
+                            <div class="form-group row">
+                                <div class="col-sm-6 offset-md-3">
+                                    <label for="capacite" class="font-weight-bold">Capacité de la salle <span class="text-danger">(*)</span></label>
+                                    <input type="number" value="<?= isset($capacite) ? $capacite : $_SESSION['data']['capacite'] ?>" class="form-control <?= isset($_SESSION['errors_salle']['capacite']) ? 'is-invalid' : '' ?> " name="capacite" id="capacite">
+                                    <?php
+                                    if (isset($_SESSION['errors_salle']['capacite'])) {
+                                    ?>
+                                        <div class="invalid-feedback">
+                                            <?= $_SESSION['errors_salle']['capacite'] ?>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <input type="number" class="form-control "
-                                    id="nbmax" name="nbmax" placeholder="100 ">
-                               
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" name="Nb_defectueux" class="form-control"  id="Nb_defectueux"
-                                    placeholder="20">
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="number" name="Nb_dispo" class="form-control"  id="Nb_dispo"
-                                    placeholder="150">
-                            </div>
-                        </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="Typesal" class="font-weight-bold">Type de la salle <span class="text-danger">(*)</span></label>
+                                    <input type="text" value="<?= $salle['Typesal'] ?>" class="form-control <?= isset($_SESSION['errors_salle']['capacite']) ? 'is-invalid' : '' ?> " name="Typesal" id="Typesal">
 
-                        <div class="form-group row">
-                            <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
-                            <input type="submit" value="Enregistrer" class="mb-1 mb-md-0  btn btn-primary">
-                            </input>
-
-                                <input type="reset"  class=" btn btn-danger ">
-                                    
-                                </input>
+                                    <?php
+                                    if (isset($_SESSION['errors_salle']['Typesal'])) {
+                                    ?>
+                                        <div class="invalid-feedback">
+                                            <?= $_SESSION['errors_salle']['Typesal'] ?>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="nbmax" class="font-weight-bold">Nombre maximum d'étudiant <span class="text-danger">(*)</span> </label>
+                                    <input type="number" value="<?= $salle['Nbmax'] ?>"  class="form-control <?= isset($_SESSION['errors_salle']['nbmax']) ? 'is-invalid' : '' ?>  " id="nbmax" name="nbmax">
+                                    <?php
+                                    if (isset($_SESSION['errors_salle']['nbmax'])) {
+                                    ?>
+                                        <div class="invalid-feedback">
+                                            <?= $_SESSION['errors_salle']['nbmax'] ?>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
                             </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="Nb_defectueux" class="font-weight-bold">Nombre de matériels défectueux <span class="text-danger">(*)</span></label>
+                                    <input type="number" value="<?= $salle['Nb_defectueux'] ?>" name="Nb_defectueux" class="form-control <?= isset($_SESSION['errors_salle']['Nb_defectueux']) ? 'is-invalid' : '' ?>" id="Nb_defectueux">
+                                    <?php
+                                    if (isset($_SESSION['errors_salle']['Nb_defectueux'])) {
+                                    ?>
+                                        <div class="invalid-feedback">
+                                            <?= $_SESSION['errors_salle']['Nb_defectueux'] ?>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="Nb_dispo" class="font-weight-bold">Nombre de matériels disponibles <span class="text-danger">(*)</span> </label>
+                                    <input type="number" value="<?= $salle['Nb_dispo'] ?>"  name="Nb_dispo" class="form-control  <?= isset($_SESSION['errors_salle']['Nb_dispo']) ? 'is-invalid' : '' ?>" id="Nb_dispo">
+                                    <?php
+                                    if (isset($_SESSION['errors_salle']['Nb_dispo'])) {
+                                    ?>
+                                        <div class="invalid-feedback">
+                                            <?= $_SESSION['errors_salle']['Nb_dispo'] ?>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class=" col-md-8 col-sm-6 offset-md-2 offset-0 mb-lg-0  text-center">
+                                    <input type="submit" value="Enregistrer" class="mb-1 mb-md-0  btn btn-primary">
+                                    </input>
+
+                                    <input type="reset" value="Annuler" class=" btn btn-danger ">
+
+                                    </input>
+                                </div>
+                            </div>
+
+                            <hr>
+                        </form>
+                        <div class="text-center">
+                            <a class="small" href="<?= CHEMIN_PROJET ?>directeur_Etudes/salle/Liste_salle">Liste des salles</a>
                         </div>
-                        
-                        <hr>
-                    </form>
-                    <div class="text-center">
-                        <a class="small" href="Liste_salle">Liste des salles</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 </div>
 
 
 <?php 
+unset($_SESSION['errors_salle']);
     include('./app/Commun/dashbord_footer.php');
 ?>
